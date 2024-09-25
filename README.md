@@ -7,7 +7,7 @@ This guide explains how to use Signoz design system powered by Turborepo, React,
 1. Clone the repository:
 
    ```sh
-   git clone git@github.com:ahmadshaheer/signoz-design-system-2.git
+   git clone git@github.com:SigNoz/components.git
    ```
 
 2. Install dependencies:
