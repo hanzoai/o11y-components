@@ -11,9 +11,9 @@
     "clean": "rm -rf dist node_modules"
   },
   "dependencies": {
-    "@signoz/button": "workspace:*",
-    "@signoz/theme": "workspace:*",
-    "@signoz/design-tokens": "latest",
+    "@signozhq/button": "workspace:*",
+    "@signozhq/theme": "workspace:*",
+    "@signozhq/design-tokens": "latest",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

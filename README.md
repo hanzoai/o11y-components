@@ -37,10 +37,10 @@ This guide explains how to use Signoz design system powered by Turborepo, React,
 
 ## Available Packages
 
-- `@signoz/theme`: Core React component
-- `@signoz/tailwind-config`: UI configuration, including Tailwind CSS setup
-- `@signoz/button`: Button component
-- `@signoz/input`: Input component
+- `@signozhq/theme`: Core React component
+- `@signozhq/tailwind-config`: UI configuration, including Tailwind CSS setup
+- `@signozhq/button`: Button component
+- `@signozhq/input`: Input component
 
 ## Creating a New Package
 

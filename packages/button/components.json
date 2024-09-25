@@ -3,7 +3,7 @@
   "rsc": false,
   "tsx": true,
   "tailwind": {
-    "config": "@signoz/tailwind-config/tailwind.config.js",
+    "config": "@signozhq/tailwind-config/tailwind.config.js",
     "css": "src/index.css",
     "baseColor": "zinc",
     "cssVariables": true,

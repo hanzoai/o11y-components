@@ -81,7 +81,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         );
         const packageJson = fs.readJsonSync(packageJsonPath);
 
-        packageJson.name = `@signoz/${(answers as { name: string }).name}`;
+        packageJson.name = `@signozhq/${(answers as { name: string }).name}`;
         packageJson.description = (
           answers as { description: string }
         ).description;
@@ -133,7 +133,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         type: "append",
         path: path.resolve(PROJECT_ROOT, "apps/docs/package.json"),
         pattern: /"dependencies": {/,
-        template: `    "@signoz/{{ name }}": "workspace:*",`,
+        template: `    "@signozhq/{{ name }}": "workspace:*",`,
       },
 
       // add component from shadcn

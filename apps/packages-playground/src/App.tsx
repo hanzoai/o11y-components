@@ -1,8 +1,8 @@
 import "./App.css";
-import { ThemeSwitcher, useTheme } from "@signoz/theme";
-import { Button } from "@signoz/button";
-import { Typography } from "@signoz/design-tokens";
-import { Spacing } from "@signoz/design-tokens";
+import { ThemeSwitcher, useTheme } from "@signozhq/theme";
+import { Button } from "@signozhq/button";
+import { Typography } from "@signozhq/design-tokens";
+import { Spacing } from "@signozhq/design-tokens";
 
 function App() {
   const { theme, currentThemeColors } = useTheme();

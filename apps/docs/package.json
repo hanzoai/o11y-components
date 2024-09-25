@@ -11,9 +11,9 @@
     "lint": "eslint ./stories/*.stories.tsx --max-warnings 0"
   },
   "dependencies": {
-    "@signoz/input": "workspace:*",
-    "@signoz/button": "workspace:*",
-    "@signoz/tailwind-config": "workspace:*",
+    "@signozhq/input": "workspace:*",
+    "@signozhq/button": "workspace:*",
+    "@signozhq/tailwind-config": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

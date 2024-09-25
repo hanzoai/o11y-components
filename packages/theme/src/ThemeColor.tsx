@@ -1,5 +1,5 @@
 import { Theme } from "./ThemeContext";
-import { Color } from "@signoz/design-tokens";
+import { Color } from "@signozhq/design-tokens";
 
 export const ThemeColors = {
   light: {
