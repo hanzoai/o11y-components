@@ -116,7 +116,7 @@ To create a new package:
 5. From the root of the project, run:
 
    ```sh
-   pnpm update-version
+   pnpm changeset
    ```
 
    This will guide you through the process of creating a changeset, which is used to document changes and manage version bumps.
@@ -137,4 +137,3 @@ To create a new package:
    ```
 
 7. Create a new PR
-8. After the PR gets merged, the selected packages (that were specified in step 5) will be released/updated to npmjs.com
