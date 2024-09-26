@@ -1,6 +1,6 @@
-# Signoz Design System
+# Signoz Components Library
 
-This guide explains how to use Signoz design system powered by Turborepo, React, and Storybook.
+This guide explains how to use Signoz components library powered by Turborepo, React, and Storybook.
 
 ## Getting Started
 
