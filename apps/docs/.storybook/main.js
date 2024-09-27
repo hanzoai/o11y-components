@@ -9,6 +9,7 @@ const config = {
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@chromatic-com/storybook"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
@@ -28,8 +29,8 @@ const config = {
     };
   },
 
-  docs: {
-    autodocs: true,
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
   },
 };
 
