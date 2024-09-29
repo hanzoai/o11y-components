@@ -58,10 +58,11 @@ To create a new package:
    pnpm turbo gen new-package
    ```
 
-   When creating a new package, you'll be prompted to provide a name and description for it. Enter these details as requested. For example:
+   During the package creation process, you'll be asked to input a name, description, and choose between creating a component from scratch or importing one from shadcn. Provide the requested information as prompted. Here's an example:
 
-   - Package name: Enter a name that corresponds to a shadcn component (e.g., "dropdown-menu")
+   - Package name: component/package name (if you want to get the component from shadcn, Enter a name that corresponds to a shadcn component e.g. dropdown-menu)
    - Description: Provide a brief explanation of the package's purpose
+   - You can choose to either import a pre-built component from shadcn or create a new, empty component from scratch
 
    e.g.
 
@@ -74,6 +75,9 @@ To create a new package:
 
    ? What is the name of the new package? dropdown-menu
    ? Provide a brief description of the package: dropdown menu package
+   ? Do you want to import a shadcn component or create an empty component? (Use arrow keys)
+   ❯ shadcn
+   empty
    ```
 
    Executing this generator will automatically set up and configure the new package with the necessary files and structure.
