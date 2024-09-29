@@ -136,41 +136,76 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
         template: `    "@signozhq/{{ name }}": "workspace:*",`,
       },
 
-      // add component from shadcn
-      (answers) => {
+      // Prompt for component type and create accordingly
+      async (answers) => {
         const { execSync } = require("child_process");
         const packagePath = path.resolve(
           PROJECT_ROOT,
           `packages/${(answers as { name: string }).name}`
         );
 
-        console.log(
-          `Running shadcn command for ${(answers as { name: string }).name}`
-        );
-        try {
-          execSync(
-            `pnpm dlx shadcn@latest add ${(answers as { name: string }).name}`,
-            {
-              cwd: packagePath,
-              stdio: "inherit",
-            }
-          );
+        const { componentType } = await inquirer.prompt([
+          {
+            type: "list",
+            name: "componentType",
+            message:
+              "Do you want to import a shadcn component or create an empty component?",
+            choices: ["shadcn", "empty"],
+          },
+        ]);
 
-          // Append import statement to the newly generated component
+        if (componentType === "shadcn") {
+          console.log(
+            `Running shadcn command for ${(answers as { name: string }).name}`
+          );
+          try {
+            execSync(
+              `pnpm dlx shadcn@latest add ${(answers as { name: string }).name}`,
+              {
+                cwd: packagePath,
+                stdio: "inherit",
+              }
+            );
+
+            // Append import statement to the newly generated component
+            const componentPath = path.join(
+              packagePath,
+              `src/${(answers as { name: string }).name}.tsx`
+            );
+            const componentContent = fs.readFileSync(componentPath, "utf8");
+            const updatedContent = `import "./index.css"\n${componentContent}`;
+            fs.writeFileSync(componentPath, updatedContent);
+
+            return `Shadcn ${(answers as { name: string }).name} added successfully and import statement appended`;
+          } catch (error) {
+            console.error("Error running shadcn command:", error);
+            return `Failed to add shadcn ${(answers as { name: string }).name}`;
+          }
+        } else {
+          // Create an empty component
           const componentPath = path.join(
             packagePath,
             `src/${(answers as { name: string }).name}.tsx`
           );
-          const componentContent = fs.readFileSync(componentPath, "utf8");
-          const updatedContent = `import "./index.css"\n${componentContent}`;
-          fs.writeFileSync(componentPath, updatedContent);
+          const componentName =
+            (answers as { name: string }).name.charAt(0).toUpperCase() +
+            (answers as { name: string }).name.slice(1);
+          const componentContent = `
 
-          return `Shadcn ${(answers as { name: string }).name} added successfully and import statement appended`;
-        } catch (error) {
-          console.error("Error running shadcn command:", error);
-          return `Failed to add shadcn ${(answers as { name: string }).name}`;
+  const ${componentName} = () => {
+    return (
+      <div>${(answers as { name: string }).name}</div>
+    );
+  };
+
+  export default ${componentName};
+
+`;
+          fs.writeFileSync(componentPath, componentContent);
+          return `Empty component ${(answers as { name: string }).name} created successfully`;
         }
       },
+
       // Create a generic story file
       (answers) => {
         const storyPath = path.resolve(
