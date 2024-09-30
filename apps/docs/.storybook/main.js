@@ -10,6 +10,7 @@ const config = {
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@chromatic-com/storybook"),
     getAbsolutePath("@storybook/addon-designs"),
   ],
   framework: {
@@ -30,8 +31,8 @@ const config = {
     };
   },
 
-  docs: {
-    autodocs: true,
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
   },
 };
 
