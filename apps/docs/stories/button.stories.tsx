@@ -27,6 +27,20 @@ const meta: Meta<typeof Button> = {
       control: { type: "boolean" },
     },
   },
+  parameters: {
+    design: [
+      {
+        name: "Figma",
+        type: "figma",
+        url: "https://www.figma.com/design/egMidgk6VJDXTumxcCYUl1/Periscope---Primitives?node-id=12-739",
+      },
+      {
+        name: "Spec",
+        type: "figma",
+        url: "https://www.figma.com/board/uJOS4p4BNG1rLryBceR3YV/Untitled?node-id=6-155&t=2rVCYOnxaIjupEqA-4",
+      },
+    ],
+  },
 };
 
 export default meta;

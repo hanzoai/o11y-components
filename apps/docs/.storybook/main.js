@@ -1,3 +1,4 @@
+import { get } from "http";
 import { dirname, join, resolve } from "path";
 
 function getAbsolutePath(value) {
@@ -9,6 +10,7 @@ const config = {
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@storybook/addon-designs"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
