@@ -149,8 +149,8 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
             type: "list",
             name: "componentType",
             message:
-              "Do you want to import a shadcn component or create an empty component?",
-            choices: ["shadcn", "empty"],
+              "Do you want to import a shadcn component or create a component from scratch?",
+            choices: ["shadcn", "from_scratch"],
           },
         ]);
 
@@ -182,7 +182,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
             return `Failed to add shadcn ${(answers as { name: string }).name}`;
           }
         } else {
-          // Create an empty component
+          // Create a component from scratch
           const componentPath = path.join(
             packagePath,
             `src/${(answers as { name: string }).name}.tsx`
@@ -202,7 +202,7 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
 
 `;
           fs.writeFileSync(componentPath, componentContent);
-          return `Empty component ${(answers as { name: string }).name} created successfully`;
+          return `component  ${(answers as { name: string }).name} created from scratch successfully`;
         }
       },
 

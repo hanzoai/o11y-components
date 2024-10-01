@@ -62,7 +62,7 @@ To create a new package:
 
    - Package name: component/package name (if you want to get the component from shadcn, Enter a name that corresponds to a shadcn component e.g. dropdown-menu)
    - Description: Provide a brief explanation of the package's purpose
-   - You can choose to either import a pre-built component from shadcn or create a new, empty component from scratch
+   - You can choose to either import a pre-built component from shadcn or create a new component from scratch
 
    e.g.
 
@@ -75,9 +75,9 @@ To create a new package:
 
    ? What is the name of the new package? dropdown-menu
    ? Provide a brief description of the package: dropdown menu package
-   ? Do you want to import a shadcn component or create an empty component? (Use arrow keys)
+   ? Do you want to import a shadcn component or create a component from scratch? (Use arrow keys)
    ❯ shadcn
-   empty
+   from_scratch
    ```
 
    Executing this generator will automatically set up and configure the new package with the necessary files and structure.
