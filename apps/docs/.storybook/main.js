@@ -1,4 +1,4 @@
-import { dirname, join, resolve } from "path";
+import { dirname, join } from "path";
 
 function getAbsolutePath(value) {
   return dirname(require.resolve(join(value, "package.json")));
@@ -10,6 +10,7 @@ const config = {
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@chromatic-com/storybook"),
+    getAbsolutePath("@storybook/addon-designs"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
@@ -18,7 +19,7 @@ const config = {
 
   core: {},
 
-  async viteFinal(config, { configType }) {
+  async viteFinal(config) {
     // customize the Vite config here
     return {
       ...config,
