@@ -1,0 +1,19 @@
+# CODEOWNERS info: https://help.github.com/en/articles/about-code-owners
+# Owners are automatically requested for review for PRs that changes code
+# that they own.
+
+/packages/eslint-config @ahmadshaheer
+/packages/tailwind-config @ahmadshaheer
+/packages/typescript-config @ahmadshaheer
+/packages/theme @ahmadshaheer
+/turbo @ahmadshaheer
+package.json @ahmadshaheer
+README.md @ahmadshaheer
+turbo.json @ahmadshaheer
+.npmrc @ahmadshaheer
+/.turbo @ahmadshaheer
+/.changeset @ahmadshaheer
+/apps/docs/vite.config.ts @ahmadshaheer
+/apps/docs/package.json @ahmadshaheer
+/apps/docs/tsconfig.json @ahmadshaheer
+/apps/docs/.storybook @ahmadshaheer
