@@ -19,4 +19,11 @@ export default [
 	pluginJs.configs.recommended,
 	...tseslint.configs.recommended,
 	pluginReact.configs.flat.recommended,
+	{
+		settings: {
+			react: {
+				version: 'detect', // Automatically detect the React version
+			},
+		},
+	},
 ];
