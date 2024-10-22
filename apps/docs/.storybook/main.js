@@ -20,7 +20,12 @@ const config = {
   core: {},
 
   async viteFinal(config) {
-    // customize the Vite config here
+    config.css = {
+      postcss: {
+        plugins: [require("tailwindcss"), require("autoprefixer")],
+      },
+    };
+
     return {
       ...config,
       define: { "process.env": {} },

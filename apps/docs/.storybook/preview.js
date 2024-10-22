@@ -1,3 +1,5 @@
+import "./preview.css";
+
 // Configure Storybook parameters
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
