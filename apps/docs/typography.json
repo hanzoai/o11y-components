@@ -1,0 +1,27 @@
+{
+  "FONTSIZE": {
+    "XS": "0.75rem",
+    "SM": "0.875rem",
+    "LG": "1.125rem",
+    "XL": "1.25rem",
+    "2XL": "1.5rem",
+    "3XL": "1.875rem",
+    "4XL": "2.25rem",
+    "5XL": "3rem",
+    "6XL": "3.75rem",
+    "7XL": "4.5rem",
+    "8XL": "6rem",
+    "9XL": "8rem"
+  },
+  "FONTWEIGHT": {
+    "THIN": "100",
+    "EXTRALIGHT": "200",
+    "LIGHT": "300",
+    "NORMAL": "400",
+    "MEDIUM": "500",
+    "SEMIBOLD": "600",
+    "BOLD": "700",
+    "EXTRABOLD": "800",
+    "BLACK": "900"
+  }
+}
