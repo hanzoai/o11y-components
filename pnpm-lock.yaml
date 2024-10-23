@@ -68,6 +68,9 @@ importers:
       '@signozhq/button':
         specifier: workspace:*
         version: link:../../packages/button
+      '@signozhq/design-tokens':
+        specifier: latest
+        version: 1.1.2
       '@signozhq/input':
         specifier: workspace:*
         version: link:../../packages/input
@@ -1357,6 +1360,9 @@ packages:
 
   '@signozhq/design-tokens@1.1.0':
     resolution: {integrity: sha512-TWX0ATG/KASPBkGteKOFQR9rNvkE9GJKJJV6YHyqtk/WxbduPMzhkYZdq06gR2UniQ1KYTKQMh5SzB7wWBkxNw==}
+
+  '@signozhq/design-tokens@1.1.2':
+    resolution: {integrity: sha512-V99LWH2diUltaumyVxefmVM03R108HC4SizioGoWLxbLULyY1kOqCuxP0Iw1LLpf5rN5Prg0bYmhoAFIpTP3Iw==}
 
   '@storybook/addon-actions@8.3.3':
     resolution: {integrity: sha512-cbpksmld7iADwDGXgojZ4r8LGI3YA3NP68duAHg2n1dtnx1oUaFK5wd6dbNuz7GdjyhIOIy3OKU1dAuylYNGOQ==}
@@ -6742,6 +6748,8 @@ snapshots:
   '@signozhq/design-tokens@1.0.0': {}
 
   '@signozhq/design-tokens@1.1.0': {}
+
+  '@signozhq/design-tokens@1.1.2': {}
 
   '@storybook/addon-actions@8.3.3(storybook@8.3.3)':
     dependencies:
