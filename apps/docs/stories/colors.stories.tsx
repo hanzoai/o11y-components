@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ColorPalette from "../components/ColorPalette";
-import colors from "../colors.json";
+import { getTransformedColorTokens } from "../utils";
 
 const meta: Meta<typeof ColorPalette> = {
   title: "Design System/Colors",
@@ -14,9 +14,11 @@ const meta: Meta<typeof ColorPalette> = {
   },
 };
 
+const colors = getTransformedColorTokens();
+
 export default meta;
 type Story = StoryObj<typeof ColorPalette>;
 
 export const Default: Story = {
-  render: () => <ColorPalette colors={colors} />,
+  render: () => <ColorPalette />,
 };

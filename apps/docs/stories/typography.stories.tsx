@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
-import typography from "../typography.json";
+import { getTransformedTypographyTokens } from "../utils";
 
 export default {
   title: "Design System/Typography",
@@ -11,6 +11,8 @@ export default {
     },
   },
 } as Meta;
+
+const typography = getTransformedTypographyTokens();
 
 const getFontSize = (variant: string): string => {
   return typography.FONTSIZE[variant as keyof typeof typography.FONTSIZE] || "";

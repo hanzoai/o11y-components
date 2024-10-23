@@ -1,7 +1,10 @@
-import spacing from "../spacing.json";
+import { getTransformedSpacingTokens } from "../utils";
+
+const spacing = getTransformedSpacingTokens();
+const spacingKeys = Object.keys(spacing);
 
 function Spacing() {
-  const spacingKeys = Object.keys(spacing);
+  console.log(spacingKeys);
 
   return (
     <div className="p-4">

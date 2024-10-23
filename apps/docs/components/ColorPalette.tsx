@@ -1,18 +1,8 @@
-interface ColorShade {
-  name: string;
-  hex: string;
-}
+import { getTransformedColorTokens } from "../utils";
 
-interface ColorRamp {
-  name: string;
-  shades: ColorShade[];
-}
+const colors = getTransformedColorTokens();
 
-interface ColorPaletteProps {
-  colors: ColorRamp[];
-}
-
-function ColorPalette({ colors }: ColorPaletteProps) {
+function ColorPalette() {
   return (
     <div className="p-5">
       <h1 className="mb-5 text-lg font-bold text-vanilla-100">Pallette</h1>
@@ -28,10 +18,10 @@ function ColorPalette({ colors }: ColorPaletteProps) {
                 <div
                   key={shade.name}
                   className={`flex items-center justify-between w-full h-12 px-4 font-semibold ${color.name === "ink" || color.name === "slate" ? "text-vanilla-100" : ""}`}
-                  style={{ backgroundColor: shade.hex }}
+                  style={{ backgroundColor: shade.value }}
                 >
                   <span>{shade.name}</span>
-                  <span className="uppercase">{shade.hex}</span>
+                  <span className="uppercase">{shade.value}</span>
                 </div>
               ))}
             </div>
