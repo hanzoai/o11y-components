@@ -68,6 +68,9 @@ importers:
       '@signozhq/button':
         specifier: workspace:*
         version: link:../../packages/button
+      '@signozhq/design-tokens':
+        specifier: latest
+        version: 1.1.2
       '@signozhq/input':
         specifier: workspace:*
         version: link:../../packages/input
@@ -114,15 +117,24 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.2.1
         version: 4.3.1(vite@5.4.8(@types/node@22.7.3))
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.4.47)
       eslint:
         specifier: ^9.11.0
         version: 9.11.1(jiti@1.21.6)
+      postcss:
+        specifier: ^8.4.35
+        version: 8.4.47
       serve:
         specifier: ^14.2.1
         version: 14.2.3
       storybook:
         specifier: ^8.3.3
         version: 8.3.3
+      tailwindcss:
+        specifier: ^3.4.12
+        version: 3.4.13
       typescript:
         specifier: ^5.3.3
         version: 5.6.2

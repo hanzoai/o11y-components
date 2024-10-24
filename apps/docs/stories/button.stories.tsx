@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@signozhq/button";
 
 const meta: Meta<typeof Button> = {
+  title: "Components/Button",
   component: Button,
   argTypes: {
     variant: {
@@ -62,12 +63,12 @@ export const Primary: Story = {
   },
 };
 
-export const Secondary: Story = {
+export const Default: Story = {
   render: (args) => <Button {...args} />,
   args: {
     ...Primary.args,
-    children: "Secondary",
-    variant: "secondary",
+    children: "Default",
+    variant: "default",
   },
 };
 
