@@ -137,7 +137,7 @@ importers:
         version: link:../../packages/button
       '@signozhq/design-tokens':
         specifier: latest
-        version: 1.0.0
+        version: 1.1.2
       '@signozhq/theme':
         specifier: workspace:*
         version: link:../../packages/theme
@@ -368,7 +368,7 @@ importers:
     dependencies:
       '@signozhq/design-tokens':
         specifier: latest
-        version: 1.0.0
+        version: 1.1.2
       '@types/react':
         specifier: ^18.3.8
         version: 18.3.9
@@ -1343,11 +1343,11 @@ packages:
   '@rushstack/ts-command-line@4.22.6':
     resolution: {integrity: sha512-QSRqHT/IfoC5nk9zn6+fgyqOPXHME0BfchII9EUPR19pocsNp/xSbeBCbD3PIR2Lg+Q5qk7OFqk1VhWPMdKHJg==}
 
-  '@signozhq/design-tokens@1.0.0':
-    resolution: {integrity: sha512-HohbLDXX8wEWXkfzaM03VD/6X1pL/V5BbfTjoTbSpAhEQLOfbeL8NG6m2iYkdXUe7MsjrIrol6UAfh99YEEP6w==}
-
   '@signozhq/design-tokens@1.1.0':
     resolution: {integrity: sha512-TWX0ATG/KASPBkGteKOFQR9rNvkE9GJKJJV6YHyqtk/WxbduPMzhkYZdq06gR2UniQ1KYTKQMh5SzB7wWBkxNw==}
+
+  '@signozhq/design-tokens@1.1.2':
+    resolution: {integrity: sha512-V99LWH2diUltaumyVxefmVM03R108HC4SizioGoWLxbLULyY1kOqCuxP0Iw1LLpf5rN5Prg0bYmhoAFIpTP3Iw==}
 
   '@storybook/addon-actions@8.3.3':
     resolution: {integrity: sha512-cbpksmld7iADwDGXgojZ4r8LGI3YA3NP68duAHg2n1dtnx1oUaFK5wd6dbNuz7GdjyhIOIy3OKU1dAuylYNGOQ==}
@@ -6730,9 +6730,9 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@signozhq/design-tokens@1.0.0': {}
-
   '@signozhq/design-tokens@1.1.0': {}
+
+  '@signozhq/design-tokens@1.1.2': {}
 
   '@storybook/addon-actions@8.3.3(storybook@8.3.3)':
     dependencies:

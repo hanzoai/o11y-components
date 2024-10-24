@@ -14,7 +14,7 @@ interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;
   availableThemes: Theme[];
-  currentThemeColors: typeof ThemeColors.light;
+  currentThemeColors: (typeof ThemeColors)[Theme];
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -28,7 +28,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   });
 
   const currentThemeColors = useMemo(() => {
-    return ThemeColors[theme as keyof typeof ThemeColors];
+    return ThemeColors[theme];
   }, [theme]);
   const availableThemes: Theme[] = ["light", "dark"];
 
