@@ -1,6 +1,5 @@
 export type * from './dialog.js';
 export {
-	AlertDialogWrapper,
 	Dialog,
 	DialogClose,
 	DialogContent,
@@ -11,5 +10,7 @@ export {
 	DialogPortal,
 	DialogTitle,
 	DialogTrigger,
-	DialogWrapper,
 } from './dialog.js';
+export { ConfirmDialog, type ConfirmDialogProps } from './presets/confirm-dialog.js';
+export { ConfirmDialogUrl, type ConfirmDialogUrlProps } from './presets/confirm-dialog-url.js';
+export { DialogWrapper, type DialogWrapperProps } from './presets/dialog-wrapper.js';
