@@ -1,5 +1,357 @@
 # Changelog
 
+## [0.0.23](https://github.com/SigNoz/components/compare/v0.0.22...v0.0.23) (2026-05-26)
+
+
+### Features
+
+* add avatar component ([727563a](https://github.com/SigNoz/components/commit/727563a3ccdbc0c4aff260eab88db1a8e9ae4801))
+* **badge:** update badge to support closeable ([572f60b](https://github.com/SigNoz/components/commit/572f60b2ec1d8c0f21f2f3458ef1758c710fdbb7))
+* **badge:** update badge to support closeable ([3ffb639](https://github.com/SigNoz/components/commit/3ffb6397946a4449718a1659445a585f5596ebab))
+* **components:** add skeleton ([69c7ddb](https://github.com/SigNoz/components/commit/69c7ddbc022ce91d2220fefa7526b5a05dafef2f))
+* **divider:** add divider component ([d4c0038](https://github.com/SigNoz/components/commit/d4c003870d7c084fcfb86409cd511a4d07c52c92))
+* **divider:** add divider component ([232fa1b](https://github.com/SigNoz/components/commit/232fa1b3852270bfe58072550239ae767618ec43))
+
+
+### Bug Fixes
+
+* delete .css file ([23a100f](https://github.com/SigNoz/components/commit/23a100f630ea529762a5a3a77f49b7211ef5904c))
+* isolate avatar only changes ([5cba09b](https://github.com/SigNoz/components/commit/5cba09b0716e54506bfe48cac883f5470551e87c))
+
+
+### Miscellaneous Chores
+
+* **main:** release 0.0.23 ([d7204c9](https://github.com/SigNoz/components/commit/d7204c94ed21768f31eaae9b3ffcd338936d533a))
+* move .css to .scss ([9d32163](https://github.com/SigNoz/components/commit/9d321635480d9f6689273e06791cdee47f8172e5))
+* remove .css and move to .scss ([d0587c3](https://github.com/SigNoz/components/commit/d0587c31ffbeba292c3bbcd0626b639092c4b101))
+
+
+### Code Refactoring
+
+* **avatar:** use module.scss instead of module.css ([848b530](https://github.com/SigNoz/components/commit/848b530e39c1cb8b5cd60d08a79aa3204c9a7912))
+
+
+### Tests
+
+* **badge:** move badge tests out of forward-ref test file ([#257](https://github.com/SigNoz/components/issues/257)) ([fcd523b](https://github.com/SigNoz/components/commit/fcd523bdf61b10ca8c2e0360c8f7ba91f0667cd4))
+
+## [0.0.22](https://github.com/SigNoz/components/compare/v0.0.21...v0.0.22) (2026-05-22)
+
+
+### Features
+
+* **combobox-simple:** add keywords & fix search by label/displayName ([d15391a](https://github.com/SigNoz/components/commit/d15391a18e029ffbc6a0df7b9bc0dec5fd559b84))
+* **select-combobox:** add loading prop ([779f944](https://github.com/SigNoz/components/commit/779f9441af68fa874978552a006807ffe7b8566d))
+
+
+### Bug Fixes
+
+* **combobox:** add data-slot attributes ([d44f8b7](https://github.com/SigNoz/components/commit/d44f8b7747cf09c77845bfc31c615dfb36d447f1))
+* **combobox:** add disabled prop ([6119ad2](https://github.com/SigNoz/components/commit/6119ad205e20a55cf34f93a0efbd635e19c62c1b))
+* **components:** ensure all components have uses forward ref ([f3dd554](https://github.com/SigNoz/components/commit/f3dd55448c0f020c0c1728bd324f316069c09dd1))
+* **select:** remove container classname ([d3e85c1](https://github.com/SigNoz/components/commit/d3e85c19e82ceeb53a83c56fe88d214598960593))
+* **slider:** added minor fixes related to marks in slider ([#249](https://github.com/SigNoz/components/issues/249)) ([456c575](https://github.com/SigNoz/components/commit/456c575761b7d5dda2dd3ed4469adf2cc563810f))
+* update flex property to allow automatic sizing ([#250](https://github.com/SigNoz/components/issues/250)) ([e3abbcf](https://github.com/SigNoz/components/commit/e3abbcf124f10b8058e1bb1818aa3be755bc94bf))
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump turbo from 2.9.12 to 2.9.14 ([#243](https://github.com/SigNoz/components/issues/243)) ([d5e0b74](https://github.com/SigNoz/components/commit/d5e0b74b7a88cf048e7c3f577459debf38e1ea1f))
+* **deps:** bump ws from 8.19.0 to 8.20.1 ([aab281a](https://github.com/SigNoz/components/commit/aab281a53ece6df23ade1ee2e9fa5bc958c9c880))
+* **package:** readme and export fixes ([a9f0aba](https://github.com/SigNoz/components/commit/a9f0aba420eb485b9473eb3887f217c2b463ebf2))
+
+
+### Tests
+
+* **documentation:** use root readme instead of package ui ([155a2a9](https://github.com/SigNoz/components/commit/155a2a9768b19df44b564e3901a8f7b7c6e77554))
+
+## [0.0.21](https://github.com/SigNoz/components/compare/v0.0.20...v0.0.21) (2026-05-21)
+
+
+### Features
+
+* **components:** add breadcrumb ([#234](https://github.com/SigNoz/components/issues/234)) ([7ca4fd4](https://github.com/SigNoz/components/commit/7ca4fd488333e28f5c9db3a3ce97d0638e4dcca9))
+
+
+### Bug Fixes
+
+* added ui fixes in slider ([38b43ab](https://github.com/SigNoz/components/commit/38b43ab39a08e73a652798c934fb59d8962774e4))
+* added ui fixes in slider ([77b28d2](https://github.com/SigNoz/components/commit/77b28d2256622ea1fc7b0c1532866612ea7fa68c))
+* cursor pointer + event propagation issue ([ba2bdde](https://github.com/SigNoz/components/commit/ba2bdde4b5e3410c69cb705f125a531dd3e7df72))
+* cursor pointer + event propagation issue ([9f2b6ab](https://github.com/SigNoz/components/commit/9f2b6abcdd56bfde1db2de5344a66db166df1da9))
+
+## [0.0.20](https://github.com/SigNoz/components/compare/v0.0.19...v0.0.20) (2026-05-18)
+
+
+### Features
+
+* **button:** add ButtonGroup and forward native HTMLButtonElement attributes ([#229](https://github.com/SigNoz/components/issues/229)) ([f071df0](https://github.com/SigNoz/components/commit/f071df02893a7931db9689327bb56906a1bf3362))
+
+
+### Miscellaneous Chores
+
+* **deps:** update deps and pin deps ([#215](https://github.com/SigNoz/components/issues/215)) ([3eca205](https://github.com/SigNoz/components/commit/3eca2058481a7fdaccf5d2e1d6eea512c0101a48))
+* update deps and other packages ([#222](https://github.com/SigNoz/components/issues/222)) ([49ac60e](https://github.com/SigNoz/components/commit/49ac60e6d31a23e0c689460939262b50d13f3659))
+
+## [0.0.19](https://github.com/SigNoz/components/compare/v0.0.18...v0.0.19) (2026-05-11)
+
+
+### Features
+
+* **combobox:** add hints ([9bb5f09](https://github.com/SigNoz/components/commit/9bb5f099dec8a5aa9b96125780d0a1506019bbba))
+
+
+### Bug Fixes
+
+* **combobox:** adapt to have same size as input/button ([b783343](https://github.com/SigNoz/components/commit/b7833439b6dc61f56451e12a6317b15126b524fb))
+
+
+### Code Refactoring
+
+* **combobox:** better keyboard navigation & add placeholder for input ([04b75e1](https://github.com/SigNoz/components/commit/04b75e15a7200b7190e96ed6a6671e5230494b65))
+* **tooltip:** renaming and new props ([465c488](https://github.com/SigNoz/components/commit/465c48872de031af1b2fd280dfa53786a166180c))
+
+## [0.0.18](https://github.com/SigNoz/components/compare/v0.0.17...v0.0.18) (2026-05-08)
+
+
+### Features
+
+* **combobox:** add allowCreate and multiple props ([#210](https://github.com/SigNoz/components/issues/210)) ([0d3120b](https://github.com/SigNoz/components/commit/0d3120b7083c25e3dd2f42d3302221474e94eaa7))
+* **path-export:** more export variations ([1b523fe](https://github.com/SigNoz/components/commit/1b523fec30c7846aeb2ad9d67744726681df160f))
+
+## [0.0.17](https://github.com/SigNoz/components/compare/v0.0.16...v0.0.17) (2026-05-07)
+
+
+### Bug Fixes
+
+* **drawer:** docs suggesting wrong props ([266020f](https://github.com/SigNoz/components/commit/266020f8f2485989895e45dfc07bcc55ad21df39))
+* **typography:** missing support for forward ref required for styled ([550e728](https://github.com/SigNoz/components/commit/550e728d509633703b7e75b638d06e866fcc903b))
+
+## [0.0.16](https://github.com/SigNoz/components/compare/v0.0.15...v0.0.16) (2026-05-06)
+
+
+### Bug Fixes
+
+* **typography:** add role/tabIndex and better types for handlers ([9f72bbb](https://github.com/SigNoz/components/commit/9f72bbbf9067e6e0f97f87d56e2af8ab22e0a1a5))
+
+## [0.0.15](https://github.com/SigNoz/components/compare/v0.0.14...v0.0.15) (2026-05-06)
+
+
+### Features
+
+* **components:** add slider ([#198](https://github.com/SigNoz/components/issues/198)) ([24b77c0](https://github.com/SigNoz/components/commit/24b77c0082d697a1cfd1a366a8631deb62638be1))
+
+
+### Bug Fixes
+
+* **readme:** missing readme on npm page ([#200](https://github.com/SigNoz/components/issues/200)) ([d36ab31](https://github.com/SigNoz/components/commit/d36ab31502a40c96c76da6b2e05ca26de77a648b))
+* **typography:** add on click and mouse event handlers ([#203](https://github.com/SigNoz/components/issues/203)) ([6f35fcb](https://github.com/SigNoz/components/commit/6f35fcb8f4749c11980b38f9392d4703d25e4663))
+* **typography:** missing compatibility css ([#201](https://github.com/SigNoz/components/issues/201)) ([ca63362](https://github.com/SigNoz/components/commit/ca63362c0b70aeec1098bc68e0b3b9c7d5f20d52))
+
+## [0.0.14](https://github.com/SigNoz/components/compare/v0.0.13...v0.0.14) (2026-05-01)
+
+
+### Features
+
+* **components:** add progress component ([#193](https://github.com/SigNoz/components/issues/193)) ([5540b31](https://github.com/SigNoz/components/commit/5540b316fd1839a1ad367d6498dc1495785974b8))
+* **components:** add typography component ([#188](https://github.com/SigNoz/components/issues/188)) ([19c2389](https://github.com/SigNoz/components/commit/19c2389ff1376e80662da445b50986b7427fa8c9))
+
+
+### Miscellaneous Chores
+
+* **deps-dev:** bump postcss from 8.5.8 to 8.5.10 ([#191](https://github.com/SigNoz/components/issues/191)) ([c00c48d](https://github.com/SigNoz/components/commit/c00c48db3b3f379817bac8f0b42b5a3062aeeee8))
+
+## [0.0.13](https://github.com/SigNoz/components/compare/v0.0.12...v0.0.13) (2026-04-30)
+
+
+### Bug Fixes
+
+* **tabs-toggle-group:** reset css not being applied ([af3d70f](https://github.com/SigNoz/components/commit/af3d70f9f72f04878a79ba60c61927467d4c78f2))
+* **token-reference:** using wrong variant of button ([7e82c11](https://github.com/SigNoz/components/commit/7e82c11ab83fb230ea931ac28013c1fa8354c541))
+
+## [0.0.12](https://github.com/SigNoz/components/compare/v0.0.11...v0.0.12) (2026-04-30)
+
+
+### Bug Fixes
+
+* update component issues for button, callout and input ([#194](https://github.com/SigNoz/components/issues/194)) ([7830671](https://github.com/SigNoz/components/commit/78306719e63877eea2d6304ea64771ad8818125c))
+
+## [0.0.11](https://github.com/SigNoz/components/compare/v0.0.10...v0.0.11) (2026-04-28)
+
+
+### Bug Fixes
+
+* **ui:** ensure all the component uses semantic-tokens ([518c8e5](https://github.com/SigNoz/components/commit/518c8e5a7819232e7dd03ea98d9e9b8f76979573))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump lodash-es from 4.17.23 to 4.18.1 ([#167](https://github.com/SigNoz/components/issues/167)) ([2096973](https://github.com/SigNoz/components/commit/20969737da2513343cec70804b90d6e698b95587))
+
+## [0.0.10](https://github.com/SigNoz/components/compare/v0.0.9...v0.0.10) (2026-04-22)
+
+
+### Features
+
+* **kbd:** add Kbd component ([793d88d](https://github.com/SigNoz/components/commit/793d88d34491686d6f5d819286a15a8e2bf6a22b))
+* **kbd:** add Kbd component ([074b29a](https://github.com/SigNoz/components/commit/074b29a860ec9c9e85a616de7543f02aa4fa2aac))
+
+
+### Bug Fixes
+
+* **kbd:** use semantic tokens for colors ([7cf19c9](https://github.com/SigNoz/components/commit/7cf19c97f147c1c2f7813744aee4bb8706954513))
+
+
+### Documentation
+
+* **kbd:** add kbd.mdx ([a4a66f5](https://github.com/SigNoz/components/commit/a4a66f5c24571e5ffd2110e2220f60f1cdda1584))
+
+
+### Miscellaneous Chores
+
+* added primary color ([6b6f8eb](https://github.com/SigNoz/components/commit/6b6f8eb21f29eefabdfdabfb992a9ec7b527762e))
+* updated kbd mdx ([76e8b77](https://github.com/SigNoz/components/commit/76e8b77cd26b0ff6bb6948237d2d03bb2bc96856))
+
+## [0.0.9](https://github.com/SigNoz/components/compare/v0.0.8...v0.0.9) (2026-04-20)
+
+
+### Bug Fixes
+
+* **input:** missing box-sizing ([#177](https://github.com/SigNoz/components/issues/177)) ([872c7a4](https://github.com/SigNoz/components/commit/872c7a4da4860348e0aca8d8ed39ccf6d2ed63f2))
+
+## [0.0.8](https://github.com/SigNoz/components/compare/v0.0.7...v0.0.8) (2026-04-20)
+
+
+### Features
+
+* **select:** add select component ([f14bf74](https://github.com/SigNoz/components/commit/f14bf74ad4a66c2a301e33c5236de7562f81d32a))
+* **text-ellipsis:** add new component & add support to badge ([2e96a9b](https://github.com/SigNoz/components/commit/2e96a9b869d173135376f1e19417efa94ed685cd))
+
+
+### Bug Fixes
+
+* **button:** icon size should be square & add variables for each property ([3b49984](https://github.com/SigNoz/components/commit/3b4998446b7eb77f4b63bac3657693c27ee83de9))
+* **components:** ensure all of them accepts className/id/testId ([f82dce4](https://github.com/SigNoz/components/commit/f82dce40f543666fadc75290612b00c0abd46736))
+* **drawer:** expose width and more props ([c4d5e57](https://github.com/SigNoz/components/commit/c4d5e57b7b758a3020faf8751aadf623cef83687))
+
+
+### Miscellaneous Chores
+
+* **deps:** bump @chenglou/pretext from 0.0.4 to 0.0.5 ([cfbc4d4](https://github.com/SigNoz/components/commit/cfbc4d4f8ecd184da9538efec01837e78f85a5d8))
+
+## [0.0.7](https://github.com/SigNoz/components/compare/v0.0.6...v0.0.7) (2026-04-08)
+
+
+### Bug Fixes
+
+* fixed the light mode colors for the action and dismiss btn in announcement banner ([31b86c0](https://github.com/SigNoz/components/commit/31b86c0f4916362125bd7d9e46552635425609c7))
+
+## [0.0.6](https://github.com/SigNoz/components/compare/v0.0.5...v0.0.6) (2026-03-24)
+
+
+### Features
+
+* **css-modules:** migrate date picker ([3e8ba9a](https://github.com/SigNoz/components/commit/3e8ba9a8c5a22600de6a1d880e582dde54b3a561))
+* **css-modules:** migrate dropdown menu ([662b7f8](https://github.com/SigNoz/components/commit/662b7f81972ecb4ef7b6d39862750c0cd145b298))
+* **css-modules:** migrate pin list ([f5aee77](https://github.com/SigNoz/components/commit/f5aee77fd3f8dfbd7651949c8e0ef78a8060e11c))
+* **css-modules:** migrate popover ([5cd4458](https://github.com/SigNoz/components/commit/5cd44586bc846190bdbb7d0513a07981381b3323))
+* **css-modules:** migrate tabs ([bd20778](https://github.com/SigNoz/components/commit/bd20778d293d990a12f1a2c047e9d824ecd3e1dd))
+* **css-modules:** migrate tooltip ([4f79174](https://github.com/SigNoz/components/commit/4f791745e13e42c18f34c85d4db2ff3dbbe11c3f))
+* **deps:** remove unused deps & remove tailwind ([7295323](https://github.com/SigNoz/components/commit/7295323af7831cc36fb38c0217d178d3dbd3ddbf))
+
+
+### Bug Fixes
+
+* **combobox:** use popover component & support popover inside popover ([ba38938](https://github.com/SigNoz/components/commit/ba389384b9333ccf7fafcb17fc1c8eefaec840db))
+* **data-table-stories:** remove story that causes build to fail from time to time ([37a0d01](https://github.com/SigNoz/components/commit/37a0d012439d7810c893fd4ff2e4af56e310eda0))
+* **data-table:** remove margin on search icon ([d08a864](https://github.com/SigNoz/components/commit/d08a86451206b44fa4302bdfcfa3f19361cb31b4))
+* **input:** allow more customization via css variables ([8d9126d](https://github.com/SigNoz/components/commit/8d9126d4e58e4409c882f3c6fb1974860d214dc4))
+* **signozhq-icons:** use updated lib & remove lucide ([b00cd70](https://github.com/SigNoz/components/commit/b00cd700184f77fe67c877dd2467018edefff3c8))
+* **tooltip:** explicit exports ([9ad148a](https://github.com/SigNoz/components/commit/9ad148abe90c6931d83cac0d5b831d3f0007c882))
+
+
+### Documentation
+
+* **readme:** add missing components ([d6b9c1b](https://github.com/SigNoz/components/commit/d6b9c1b3a3cb75294b4c407f12bf70c433eed52b))
+
+## [0.0.5](https://github.com/SigNoz/components/compare/v0.0.4...v0.0.5) (2026-03-18)
+
+
+### Features
+
+* **announcement-banner:** add component ([633b74e](https://github.com/SigNoz/components/commit/633b74e308c5eb1fce8db95f62b752c19a0de611))
+
+
+### Bug Fixes
+
+* **components:** use new periscope tokens to align with figma ([355395c](https://github.com/SigNoz/components/commit/355395c7c4d7cc46f72a7b5c2c3900cc2714d4b8))
+
+
+### Miscellaneous Chores
+
+* **gitignore:** ignore yalc ([2eb6e0d](https://github.com/SigNoz/components/commit/2eb6e0d067b935387876051385900c95ccaff0d5))
+
+## [0.0.4](https://github.com/SigNoz/components/compare/v0.0.3...v0.0.4) (2026-03-17)
+
+
+### Features
+
+* **badge:** to css modules & cleaned props ([a29633e](https://github.com/SigNoz/components/commit/a29633e5925a70ffa1c657348dc03395d1e6d54a))
+* **button:** cleaned button component ([#130](https://github.com/SigNoz/components/issues/130)) ([c844745](https://github.com/SigNoz/components/commit/c844745f303d8deca3522f9f83c01750cbb2f92a))
+* **button:** migrate button to css modules ([c9d7690](https://github.com/SigNoz/components/commit/c9d76907a31ff90b043cd0f21de2a5f1be312b1a))
+* **checkbox:** export colors map & prop type ([b849c36](https://github.com/SigNoz/components/commit/b849c36f12284fb4524d6f8803c6f149c1836649))
+* **checkbox:** migrate to css modules & better props ([09eb5b0](https://github.com/SigNoz/components/commit/09eb5b09e6badcdc2eff952845fed8d478872e66))
+* **css-modules:** migrate calendar ([4543bd9](https://github.com/SigNoz/components/commit/4543bd9a83c6fb7fbee31cd949e1080e51686251))
+* **css-modules:** migrate callout component ([c908b09](https://github.com/SigNoz/components/commit/c908b09c2d79f02c0dc75223f5b9459c674cfa7c))
+* **css-modules:** migrate combobox ([e7ac0ae](https://github.com/SigNoz/components/commit/e7ac0ae0c51f4a9fb7467a02a2a12f28eb68f472))
+* **css-modules:** migrate data-table ([0c560e3](https://github.com/SigNoz/components/commit/0c560e35f198cfd0a5232e770e1beba563d3c362))
+* **css-modules:** migrate input ([36c1656](https://github.com/SigNoz/components/commit/36c1656e14d2f32471ad1cfaae4441a1fd12a776))
+* **css-modules:** migrate pagination ([7c84ce2](https://github.com/SigNoz/components/commit/7c84ce29f3c2b5ce26dccf9fbca36d8796376bd7))
+* **css-modules:** migrate radio group ([6ac27c1](https://github.com/SigNoz/components/commit/6ac27c10a12b7a0bdf357b2d66fbae80b3790cd2))
+* **css-modules:** migrate resizable ([57ade06](https://github.com/SigNoz/components/commit/57ade06f1cf6f602ad45a90cf47ead2e5aad5b27))
+* **css-modules:** migrate sonner ([e36ff3f](https://github.com/SigNoz/components/commit/e36ff3f0c15fea5f66472560e198b7aeff372d4e))
+* **css-modules:** migrate switch ([f581a5d](https://github.com/SigNoz/components/commit/f581a5db7f14dee4c604af013fabbe16c2fe04ac))
+* **css-modules:** migrate toggle-group and toggle ([36c871f](https://github.com/SigNoz/components/commit/36c871fbe8203ee00683c6556534d370cdb1aa4e))
+* **css-modules:** migrated command & dialog components ([d153762](https://github.com/SigNoz/components/commit/d1537621d5f0f4999fb5e0ae476ad2ad56fc1aad))
+* **drawer:** migrate to css modules ([e185304](https://github.com/SigNoz/components/commit/e1853041a88e241e0c5604e3cc528bc3067c186f))
+* **drawer:** remove vaul in favor of reusing dialog & add animation to dialog ([67329a7](https://github.com/SigNoz/components/commit/67329a7e210af897909b79c0aed48d07d74065b1))
+* **resizable:** update to v4 ([01e505e](https://github.com/SigNoz/components/commit/01e505e94076e8999f677f81215c76804f6d796b))
+
+
+### Bug Fixes
+
+* **button:** better icon sizes ([2e58230](https://github.com/SigNoz/components/commit/2e5823013c4e98ed0c801cc06839a51316155cca))
+* **checkbox:** auto-assign id when is undefined ([44ac88d](https://github.com/SigNoz/components/commit/44ac88dcc5537882678bc6f9df0cd120a63d251d))
+* **docs:** conflicts on heading and paragraph text sizes ([7b91f72](https://github.com/SigNoz/components/commit/7b91f723f2c04ff86ed7cfb254f5f478cd7133df))
+* **input:** password icon use suffix instead of children ([0b36acf](https://github.com/SigNoz/components/commit/0b36acf401d4f68f41fd0a896bfede859ef58cb2))
+* **input:** suffix/prefix with falsy don't erase value ([30bd739](https://github.com/SigNoz/components/commit/30bd7391bb414b0f5b99cd0f26a484c74a257f5e))
+* **input:** use 2rem as height to match button height ([0c50d04](https://github.com/SigNoz/components/commit/0c50d04a76c035d06d111389cf7933a826494ea7))
+* **peer-depencies:** wrong usage of peer dependency ([43267b6](https://github.com/SigNoz/components/commit/43267b68ef0127bf5638fadcce2c66649e04cbee))
+* **spacing:** use values from design token ([2d88d76](https://github.com/SigNoz/components/commit/2d88d768f3bfd804a76a2c64d8b6b046f07cf3c4))
+* **stories:** tests being broken & autodocs tag not allowed when have mdx ([ed7a408](https://github.com/SigNoz/components/commit/ed7a4085e8ce30e06e60668953598f34bc8281b4))
+* **ui:** warnings during test-storybook ([5abcca0](https://github.com/SigNoz/components/commit/5abcca093cab9179c871eb6971bbc787ee377e00))
+
+
+### Miscellaneous Chores
+
+* **.vscode:** define formatter for scss files ([00d2677](https://github.com/SigNoz/components/commit/00d26773f666ddc89180248c187ae4019618a335))
+* **docs:** remove experimental components from main page & update docs on how to use the lib ([ebc8fd1](https://github.com/SigNoz/components/commit/ebc8fd1b1fd6153bbf8535b490fa8092d2089c99))
+* **tsgo:** use instead of tsc & typecheck-staged ([151a481](https://github.com/SigNoz/components/commit/151a48122940ce689707017fa9b3e2b995e02df7))
+
+
+### Tests
+
+* **data-table:** add basic testing ([64a8c04](https://github.com/SigNoz/components/commit/64a8c04f87d595520f830a67ad3d0d755f0e9d91))
+
+
+### Continuous Integration
+
+* **chromatic:** enable against next branch ([dbbcb34](https://github.com/SigNoz/components/commit/dbbcb343157509adafbfee3aedaeaa65f69594dd))
+* **chromatic:** remove next from ci ([2776387](https://github.com/SigNoz/components/commit/2776387e71ebfa8b0150d9ed0b0b77e1bc5887e0))
+* **chromatic:** removed unused if statement ([9d1d177](https://github.com/SigNoz/components/commit/9d1d177f48cd9864fda5c866a679a086d3d0e402))
+* **workflows:** add support to cache pnpm ([9b913f3](https://github.com/SigNoz/components/commit/9b913f30514ec7fe88c7a3590d036163667bc6b4))
+* **workflows:** be explicit with concurrency group and cancellation ([9988ed5](https://github.com/SigNoz/components/commit/9988ed53b3ae83acebd488cde4347103255f4bad))
+
 ## [0.0.3](https://github.com/SigNoz/components/compare/v0.0.2...v0.0.3) (2026-02-27)
 
 

@@ -12,11 +12,7 @@ export const externalPatterns = [
 	'react-dom',
 	'react/jsx-runtime',
 	'react/jsx-dev-runtime',
-	'tailwindcss',
 	'clsx',
-	'tailwind-merge',
-	'class-variance-authority',
-	'lucide-react',
 	'cmdk',
 	'sonner',
 	'next-themes',
@@ -24,13 +20,15 @@ export const externalPatterns = [
 	'react-day-picker',
 	/^lodash-es(\/.*)?$/,
 	'react-resizable-panels',
-	'vaul',
+	'nuqs',
 	'dayjs',
 	/dayjs\/.*$/,
 	'@tanstack/react-virtual',
 	'@tanstack/react-table',
 	/@radix-ui\/.*$/,
 	/^@signozhq\/.*$/,
+	'@chenglou/pretext',
+	'copy-text-to-clipboard',
 ];
 
 export default function getViteLibConfig(
@@ -88,7 +86,7 @@ export default function getViteLibConfig(
 				tsconfigPath: resolve(cwd, 'tsconfig.json'),
 				entryRoot: 'src',
 				// create two type folders, one for esm and cjs
-				outDir: 'dist',
+				outDirs: 'dist',
 				// modify type files after they have been written
 				afterBuild: async () => {
 					// Fetch all .d.ts files recursively from the dist/types/cjs directory
@@ -107,7 +105,7 @@ export default function getViteLibConfig(
 
 							// Update sourceMappingURL references
 							if (newFilePath.endsWith('.d.cts')) {
-								const content = await fs.readFile(file, 'utf-8');
+								const content = (await fs.readFile(file, 'utf-8'))?.toString();
 								let updatedContent = content.replace(
 									/\/\/# sourceMappingURL=.*\.d\.ts\.map/g,
 									(match) => match.replace('.d.ts.map', '.d.cts.map')

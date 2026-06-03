@@ -1,0 +1,139 @@
+.callout {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-2, 0.5rem);
+  border: 1px solid transparent;
+  display: flex;
+  gap: var(--spacing-4, 0.5rem);
+  align-items: flex-start;
+
+  --callout-icon-color: currentColor;
+  --callout-title-color: var(--text-card-foreground);
+  --callout-description-color: var(--text-muted-foreground);
+  padding: var(--callout-padding, var(--spacing-8, 1rem));
+
+  &[role="button"] {
+    cursor: pointer;
+  }
+
+  &--small {
+    font-size: var(--callout-font-size-small, var(--periscope-font-size-base, 13px));
+    line-height: var(--callout-line-height-small, 1.25rem);
+  }
+
+  &--medium {
+    font-size: var(--callout-font-size-medium, var(--periscope-font-size-medium, 16px));
+    line-height: var(--callout-line-height-medium, 1.5rem);
+  }
+
+  &[data-color="robin"] {
+    --callout-icon-color: var(--callout-primary-icon);
+    --callout-title-color: var(--callout-primary-title);
+    --callout-description-color: var(--callout-primary-description);
+    background: var(--callout-primary-background);
+    border-color: var(--callout-primary-border);
+  }
+
+  &[data-color="cherry"] {
+    --callout-icon-color: var(--callout-error-icon);
+    --callout-title-color: var(--callout-error-title);
+    --callout-description-color: var(--callout-error-description);
+    background: var(--callout-error-background);
+    border-color: var(--callout-error-border);
+  }
+
+  &[data-color="amber"] {
+    --callout-icon-color: var(--callout-warning-icon);
+    --callout-title-color: var(--callout-warning-title);
+    --callout-description-color: var(--callout-warning-description);
+    background: var(--callout-warning-background);
+    border-color: var(--callout-warning-border);
+  }
+
+  &[data-color="sienna"] {
+    --callout-icon-color: var(--callout-sienna-icon);
+    --callout-title-color: var(--callout-sienna-title);
+    --callout-description-color: var(--callout-sienna-description);
+    background: var(--callout-sienna-background);
+    border-color: var(--callout-sienna-border);
+  }
+
+  &[data-color="forest"] {
+    --callout-icon-color: var(--callout-success-icon);
+    --callout-title-color: var(--callout-success-title);
+    --callout-description-color: var(--callout-success-description);
+    background: var(--callout-success-background);
+    border-color: var(--callout-success-border);
+  }
+
+  &[data-color="aqua"] {
+    --callout-icon-color: var(--callout-aqua-icon);
+    --callout-title-color: var(--callout-aqua-title);
+    --callout-description-color: var(--callout-aqua-description);
+    background: var(--callout-aqua-background);
+    border-color: var(--callout-aqua-border);
+  }
+
+  &__icon {
+    margin-top: var(--spacing-2, 0.25rem);
+    color: var(--callout-icon-color);
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  &__content {
+    display: grid;
+    gap: var(--spacing-4, 0.5rem);
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-height: 1rem;
+    font-weight: var(--callout-title-font-weight, var(--font-weight-medium));
+    letter-spacing: var(--callout-title-letter-spacing, -0.01em);
+    color: var(--callout-title-color, var(--letter-spacing-tighter, -0.05em));
+  }
+
+  &__description {
+    display: grid;
+    justify-items: start;
+    gap: var(--spacing-2, 0.25rem);
+    color: var(--callout-description-color);
+    font-weight: var(--callout-description-font-weight, var(--font-weight-normal));
+    line-height: 1.25rem;
+  }
+
+  &__close {
+    align-self: flex-start;
+    padding: var(--spacing-2, 0.25rem);
+    border-radius: calc(var(--radius) - 4px);
+    transition: colors 100ms ease-out;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--callout-description-color);
+
+    &:hover {
+      color: var(--callout-title-color);
+    }
+  }
+
+  &__action {
+    align-self: flex-start;
+    padding: var(--spacing-2, 0.25rem);
+    border-radius: calc(var(--radius) - 4px);
+    transition: colors 100ms ease-out;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--callout-description-color);
+
+    &:hover {
+      color: var(--callout-title-color);
+    }
+  }
+}

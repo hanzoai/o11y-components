@@ -1,53 +1,159 @@
-import './index.css';
-import * as SwitchPrimitives from '@radix-ui/react-switch';
+import * as SwitchPrimitive from '@radix-ui/react-switch';
 import * as React from 'react';
-
+import { useId } from 'react';
 import { cn } from '../lib/utils.js';
+import styles from './switch.module.scss';
 
 type SwitchColor = 'robin' | 'forest' | 'amber' | 'sienna' | 'cherry' | 'sakura' | 'aqua';
 
-interface SwitchProps extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root> {
+export type SwitchProps = Pick<
+	React.ComponentPropsWithoutRef<'button'>,
+	'id' | 'className' | 'style' | 'children' | 'name'
+> & {
+	/**
+	 * The testId associated with the switch.
+	 */
+	testId?: string;
+	/**
+	 * Additional CSS classes to apply to the switch wrapper.
+	 */
+	containerClassName?: string;
+	/**
+	 * Inline styles to apply to the switch wrapper.
+	 */
+	containerStyle?: React.CSSProperties;
+	/**
+	 * The id of the switch wrapper.
+	 */
+	containerId?: string;
+	/**
+	 * The testId associated with the switch wrapper.
+	 */
+	containerTestId?: string;
+	/**
+	 * The controlled checked state of the switch. Must be used in conjunction with onChange.
+	 */
+	value?: boolean;
+	/**
+	 * The initial checked state of the switch. Use when you do not need to control its state.
+	 */
+	defaultValue?: boolean;
+	/**
+	 * Whether the switch is disabled. When true, the user cannot interact with it.
+	 */
+	disabled?: boolean;
+	/**
+	 * When true, indicates that the user must toggle the switch before the owning form can be submitted.
+	 */
+	required?: boolean;
+	/**
+	 * Event handler called when the checked state of the switch changes.
+	 */
+	onChange?(checked: boolean): void;
+	/**
+	 * The color variant of the switch.
+	 *
+	 * @default 'robin'
+	 */
 	color?: SwitchColor;
-}
+};
 
-const Switch = React.forwardRef<React.ElementRef<typeof SwitchPrimitives.Root>, SwitchProps>(
-	({ className, color = 'robin', ...props }, ref) => (
-		<SwitchPrimitives.Root
-			data-color={color}
-			className={cn(
-				'peer inline-flex h-5 w-9 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[var(--switch-checked-background)] data-[state=unchecked]:bg-input',
-				className
-			)}
-			{...props}
+const SwitchBase = React.forwardRef<React.ElementRef<typeof SwitchPrimitive.Root>, SwitchProps>(
+	({ className, style, testId, value, onChange, defaultValue, color = 'robin', ...props }, ref) => (
+		<SwitchPrimitive.Root
 			ref={ref}
+			data-color={color}
+			className={cn(styles['switch'], className)}
+			data-testid={testId}
+			style={style}
+			checked={value}
+			onCheckedChange={onChange}
+			defaultChecked={defaultValue}
+			{...props}
 		>
-			<SwitchPrimitives.Thumb
-				className={cn(
-					'pointer-events-none block h-4 w-4 rounded-full bg-white shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0'
-				)}
-			/>
-		</SwitchPrimitives.Root>
+			<SwitchPrimitive.Thumb className={styles['switch__thumb']} />
+		</SwitchPrimitive.Root>
 	)
 );
-Switch.displayName = SwitchPrimitives.Root.displayName;
+SwitchBase.displayName = SwitchPrimitive.Root.displayName;
 
-const SwitchWrapper: React.FC<{ labelName?: string | React.ReactNode } & SwitchProps> = ({
-	labelName,
-	...props
-}) => {
-	return (
-		<div className="flex items-center space-x-2">
-			<Switch {...props} />
-			{labelName && (
-				<label
-					htmlFor={props.id}
-					className="peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer select-none"
-				>
-					{labelName}
-				</label>
-			)}
-		</div>
-	);
-};
+/**
+ * A toggle switch component for binary on/off or true/false selections.
+ *
+ * @example
+ * ```tsx
+ * // Basic usage with uncontrolled state
+ * <Switch>Enable notifications</Switch>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // With default checked state
+ * <Switch defaultValue={true}>Dark mode</Switch>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Controlled usage with state
+ * const [checked, setChecked] = React.useState(false);
+ * <Switch value={checked} onChange={setChecked}>Controlled</Switch>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // With custom color
+ * <Switch color="forest">Success</Switch>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Disabled state
+ * <Switch disabled>Maintenance mode</Switch>
+ * ```
+ */
+const SwitchWrapper = React.forwardRef<React.ElementRef<typeof SwitchPrimitive.Root>, SwitchProps>(
+	(
+		{
+			children,
+			id,
+			testId,
+			className,
+			style,
+			containerClassName,
+			containerStyle,
+			containerId,
+			containerTestId,
+			...props
+		},
+		ref
+	) => {
+		const fallbackId = useId();
+		const switchId = id || fallbackId;
+
+		return (
+			<div
+				className={cn(styles['switch-wrapper'], containerClassName)}
+				data-testid={containerTestId}
+				id={containerId}
+				style={containerStyle}
+			>
+				<SwitchBase
+					ref={ref}
+					id={switchId}
+					testId={testId}
+					className={className}
+					style={style}
+					{...props}
+				/>
+				{children && (
+					<label htmlFor={switchId} className={styles['switch-label']}>
+						{children}
+					</label>
+				)}
+			</div>
+		);
+	}
+);
+SwitchWrapper.displayName = 'Switch';
 
 export { SwitchWrapper as Switch };

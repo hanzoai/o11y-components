@@ -1,15 +1,6 @@
-import { Badge } from '@signozhq/ui';
+import { Badge, type BadgeColor } from '@signozhq/ui';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-
-type BadgeColor =
-	| 'vanilla'
-	| 'robin'
-	| 'forest'
-	| 'amber'
-	| 'sienna'
-	| 'cherry'
-	| 'sakura'
-	| 'aqua';
+import { fn } from 'storybook/test';
 
 // Icon Components for examples
 const CheckIcon = () => (
@@ -105,9 +96,11 @@ const StarIcon = () => (
 
 // Meta Configuration
 const meta: Meta<typeof Badge> = {
-	title: 'Old Components/Badge',
+	title: 'Primitive Components/Badge',
 	component: Badge,
-	tags: ['autodocs'],
+	args: {
+		onClose: fn(),
+	},
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -118,6 +111,21 @@ const meta: Meta<typeof Badge> = {
 		},
 	},
 	argTypes: {
+		testId: {
+			control: 'text',
+			description: 'Test ID for the badge.',
+			table: { category: 'Testing', type: { summary: 'string' } },
+		},
+		id: {
+			control: 'text',
+			description: 'A unique identifier for the badge.',
+			table: { category: 'Accessibility', type: { summary: 'string' } },
+		},
+		className: {
+			control: 'text',
+			description: 'Additional CSS classes for custom styling.',
+			table: { category: 'Styling', type: { summary: 'string' } },
+		},
 		children: {
 			control: 'text',
 			description:
@@ -126,7 +134,21 @@ const meta: Meta<typeof Badge> = {
 		},
 		color: {
 			control: 'select',
-			options: ['vanilla', 'robin', 'forest', 'amber', 'sienna', 'cherry', 'sakura', 'aqua'],
+			options: [
+				'primary',
+				'secondary',
+				'success',
+				'warning',
+				'error',
+				'vanilla',
+				'robin',
+				'forest',
+				'amber',
+				'sienna',
+				'cherry',
+				'sakura',
+				'aqua',
+			],
 			description:
 				'The color theme of the badge. Each color has semantic meaning for different use cases.',
 			table: { category: 'Appearance', defaultValue: { summary: 'robin' } },
@@ -146,8 +168,43 @@ const meta: Meta<typeof Badge> = {
 		asChild: {
 			control: 'boolean',
 			description:
-				'Use Radix Slot to compose the badge as a different element (e.g., button, link).',
+				'Use Radix Slot to compose the badge as a different element (e.g., button, link). The closable prop is intended for the default span-rendered Badge.',
 			table: { category: 'Composition', defaultValue: { summary: 'false' } },
+		},
+		textEllipsis: {
+			control: 'boolean',
+			description:
+				'Enable text truncation. Use true for center truncation, or pass start, center, or end in code.',
+			table: {
+				category: 'Behavior',
+				defaultValue: { summary: 'false' },
+				type: { summary: 'boolean | "start" | "center" | "end"' },
+			},
+		},
+		closable: {
+			control: 'boolean',
+			description:
+				'Renders a trailing close button. The badge hides after close unless onClose prevents default.',
+			table: { category: 'Behavior', defaultValue: { summary: 'false' } },
+		},
+		onClose: {
+			control: false,
+			description:
+				'Callback fired from the close button. Call event.preventDefault() to keep the badge visible.',
+			table: {
+				category: 'Events',
+				type: { summary: '(event: React.MouseEvent<HTMLButtonElement>) => void' },
+			},
+		},
+		closeIcon: {
+			control: false,
+			description: 'Custom close icon. Defaults to X from @signozhq/icons.',
+			table: { category: 'Content', type: { summary: 'React.ReactNode' } },
+		},
+		closeAriaLabel: {
+			control: 'text',
+			description: 'Accessible label for the close button.',
+			table: { category: 'Accessibility', defaultValue: { summary: 'Close badge' } },
 		},
 	},
 };
@@ -156,13 +213,28 @@ export default meta;
 
 type Story = StoryObj<typeof Badge>;
 
-// The "Playground" Story - This is the Primary story
 export const Playground: Story = {
 	args: {
-		children: 'Badge',
+		children: 'Hello',
 		color: 'robin',
 		variant: 'default',
 		capitalize: false,
+		asChild: false,
+		closable: false,
+		closeAriaLabel: 'Close badge',
+	},
+	render: (props) => {
+		if (props.asChild) {
+			return (
+				<Badge {...props}>
+					<a href="#hi" onClick={(e) => e.preventDefault()}>
+						Random link
+					</a>
+				</Badge>
+			);
+		}
+
+		return <Badge {...props} />;
 	},
 };
 
@@ -187,7 +259,7 @@ export const AllColors: Story = {
 	render: () => {
 		const colors = (meta.argTypes?.color?.options as BadgeColor[]) || [];
 		return (
-			<div className="flex gap-2 flex-wrap">
+			<div className="flex gap-2 max-w-1/2 flex-wrap">
 				{colors.map((color) => (
 					<Badge key={color} color={color}>
 						{color.charAt(0).toUpperCase() + color.slice(1)}
@@ -513,12 +585,162 @@ export const CapitalizedText: Story = {
 	),
 };
 
+export const TextEllipsisPositions: Story = {
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'The `textEllipsis` prop enables canvas-based text truncation with ellipsis at different positions. Use `true` or `"center"` for center truncation (default), `"start"` for start truncation, or `"end"` for end truncation. Only works with string children.',
+			},
+		},
+	},
+	argTypes: {
+		children: { control: false },
+		color: { control: false },
+		variant: { control: false },
+		capitalize: { control: false },
+		asChild: { control: false },
+		textEllipsis: { control: false },
+	},
+	render: () => (
+		<div className="space-y-6">
+			<div>
+				<h3 className="text-sm font-medium mb-2 text-vanilla-800 dark:text-vanilla-300">
+					Ellipsis Positions
+				</h3>
+				<div className="flex flex-col gap-3">
+					<div className="flex items-center gap-3">
+						<span className="text-xs text-vanilla-600 dark:text-vanilla-300 w-16">Center:</span>
+						<div style={{ '--badge-width': '180px' } as React.CSSProperties}>
+							<Badge color="robin" textEllipsis="center">
+								This is a very long badge text that will be truncated in the center
+							</Badge>
+						</div>
+					</div>
+					<div className="flex items-center gap-3">
+						<span className="text-xs text-vanilla-600 dark:text-vanilla-300 w-16">Start:</span>
+						<div style={{ '--badge-width': '180px' } as React.CSSProperties}>
+							<Badge color="forest" textEllipsis="start">
+								path/to/very/long/filename/that/needs/truncation.tsx
+							</Badge>
+						</div>
+					</div>
+					<div className="flex items-center gap-3">
+						<span className="text-xs text-vanilla-600 dark:text-vanilla-300 w-16">End:</span>
+						<div style={{ '--badge-width': '180px' } as React.CSSProperties}>
+							<Badge color="amber" textEllipsis="end">
+								A long description that should be truncated at the end
+							</Badge>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h3 className="text-sm font-medium mb-2 text-vanilla-800 dark:text-vanilla-300">
+					Boolean Shorthand (defaults to center)
+				</h3>
+				<div className="flex flex-col gap-2">
+					<div style={{ '--badge-width': '200px' } as React.CSSProperties}>
+						<Badge color="aqua" textEllipsis>
+							Using textEllipsis=true defaults to center truncation
+						</Badge>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h3 className="text-sm font-medium mb-2 text-vanilla-800 dark:text-vanilla-300">
+					With Outline Variant
+				</h3>
+				<div className="flex flex-col gap-2">
+					<div style={{ '--badge-width': '160px' } as React.CSSProperties}>
+						<Badge color="cherry" variant="outline" textEllipsis="center">
+							Error: Connection timeout after 30 seconds of inactivity
+						</Badge>
+					</div>
+					<div style={{ '--badge-width': '160px' } as React.CSSProperties}>
+						<Badge color="sakura" variant="outline" textEllipsis="end">
+							User: very.long.email.address@example.domain.com
+						</Badge>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h3 className="text-sm font-medium mb-2 text-vanilla-800 dark:text-vanilla-300">
+					Container Constrained
+				</h3>
+				<p className="text-xs text-vanilla-600 dark:text-vanilla-300 mb-2">
+					Badges inside a narrow container will truncate automatically with textEllipsis
+				</p>
+				<div
+					className="flex flex-col gap-2 p-2 border border-vanilla-300 dark:border-vanilla-700 rounded"
+					style={{ width: '220px', '--badge-width': '100%' } as React.CSSProperties}
+				>
+					<Badge color="robin" textEllipsis="center">
+						kubernetes-deployment-production-east-us-2
+					</Badge>
+					<Badge color="forest" variant="outline" textEllipsis="start">
+						/var/log/application/server/debug/2024-01-15.log
+					</Badge>
+					<Badge color="sienna" textEllipsis="end">
+						Successfully processed 1,234 items in batch
+					</Badge>
+				</div>
+			</div>
+		</div>
+	),
+};
+
+export const Closeable: Story = {
+	parameters: {
+		docs: {
+			description: {
+				story:
+					'Set `closable` to render a trailing close button. The badge hides automatically after close unless `onClose` calls `event.preventDefault()`.',
+			},
+		},
+	},
+	argTypes: {
+		children: { control: false },
+		color: { control: false },
+		variant: { control: false },
+		capitalize: { control: false },
+		asChild: { control: false },
+		textEllipsis: { control: false },
+		closable: { control: false },
+		onClose: { control: false },
+		closeIcon: { control: false },
+		closeAriaLabel: { control: false },
+	},
+	render: () => (
+		<div className="flex gap-2 flex-wrap">
+			<Badge closable color="robin" onClose={fn()} closeAriaLabel="Remove React tag">
+				React
+			</Badge>
+			<Badge closable color="aqua" onClose={fn()} closeAriaLabel="Remove TypeScript tag">
+				TypeScript
+			</Badge>
+			<Badge closable color="forest" onClose={fn()} closeAriaLabel="Remove Next.js tag">
+				Next.js
+			</Badge>
+			<Badge
+				closable
+				color="amber"
+				closeIcon={<XIcon />}
+				onClose={(event) => event.preventDefault()}
+				closeAriaLabel="Keep warning tag"
+			>
+				Persistent
+			</Badge>
+		</div>
+	),
+};
+
 export const UsingAsChild: Story = {
 	parameters: {
 		docs: {
 			description: {
 				story:
-					'The `asChild` prop uses Radix UI Slot to compose the badge as a different element. This allows you to create interactive badges that maintain all badge styling while functioning as buttons, links, or other interactive elements. The badge styling is applied to the child element instead of rendering a wrapper span.',
+					'The `asChild` prop uses Radix UI Slot to compose the badge as a different element. This allows you to create interactive badges that maintain all badge styling while functioning as buttons, links, or other interactive elements. The badge styling is applied to the child element instead of rendering a wrapper span. For removable tags, use `closable` with the default span-rendered Badge.',
 			},
 		},
 	},
@@ -633,68 +855,6 @@ export const UsingAsChild: Story = {
 						>
 							Examples
 						</a>
-					</Badge>
-				</div>
-			</div>
-
-			<div>
-				<h3 className="text-sm font-medium mb-3 text-vanilla-800 dark:text-vanilla-300">
-					Tag Removal Pattern
-				</h3>
-				<div className="flex gap-2 flex-wrap">
-					<Badge color="robin">
-						React
-						<Badge
-							asChild
-							color="robin"
-							variant="outline"
-							className="ml-1.5 !px-1 !py-0 hover:bg-robin-500/20"
-						>
-							<button
-								type="button"
-								onClick={() => alert('Remove React tag')}
-								className="cursor-pointer border-0 bg-transparent p-0"
-								aria-label="Remove React tag"
-							>
-								<XIcon />
-							</button>
-						</Badge>
-					</Badge>
-					<Badge color="aqua">
-						TypeScript
-						<Badge
-							asChild
-							color="aqua"
-							variant="outline"
-							className="ml-1.5 !px-1 !py-0 hover:bg-aqua-500/20"
-						>
-							<button
-								type="button"
-								onClick={() => alert('Remove TypeScript tag')}
-								className="cursor-pointer border-0 bg-transparent p-0"
-								aria-label="Remove TypeScript tag"
-							>
-								<XIcon />
-							</button>
-						</Badge>
-					</Badge>
-					<Badge color="forest">
-						Next.js
-						<Badge
-							asChild
-							color="forest"
-							variant="outline"
-							className="ml-1.5 !px-1 !py-0 hover:bg-forest-500/20"
-						>
-							<button
-								type="button"
-								onClick={() => alert('Remove Next.js tag')}
-								className="cursor-pointer border-0 bg-transparent p-0"
-								aria-label="Remove Next.js tag"
-							>
-								<XIcon />
-							</button>
-						</Badge>
 					</Badge>
 				</div>
 			</div>
