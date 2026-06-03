@@ -1,2 +1,1 @@
-export type * from './date-picker.js';
-export { DatePicker, TIMEZONES } from './date-picker.js';
+export { DatePicker, type DatePickerProps, TIMEZONES } from './date-picker.js';

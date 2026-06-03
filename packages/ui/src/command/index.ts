@@ -1,12 +1,23 @@
-export type * from './command.js';
+export { defaultFilter as commandDefaultFilter } from 'cmdk';
 export {
 	Command,
 	CommandDialog,
+	type CommandDialogProps,
 	CommandEmpty,
+	type CommandEmptyProps,
 	CommandGroup,
+	type CommandGroupProps,
 	CommandInput,
+	type CommandInputProps,
 	CommandItem,
+	type CommandItemProps,
 	CommandList,
+	type CommandListProps,
+	CommandLoading,
+	type CommandLoadingProps,
+	type CommandProps,
 	CommandSeparator,
+	type CommandSeparatorProps,
 	CommandShortcut,
+	type CommandShortcutProps,
 } from './command.js';

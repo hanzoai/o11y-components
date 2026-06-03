@@ -1,4 +1,14 @@
 import {
+	CircleAlert,
+	CircleCheck,
+	CircleX,
+	Clock,
+	Eye,
+	Pencil,
+	Trash2,
+	Upload,
+} from '@signozhq/icons';
+import {
 	Badge,
 	Button,
 	ButtonColor,
@@ -11,7 +21,6 @@ import {
 	TableRow,
 } from '@signozhq/ui';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { AlertCircle, CheckCircle, Clock, Edit, Eye, Trash2, Upload, XCircle } from 'lucide-react';
 
 // Enhanced sample data
 const users = [
@@ -70,6 +79,23 @@ const users = [
 const meta: Meta<typeof Table> = {
 	title: 'Old Components/Basic Table',
 	component: Table,
+	argTypes: {
+		testId: {
+			control: 'text',
+			description: 'Test ID for the table.',
+			table: { category: 'Testing', type: { summary: 'string' } },
+		},
+		id: {
+			control: 'text',
+			description: 'A unique identifier for the table.',
+			table: { category: 'Accessibility', type: { summary: 'string' } },
+		},
+		className: {
+			control: 'text',
+			description: 'Additional CSS classes for custom styling.',
+			table: { category: 'Styling', type: { summary: 'string' } },
+		},
+	},
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -214,8 +240,8 @@ export const Enhanced: Story = {
 								</TableCell>
 								<TableCell>
 									<div className="flex items-center gap-2">
-										{user.status === 'active' && <CheckCircle className="h-4 w-4 text-green-600" />}
-										{user.status === 'inactive' && <XCircle className="h-4 w-4 text-red-600" />}
+										{user.status === 'active' && <CircleCheck className="h-4 w-4 text-green-600" />}
+										{user.status === 'inactive' && <CircleX className="h-4 w-4 text-red-600" />}
 										{user.status === 'pending' && <Clock className="h-4 w-4 text-yellow-600" />}
 										<Badge
 											variant="outline"
@@ -255,7 +281,7 @@ export const Enhanced: Story = {
 											size="sm"
 											className="h-8 w-8 p-0"
 										>
-											<Edit className="h-4 w-4" />
+											<Pencil className="h-4 w-4" />
 										</Button>
 										<Button
 											variant="ghost"
@@ -346,7 +372,7 @@ export const Empty: Story = {
 						<TableRow>
 							<TableCell colSpan={4} className="text-center py-12">
 								<div className="flex flex-col items-center gap-2">
-									<AlertCircle className="h-8 w-8 text-muted-foreground" />
+									<CircleAlert className="h-8 w-8 text-muted-foreground" />
 									<p className="text-sm font-medium text-foreground">No users found</p>
 									<p className="text-sm text-muted-foreground">
 										Get started by creating a new user.
@@ -405,8 +431,8 @@ export const Compact: Story = {
 									<Badge className="text-xs capitalize">{user.role}</Badge>
 								</TableCell>
 								<TableCell>
-									{user.status === 'active' && <CheckCircle className="h-4 w-4 text-green-600" />}
-									{user.status === 'inactive' && <XCircle className="h-4 w-4 text-red-600" />}
+									{user.status === 'active' && <CircleCheck className="h-4 w-4 text-green-600" />}
+									{user.status === 'inactive' && <CircleX className="h-4 w-4 text-red-600" />}
 									{user.status === 'pending' && <Clock className="h-4 w-4 text-yellow-600" />}
 								</TableCell>
 							</TableRow>

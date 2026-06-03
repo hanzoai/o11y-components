@@ -2,51 +2,10 @@ import { Check, ChevronLeft, ChevronRight, Code, Star, Trash } from '@signozhq/i
 import { Button, ButtonBackground, ButtonColor, ButtonSize, ButtonVariant } from '@signozhq/ui';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
-import { generateDocs } from '../utils/generateDocs.js';
-
-const VARIANTS = [
-	ButtonVariant.Solid,
-	ButtonVariant.Outlined,
-	ButtonVariant.Dashed,
-	ButtonVariant.Ghost,
-	ButtonVariant.Link,
-	ButtonVariant.Action,
-] as const;
-const COLORS = [
-	ButtonColor.Primary,
-	ButtonColor.Destructive,
-	ButtonColor.Warning,
-	ButtonColor.Secondary,
-	ButtonColor.None,
-] as const;
-
-const buttonExamples = [
-	`import { Button } from '@signozhq/ui';
-import { ChevronLeft, ChevronRight } from '@signozhq/icons';
-
-export default function MyComponent() {
-return (
-	<Button 
-		variant="solid" 
-		color="primary" 
-		size="md"
-		prefix={<ChevronLeft />}
-		suffix={<ChevronRight />}
-	>
-		Click Me
-	</Button>
-);
-}`,
-];
-
-const buttonDocs = generateDocs({
-	packageName: '@signozhq/ui',
-	description: 'A versatile button component with multiple variants, colors, and sizes.',
-	examples: buttonExamples,
-});
+import { buttonArgTypes, COLORS, VARIANTS } from './shared/button-arg-types.js';
 
 const meta: Meta<typeof Button> = {
-	title: 'Components/Button',
+	title: 'Primitive Components/Button',
 	component: Button,
 	decorators: [],
 	args: {
@@ -58,83 +17,7 @@ const meta: Meta<typeof Button> = {
 		disabled: false,
 		type: 'button',
 	},
-	argTypes: {
-		variant: {
-			control: 'select',
-			options: VARIANTS,
-			description: 'The visual style of the button',
-			table: {
-				defaultValue: { summary: 'solid' },
-			},
-		},
-		size: {
-			control: 'select',
-			options: ['xs', 'sm', 'md', 'lg', 'icon'],
-			description: 'The size of the button',
-			table: {
-				defaultValue: { summary: 'md' },
-			},
-		},
-		color: {
-			control: 'select',
-			options: COLORS,
-			description: 'The color scheme of the button',
-		},
-		disabled: {
-			control: 'boolean',
-			description: 'Whether the button is disabled',
-			table: {
-				defaultValue: { summary: 'false' },
-				type: { summary: 'boolean' },
-			},
-		},
-		asChild: {
-			control: 'boolean',
-			description: 'Whether to render as a child component',
-			table: {
-				type: { summary: 'boolean' },
-			},
-		},
-		background: {
-			control: 'select',
-			options: ['ink-500', 'ink-400', 'vanilla-100', 'vanilla-200'],
-			description:
-				'The background context for the action button. Only applicable to *Action* buttons.',
-			table: {
-				type: { summary: 'string' },
-			},
-		},
-		loading: {
-			control: 'boolean',
-			description: 'Whether the button is loading',
-			table: {
-				defaultValue: { summary: 'false' },
-				type: { summary: 'boolean' },
-			},
-		},
-		type: {
-			control: 'select',
-			options: ['button', 'submit'],
-			description: 'The type of the button',
-			table: {
-				defaultValue: { summary: 'submit' },
-			},
-		},
-		onClick: {
-			action: 'onClick',
-			description: 'The function to call when the button is clicked',
-			table: {
-				type: { summary: 'function' },
-			},
-		},
-		onDoubleClick: {
-			action: 'onDoubleClick',
-			description: 'The function to call when the button is double clicked',
-			table: {
-				type: { summary: 'function' },
-			},
-		},
-	},
+	argTypes: buttonArgTypes,
 	parameters: {
 		layout: 'fullscreen',
 		design: {
@@ -146,16 +29,12 @@ const meta: Meta<typeof Button> = {
 		},
 		controls: { disable: false },
 		docs: {
-			description: {
-				component: buttonDocs,
-			},
 			source: {
 				type: 'code',
 			},
 		},
 		test: { dangerouslyIgnoreUnhandledErrors: true },
 	},
-	tags: ['autodocs'],
 };
 
 export default meta;
@@ -290,7 +169,12 @@ export const ButtonShowcase: Story = {
 									>
 										{variant} loading
 									</Button>
-									<Button variant={variant} color={color} title={`${variant} icon only`}>
+									<Button
+										variant={variant}
+										color={color}
+										size="icon"
+										title={`${variant} icon only`}
+									>
 										{<Star />}
 									</Button>
 								</div>
@@ -327,7 +211,7 @@ export const Sizes: Story = {
 			<div className="space-y-4">
 				<h2 className="text-base font-semibold">Size Variations</h2>
 				<div className="space-y-8">
-					{[ButtonSize.XS, ButtonSize.SM, ButtonSize.MD, ButtonSize.LG].map((size) => (
+					{[ButtonSize.SM, ButtonSize.MD].map((size) => (
 						<div key={size} className="space-y-4">
 							<h3 className="text-sm font-medium capitalize">{size}</h3>
 							<Button {...args} size={size} prefix={<ChevronLeft />} suffix={<ChevronRight />}>
@@ -377,7 +261,7 @@ export const IconButtons: Story = {
 							key={variant}
 							variant={variant}
 							suffix={<Code size={32} />}
-							size={ButtonSize.Icon}
+							size="icon"
 						/>
 					))}
 				</div>
@@ -389,7 +273,7 @@ export const IconButtons: Story = {
 					size of the icon by passing the "size" prop to the icon.
 				</p>
 				<div className="flex gap-4 mt-4">
-					{[ButtonSize.XS, ButtonSize.SM, ButtonSize.MD, ButtonSize.LG].map((size) => (
+					{[ButtonSize.SM, ButtonSize.MD, ButtonSize.Icon].map((size) => (
 						<Button {...args} key={size} size={size} prefix={<Code />} />
 					))}
 				</div>

@@ -1,34 +1,106 @@
-import './index.css';
-
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { Command as CommandPrimitive } from 'cmdk';
 import * as React from 'react';
+import { Dialog, DialogContent, type DialogPosition } from '../dialog/index.js';
 import { cn } from '../lib/utils.js';
-import { Dialog, DialogContent } from './dialog.js';
+import styles from './command.module.scss';
 
-const Command = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive>,
-	React.ComponentPropsWithoutRef<typeof CommandPrimitive>
->(({ className, ...props }, ref) => (
-	<CommandPrimitive
-		ref={ref}
-		className={cn(
-			'flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground',
-			className
-		)}
-		{...props}
-	/>
-));
-Command.displayName = CommandPrimitive.displayName;
+export type CommandProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive> & {
+	/**
+	 * The testId associated with the command.
+	 */
+	testId?: string;
+};
 
-type DialogPosition = 'center' | 'top' | 'custom';
-type CommandDialogProps = React.ComponentProps<typeof Dialog> & {
+/**
+ * High-level wrapper around `cmdk`'s `Command` root.
+ *
+ * Use this as the container for your command palette, and compose it with
+ * `CommandInput`, `CommandList`, `CommandGroup`, `CommandItem`, `CommandEmpty`,
+ * `CommandSeparator`, and `CommandShortcut`.
+ *
+ * @example
+ * ```tsx
+ * <Command>
+ *   <CommandInput placeholder="Search commands…" />
+ *   <CommandList>
+ *     <CommandGroup heading="General">
+ *       <CommandItem onSelect={() => console.log('Open settings')}>
+ *         Open settings
+ *         <CommandShortcut>⌘S</CommandShortcut>
+ *       </CommandItem>
+ *     </CommandGroup>
+ *
+ *     <CommandSeparator />
+ *
+ *     <CommandGroup heading="More">
+ *       <CommandItem onSelect={() => console.log('Create report')}>
+ *         Create report
+ *       </CommandItem>
+ *     </CommandGroup>
+ *
+ *     <CommandEmpty>No results.</CommandEmpty>
+ *   </CommandList>
+ * </Command>
+ * ```
+ */
+export const Command = React.forwardRef<React.ElementRef<typeof CommandPrimitive>, CommandProps>(
+	({ className, testId, ...props }, ref) => (
+		<CommandPrimitive
+			ref={ref}
+			className={cn(styles['command'], className)}
+			data-testid={testId}
+			{...props}
+		/>
+	)
+);
+Command.displayName = 'Command';
+
+export type CommandDialogProps = React.ComponentProps<typeof Dialog> & {
 	position?: DialogPosition;
 	offset?: number;
 	contentClassName?: string;
 };
 
-const CommandDialog = ({
+/**
+ * Dialog wrapper for rendering a `Command` palette inside a modal.
+ *
+ * This is ideal for global command palettes that should float above the page.
+ * It accepts all `Dialog` props plus positioning controls (`position`, `offset`)
+ * and an optional `contentClassName` to customize the dialog container.
+ *
+ * @example
+ * ```tsx
+ * const [open, setOpen] = React.useState(false);
+ *
+ * return (
+ *   <>
+ *     <Button type="button" onClick={() => setOpen(true)}>
+ *       Open Command Dialog
+ *     </Button>
+ *
+ *     <CommandDialog open={open} onOpenChange={setOpen} position="top" offset={110}>
+ *       <CommandInput placeholder="Search or run a command…" />
+ *       <CommandList>
+ *         <CommandGroup heading="Quick actions">
+ *           <CommandItem
+ *             onSelect={() => {
+ *               console.log('Create report');
+ *               setOpen(false);
+ *             }}
+ *           >
+ *             Create report
+ *             <CommandShortcut>⌘N</CommandShortcut>
+ *           </CommandItem>
+ *         </CommandGroup>
+ *         <CommandEmpty>No results.</CommandEmpty>
+ *       </CommandList>
+ *     </CommandDialog>
+ *   </>
+ * );
+ * ```
+ */
+export const CommandDialog = ({
 	children,
 	position = 'center',
 	offset = 100,
@@ -38,121 +110,363 @@ const CommandDialog = ({
 	return (
 		<Dialog {...props}>
 			<DialogContent
-				className={cn('overflow-hidden p-0', contentClassName)}
+				className={cn(styles['command__dialog-content'], contentClassName)}
 				position={position}
 				offset={offset}
 			>
-				<Command className="[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
-					{children}
-				</Command>
+				<Command className={styles['command__dialog-styles']}>{children}</Command>
 			</DialogContent>
 		</Dialog>
 	);
 };
+CommandDialog.displayName = 'CommandDialog';
 
-const CommandInput = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive.Input>,
-	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
->(({ className, ...props }, ref) => (
-	<div className="flex items-center border-b px-3">
-		<MagnifyingGlassIcon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
-		<CommandPrimitive.Input
-			ref={ref}
-			className={cn(
-				'flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50',
-				className
-			)}
-			{...props}
-		/>
-	</div>
-));
+export type CommandInputProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> & {
+	/**
+	 * The testId associated with the command input.
+	 */
+	testId?: string;
+	/**
+	 * Additional CSS classes to apply to the command input wrapper.
+	 */
+	containerClassName?: string;
+	/**
+	 * Inline styles to apply to the command input wrapper.
+	 */
+	containerStyle?: React.CSSProperties;
+	/**
+	 * The id of the command input wrapper.
+	 */
+	containerId?: string;
+	/**
+	 * The testId associated with the command input wrapper.
+	 */
+	containerTestId?: string;
+};
 
-CommandInput.displayName = CommandPrimitive.Input.displayName;
+/**
+ * Input field used inside `Command` to capture the search query.
+ *
+ * Renders a search icon and forwards all props to `cmdk`'s `Command.Input`.
+ * Use `placeholder` to guide users and `onValueChange` to react to input value.
+ *
+ * @example
+ * ```tsx
+ * <Command>
+ *   <CommandInput
+ *     placeholder="Search or type a command…"
+ *     onValueChange={(value) => console.log('Query:', value)}
+ *   />
+ *   <CommandList>
+ *     <CommandEmpty>No results.</CommandEmpty>
+ *   </CommandList>
+ * </Command>
+ * ```
+ */
+export const CommandInput = React.forwardRef<HTMLInputElement, CommandInputProps>(
+	(
+		{
+			className,
+			style,
+			testId,
+			id,
+			containerClassName,
+			containerStyle,
+			containerId,
+			containerTestId,
+			...props
+		},
+		ref
+	) => {
+		const inputRef = React.useRef<HTMLInputElement | null>(null);
 
-const CommandList = React.forwardRef<
+		const setRef = React.useCallback(
+			(node: HTMLInputElement | null) => {
+				inputRef.current = node;
+
+				if (typeof ref === 'function') {
+					ref(node);
+					return;
+				}
+
+				if (ref) {
+					ref.current = node;
+				}
+			},
+			[ref]
+		);
+
+		React.useLayoutEffect(() => {
+			if (!id || !inputRef.current) {
+				return;
+			}
+
+			inputRef.current.id = id;
+
+			const commandRoot = inputRef.current.closest('[cmdk-root]');
+			const label = commandRoot?.querySelector('[cmdk-label]');
+
+			if (label instanceof HTMLLabelElement) {
+				label.htmlFor = id;
+			}
+		}, [id]);
+
+		return (
+			<div
+				className={cn(styles['command__input-wrapper'], containerClassName)}
+				data-testid={containerTestId}
+				id={containerId}
+				style={containerStyle}
+			>
+				<MagnifyingGlassIcon className={styles['command__input-icon']} />
+				<CommandPrimitive.Input
+					ref={setRef}
+					className={cn(styles['command__input'], className)}
+					data-testid={testId}
+					style={style}
+					{...props}
+					id={id}
+				/>
+			</div>
+		);
+	}
+);
+CommandInput.displayName = 'CommandInput';
+
+export type CommandListProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> & {
+	/**
+	 * The testId associated with the command list.
+	 */
+	testId?: string;
+};
+
+/**
+ * Scrollable list container for `CommandItem`, `CommandGroup`, `CommandEmpty`,
+ * and `CommandSeparator`.
+ *
+ * Use this inside `Command` to render the command results.
+ *
+ * @example
+ * ```tsx
+ * <Command>
+ *   <CommandInput placeholder="Search commands…" />
+ *   <CommandList>
+ *     <CommandGroup heading="General">
+ *       <CommandItem onSelect={() => console.log('Open settings')}>
+ *         Open settings
+ *       </CommandItem>
+ *     </CommandGroup>
+ *     <CommandEmpty>No results.</CommandEmpty>
+ *   </CommandList>
+ * </Command>
+ * ```
+ */
+export const CommandList = React.forwardRef<
 	React.ElementRef<typeof CommandPrimitive.List>,
-	React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>
->(({ className, ...props }, ref) => (
+	CommandListProps
+>(({ className, testId, ...props }, ref) => (
 	<CommandPrimitive.List
 		ref={ref}
-		className={cn('max-h-[300px] overflow-y-auto overflow-x-hidden', className)}
+		className={cn(styles['command__list'], className)}
+		data-testid={testId}
 		{...props}
 	/>
 ));
+CommandList.displayName = 'CommandList';
 
-CommandList.displayName = CommandPrimitive.List.displayName;
+export type CommandEmptyProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>;
 
-const CommandEmpty = React.forwardRef<
+/**
+ * Fallback content shown when there are no matching results.
+ *
+ * Place this inside `CommandList` to customize the empty state wording.
+ *
+ * @example
+ * ```tsx
+ * <CommandList>
+ *    ...groups and items...
+ *   <CommandEmpty>No results. Try a different keyword.</CommandEmpty>
+ * </CommandList>
+ * ```
+ */
+export const CommandEmpty = React.forwardRef<
 	React.ElementRef<typeof CommandPrimitive.Empty>,
-	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
+	CommandEmptyProps
 >((props, ref) => (
-	<CommandPrimitive.Empty ref={ref} className="py-6 text-center text-sm" {...props} />
+	<CommandPrimitive.Empty ref={ref} className={styles['command__empty']} {...props} />
 ));
+CommandEmpty.displayName = 'CommandEmpty';
 
-CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
+export type CommandLoadingProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Loading>;
 
-const CommandGroup = React.forwardRef<
-	React.ElementRef<typeof CommandPrimitive.Group>,
-	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>
+export const CommandLoading = React.forwardRef<
+	React.ElementRef<typeof CommandPrimitive.Loading>,
+	CommandLoadingProps
 >(({ className, ...props }, ref) => (
+	<CommandPrimitive.Loading
+		ref={ref}
+		className={cn(styles['command__loading'], className)}
+		{...props}
+	/>
+));
+CommandLoading.displayName = 'CommandLoading';
+
+export type CommandGroupProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group> & {
+	/**
+	 * The testId associated with the command group.
+	 */
+	testId?: string;
+};
+
+/**
+ * Groups related `CommandItem` entries under an optional heading.
+ *
+ * Useful for visually separating different kinds of actions or scopes.
+ *
+ * @example
+ * ```tsx
+ * <CommandList>
+ *   <CommandGroup heading="General">
+ *     <CommandItem onSelect={() => console.log('Toggle sidebar')}>
+ *       Toggle sidebar
+ *     </CommandItem>
+ *   </CommandGroup>
+ *
+ *   <CommandSeparator />
+ *
+ *   <CommandGroup heading="Reports">
+ *     <CommandItem onSelect={() => console.log('Create report')}>
+ *       Create report
+ *     </CommandItem>
+ *   </CommandGroup>
+ * </CommandList>
+ * ```
+ */
+export const CommandGroup = React.forwardRef<
+	React.ElementRef<typeof CommandPrimitive.Group>,
+	CommandGroupProps
+>(({ className, testId, ...props }, ref) => (
 	<CommandPrimitive.Group
 		ref={ref}
-		className={cn(
-			'overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground',
-			className
-		)}
+		className={cn(styles['command__group'], className)}
+		data-testid={testId}
 		{...props}
 	/>
 ));
+CommandGroup.displayName = 'CommandGroup';
 
-CommandGroup.displayName = CommandPrimitive.Group.displayName;
+export type CommandSeparatorProps = React.ComponentPropsWithoutRef<
+	typeof CommandPrimitive.Separator
+>;
 
-const CommandSeparator = React.forwardRef<
+/**
+ * Visual divider between sections inside `CommandList`.
+ *
+ * Place between `CommandGroup` blocks to separate categories of commands.
+ *
+ * @example
+ * ```tsx
+ * <CommandList>
+ *   <CommandGroup heading="Top picks">
+ *     <CommandItem onSelect={() => console.log('Alpha')}>Alpha</CommandItem>
+ *   </CommandGroup>
+ *
+ *   <CommandSeparator />
+ *
+ *   <CommandGroup heading="More suggestions">
+ *     <CommandItem onSelect={() => console.log('Beta')}>Beta</CommandItem>
+ *   </CommandGroup>
+ * </CommandList>
+ * ```
+ */
+export const CommandSeparator = React.forwardRef<
 	React.ElementRef<typeof CommandPrimitive.Separator>,
-	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
+	CommandSeparatorProps
 >(({ className, ...props }, ref) => (
 	<CommandPrimitive.Separator
 		ref={ref}
-		className={cn('-mx-1 h-px bg-border', className)}
+		className={cn(styles['command__separator'], className)}
 		{...props}
 	/>
 ));
-CommandSeparator.displayName = CommandPrimitive.Separator.displayName;
+CommandSeparator.displayName = 'CommandSeparator';
 
-const CommandItem = React.forwardRef<
+export type CommandItemProps = Omit<
+	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>,
+	'prefix' | 'suffix'
+> & {
+	/**
+	 * The testId associated with the command item.
+	 */
+	testId?: string;
+	/**
+	 * The prefix to display before the item label.
+	 * null will not render the default prefix (Check icon).
+	 */
+	prefix?: React.ReactNode | null;
+	/**
+	 * The suffix to display after the item label.
+	 * null will not render the suffix.
+	 */
+	suffix?: React.ReactNode | null;
+};
+
+/**
+ * Clickable or keyboard-selectable item representing a single command.
+ *
+ * Use inside `CommandGroup` or directly in `CommandList`. Handle the `onSelect`
+ * callback to react when the user activates the item.
+ *
+ * @example
+ * ```tsx
+ * <CommandList>
+ *   <CommandGroup heading="Actions">
+ *     <CommandItem
+ *       onSelect={() => {
+ *         console.log('Open settings');
+ *       }}
+ *     >
+ *       Open settings
+ *       <CommandShortcut>⌘S</CommandShortcut>
+ *     </CommandItem>
+ *   </CommandGroup>
+ * </CommandList>
+ * ```
+ */
+export const CommandItem = React.forwardRef<
 	React.ElementRef<typeof CommandPrimitive.Item>,
-	React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
->(({ className, ...props }, ref) => (
+	CommandItemProps
+>(({ className, prefix, suffix, children, testId, ...props }, ref) => (
 	<CommandPrimitive.Item
 		ref={ref}
-		className={cn(
-			'relative flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
-			className
-		)}
+		className={cn(styles['command__item'], className)}
+		data-testid={testId}
 		{...props}
-	/>
+	>
+		{prefix != null && <span className={styles['command__item-prefix']}>{prefix}</span>}
+		{children}
+		{suffix != null && <span className={styles['command__item-suffix']}>{suffix}</span>}
+	</CommandPrimitive.Item>
 ));
+CommandItem.displayName = 'CommandItem';
 
-CommandItem.displayName = CommandPrimitive.Item.displayName;
+export type CommandShortcutProps = React.HTMLAttributes<HTMLSpanElement>;
 
-const CommandShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
-	return (
-		<span
-			className={cn('ml-auto text-xs tracking-widest text-muted-foreground', className)}
-			{...props}
-		/>
-	);
-};
+/**
+ * Right-aligned helper text, typically used to display keyboard shortcuts
+ * next to a `CommandItem` label.
+ *
+ * @example
+ * ```tsx
+ * <CommandItem onSelect={() => console.log('New report')}>
+ *   Create report
+ *   <CommandShortcut>⌘N</CommandShortcut>
+ * </CommandItem>
+ * ```
+ */
+export const CommandShortcut = React.forwardRef<HTMLSpanElement, CommandShortcutProps>(
+	({ className, ...props }, ref) => {
+		return <span ref={ref} className={cn(styles['command__shortcut'], className)} {...props} />;
+	}
+);
 CommandShortcut.displayName = 'CommandShortcut';
-
-export {
-	Command,
-	CommandDialog,
-	CommandInput,
-	CommandList,
-	CommandEmpty,
-	CommandGroup,
-	CommandItem,
-	CommandShortcut,
-	CommandSeparator,
-};

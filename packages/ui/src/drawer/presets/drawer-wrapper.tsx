@@ -1,0 +1,271 @@
+import { AnimatePresence } from 'motion/react';
+import * as React from 'react';
+import { useCallback, useState } from 'react';
+import {
+	DialogCloseButton,
+	type DialogCloseButtonProps,
+	type DialogSize,
+} from '../../dialog/index.js';
+import {
+	Drawer,
+	DrawerContent,
+	type DrawerContentProps,
+	DrawerDescription,
+	type DrawerDescriptionProps,
+	type DrawerDirection,
+	DrawerFooter,
+	type DrawerFooterProps,
+	DrawerHeader,
+	type DrawerHeaderProps,
+	DrawerSubtitle,
+	type DrawerSubtitleProps,
+	DrawerTitle,
+	type DrawerTitleProps,
+	DrawerTrigger,
+} from '../index.js';
+
+export interface DrawerWrapperProps {
+	/**
+	 * The testId associated with the drawer.
+	 */
+	testId?: string;
+	/**
+	 * The id of the drawer.
+	 */
+	id?: string;
+	/**
+	 * The title of the drawer.
+	 */
+	title?: string;
+	/**
+	 * The subtitle of the drawer.
+	 */
+	subTitle?: string;
+	/**
+	 * The content of the drawer.
+	 */
+	children: React.ReactNode;
+	/**
+	 * The controlled open state of the drawer. Must be used in conjunction with onOpenChange.
+	 */
+	open?: boolean;
+	/**
+	 * Event handler called when the open state of the drawer changes.
+	 */
+	onOpenChange?: (open: boolean) => void;
+	/**
+	 * The element that opens the drawer when clicked.
+	 */
+	trigger?: React.ReactNode;
+	/**
+	 * The footer of the drawer.
+	 */
+	footer?: React.ReactNode;
+	/**
+	 * The class name of the drawer.
+	 */
+	className?: string;
+	/**
+	 * Inline styles applied to the drawer content surface.
+	 */
+	style?: React.CSSProperties;
+	/**
+	 * Whether to disable outside clicks.
+	 * @default false
+	 */
+	disableOutsideClick?: boolean;
+	/**
+	 * Whether to show the close button.
+	 * @default true
+	 */
+	showCloseButton?: boolean;
+	/**
+	 * The side of the viewport from which the drawer appears.
+	 * @default 'right'
+	 */
+	direction?: DrawerDirection;
+	/**
+	 * Whether to render the overlay behind the drawer.
+	 * @default true
+	 */
+	showOverlay?: boolean;
+	/**
+	 * The width of the dialog.
+	 * @default 'base'
+	 */
+	width?: DialogSize;
+	/**
+	 * The props you can pass to drawer content
+	 */
+	drawerContentProps?: Omit<
+		DrawerContentProps,
+		| 'className'
+		| 'style'
+		| 'direction'
+		| 'showOverlay'
+		| 'forceMount'
+		| 'onPointerDownOutside'
+		| 'testId'
+		| 'id'
+		| 'key'
+		| 'width'
+	>;
+	/**
+	 * The props you can pass to drawer header
+	 */
+	drawerHeaderProps?: Omit<DrawerHeaderProps, 'children'>;
+	/**
+	 * The props you can pass to drawer title
+	 */
+	drawerTitleProps?: Omit<DrawerTitleProps, 'children'>;
+	/**
+	 * The props you can pass to drawer subtitle
+	 */
+	drawerSubtitleProps?: Omit<DrawerSubtitleProps, 'children'>;
+	/**
+	 * The props you can pass to drawer description
+	 */
+	drawerDescriptionProps?: Omit<DrawerDescriptionProps, 'children'>;
+	/**
+	 * The props you can pass to drawer footer
+	 */
+	drawerFooterProps?: Omit<DrawerFooterProps, 'children'>;
+	/**
+	 * The props you can pass to close button
+	 */
+	closeButtonProps?: Omit<DialogCloseButtonProps, 'onClick'>;
+}
+
+/**
+ * High-level drawer preset that composes the primitive drawer
+ * components into a conventional layout with header, description and
+ * optional footer. Used as the main `Drawer` story component.
+ *
+ * @example
+ * ```tsx
+ * <DrawerWrapper
+ *   title="Edit settings"
+ *   direction="right"
+ *   trigger={
+ *     <Button variant="solid" color="primary">
+ *       Open Drawer
+ *     </Button>
+ *   }
+ * >
+ *   <div className="flex flex-col gap-4 text-sm leading-5">
+ *     <p>Drawer content goes here.</p>
+ *     <div className="flex justify-end">
+ *       <DialogClose asChild>
+ *         <Button variant="solid" color="primary">
+ *           Save Changes
+ *         </Button>
+ *       </DialogClose>
+ *     </div>
+ *   </div>
+ * </DrawerWrapper>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * const [open, setOpen] = React.useState(false);
+ *
+ * <DrawerWrapper
+ *   open={open}
+ *   onOpenChange={setOpen}
+ *   title="Controlled Drawer"
+ *   direction="right"
+ *   trigger={
+ *     <Button variant="solid" color="primary">
+ *       Open Controlled Drawer
+ *     </Button>
+ *   }
+ * >
+ *   <div className="flex flex-col gap-4 text-sm leading-5">
+ *     <p>Drawer content goes here.</p>
+ *     <Button variant="solid" color="primary" onClick={() => setOpen(false)}>
+ *       Close Drawer
+ *     </Button>
+ *   </div>
+ * </DrawerWrapper>
+ * ```
+ */
+export const DrawerWrapper = React.forwardRef<HTMLDivElement, DrawerWrapperProps>(
+	(
+		{
+			title,
+			subTitle,
+			children,
+			open,
+			onOpenChange,
+			trigger,
+			className,
+			style,
+			disableOutsideClick = false,
+			showCloseButton = true,
+			direction = 'right',
+			showOverlay = true,
+			footer,
+			testId,
+			id,
+			drawerContentProps,
+			drawerHeaderProps,
+			drawerTitleProps,
+			drawerSubtitleProps,
+			drawerDescriptionProps,
+			drawerFooterProps,
+			closeButtonProps,
+			width = 'base',
+		},
+		ref
+	) => {
+		const isControlled = open !== undefined && onOpenChange !== undefined;
+		const [internalOpen, setInternalOpen] = useState(false);
+		const resolvedOpen = isControlled ? open : internalOpen;
+		const resolvedOnOpenChange = useCallback(
+			(next: boolean) => {
+				if (!isControlled) setInternalOpen(next);
+				onOpenChange?.(next);
+			},
+			[isControlled, onOpenChange]
+		);
+		const onClickClose = useCallback(() => {
+			if (!isControlled) setInternalOpen(false);
+			onOpenChange?.(false);
+		}, [isControlled, onOpenChange]);
+
+		const content = (
+			<DrawerContent
+				ref={ref}
+				key="drawer-wrapper"
+				className={className}
+				style={style}
+				direction={direction}
+				showOverlay={showOverlay}
+				forceMount
+				onPointerDownOutside={disableOutsideClick ? (e) => e.preventDefault() : undefined}
+				testId={testId}
+				id={id}
+				width={width}
+				{...drawerContentProps}
+			>
+				{(title || subTitle) && (
+					<DrawerHeader {...drawerHeaderProps}>
+						{title && <DrawerTitle {...drawerTitleProps}>{title}</DrawerTitle>}
+						{subTitle && <DrawerSubtitle {...drawerSubtitleProps}>{subTitle}</DrawerSubtitle>}
+					</DrawerHeader>
+				)}
+				{children && <DrawerDescription {...drawerDescriptionProps}>{children}</DrawerDescription>}
+				{footer && <DrawerFooter {...drawerFooterProps}>{footer}</DrawerFooter>}
+				{showCloseButton && <DialogCloseButton onClick={onClickClose} {...closeButtonProps} />}
+			</DrawerContent>
+		);
+
+		return (
+			<Drawer open={resolvedOpen} onOpenChange={resolvedOnOpenChange}>
+				{trigger && <DrawerTrigger asChild>{trigger}</DrawerTrigger>}
+				<AnimatePresence>{resolvedOpen ? content : null}</AnimatePresence>
+			</Drawer>
+		);
+	}
+);
+DrawerWrapper.displayName = 'DrawerWrapper';

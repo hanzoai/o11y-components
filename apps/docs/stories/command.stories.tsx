@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {
+	Button,
 	Command,
 	CommandDialog,
 	CommandEmpty,
@@ -15,39 +14,28 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { action } from 'storybook/actions';
 
-import { generateDocs } from '../utils/generateDocs.js';
-
-const examples = [
-	`import { Command, CommandInput, CommandList, CommandItem } from '@signozhq/ui';
-
-export default function MyComponent() {
-  return (
-    <Command>
-      <CommandInput placeholder="Search…" />
-      <CommandList>
-        <CommandItem>Open settings</CommandItem>
-      </CommandList>
-    </Command>
-  );
-}`,
-];
-
-const docs = generateDocs({
-	packageName: '@signozhq/ui',
-	description:
-		'Fast, composable, unstyled command menu for React. Use CommandDialog to mount in a modal/portal.',
-	examples,
-});
-
 const meta: Meta<any> = {
-	title: 'Old Components/Command',
+	title: 'Primitive Components/Command',
 	component: Command,
-	tags: ['autodocs'],
 	parameters: {
-		docs: { description: { component: docs } },
 		controls: { expanded: true },
 	},
 	argTypes: {
+		testId: {
+			control: 'text',
+			description: 'Test ID for the command component.',
+			table: { category: 'Testing', type: { summary: 'string' } },
+		},
+		id: {
+			control: 'text',
+			description: 'A unique identifier for the command component.',
+			table: { category: 'Accessibility', type: { summary: 'string' } },
+		},
+		className: {
+			control: 'text',
+			description: 'Additional CSS classes for custom styling.',
+			table: { category: 'Styling', type: { summary: 'string' } },
+		},
 		placeholder: {
 			control: 'text',
 			description: 'Placeholder text shown in the command input box',
@@ -190,34 +178,34 @@ export const Dialog: Story = {
 		return (
 			<>
 				<div style={{ margin: 12 }}>
-					<button onClick={() => handleOpenChange(true)}>Open Command Dialog</button>
+					<Button type="button" variant="solid" onClick={() => handleOpenChange(true)}>
+						Open Command Dialog
+					</Button>
 				</div>
 
 				<CommandDialog open={open} onOpenChange={handleOpenChange} position="top" offset={110}>
-					<div style={{ width: 520 }}>
-						<CommandInput placeholder={args.placeholder} autoFocus={false} />
-						<CommandList>
-							<CommandGroup heading="Quick actions">
-								{ITEMS.map((it) => (
-									<CommandItem
-										key={it.id}
-										onSelect={() => {
-											action('select')(it.label);
-											args.onSelect?.(it);
-											handleOpenChange(false);
-										}}
-									>
-										{it.label}
-										{it.shortcut && <CommandShortcut>{it.shortcut}</CommandShortcut>}
-									</CommandItem>
-								))}
-							</CommandGroup>
+					<CommandInput placeholder={args.placeholder} autoFocus={false} />
+					<CommandList>
+						<CommandGroup heading="Quick actions">
+							{ITEMS.map((it) => (
+								<CommandItem
+									key={it.id}
+									onSelect={() => {
+										action('select')(it.label);
+										args.onSelect?.(it);
+										handleOpenChange(false);
+									}}
+								>
+									{it.label}
+									{it.shortcut && <CommandShortcut>{it.shortcut}</CommandShortcut>}
+								</CommandItem>
+							))}
+						</CommandGroup>
 
-							<CommandSeparator />
+						<CommandSeparator />
 
-							<CommandEmpty>Try searching for &quot;report&quot;.</CommandEmpty>
-						</CommandList>
-					</div>
+						<CommandEmpty>Try searching for &quot;report&quot;.</CommandEmpty>
+					</CommandList>
 				</CommandDialog>
 			</>
 		);
