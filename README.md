@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="o11y-components" width="880"></p>
+
 # Signoz Components Library
 
 React component library powered by Turborepo, React, and Storybook.
