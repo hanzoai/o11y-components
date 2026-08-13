@@ -6,7 +6,7 @@ const createIcon = (testId: string, className?: string) =>
 	};
 
 export const Spinner = (props: React.SVGProps<SVGSVGElement>) => (
-	<svg data-testid="spinner" className="animate-fast-spin" {...props} />
+	<svg data-testid="spinner" {...props} />
 );
 
 export const CircleAlert = createIcon('circle-alert');

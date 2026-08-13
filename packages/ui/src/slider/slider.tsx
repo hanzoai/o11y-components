@@ -52,7 +52,7 @@ export interface SliderProps
 	 * @example
 	 * ```tsx
 	 * // Apply custom classes
-	 * <Slider classNames={{ track: 'bg-gray-200', range: 'bg-blue-500', thumb: 'border-blue-500' }} />
+	 * <Slider classNames={{ track: 'gauge-track', range: 'gauge-range', thumb: 'gauge-thumb' }} />
 	 * ```
 	 */
 	classNames?: {

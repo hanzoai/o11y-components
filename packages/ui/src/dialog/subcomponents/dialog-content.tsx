@@ -249,7 +249,7 @@ export type DialogContentProps = Pick<
  *       <DialogTitle>Primitive composition</DialogTitle>
  *     </DialogHeader>
  *     <DialogDescription>
- *       <p className="text-sm">
+ *       <p>
  *         Use DialogContent, DialogHeader, DialogTitle, DialogDescription and DialogFooter for full control.
  *       </p>
  *     </DialogDescription>

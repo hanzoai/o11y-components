@@ -45,7 +45,7 @@ export type PopoverSimpleProps = Pick<
  * ```tsx
  * <PopoverSimple
  *   trigger={<Button variant="outline">Open</Button>}
- *   className="w-64"
+ *   style={{ width: 256 }}
  * >
  *   <p>Simple popover content</p>
  * </PopoverSimple>

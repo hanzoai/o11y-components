@@ -42,10 +42,10 @@ export type PopoverProps = {
  *   <PopoverTrigger asChild>
  *     <Button variant="outline">Open popover</Button>
  *   </PopoverTrigger>
- *   <PopoverContent className="w-80">
- *     <div className="space-y-2">
- *       <h4 className="font-medium">Dimensions</h4>
- *       <p className="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
+ *   <PopoverContent style={{ width: 320 }}>
+ *     <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+ *       <h4 style={{ fontWeight: 500 }}>Dimensions</h4>
+ *       <p style={{ fontSize: 13, color: 'var(--muted-foreground)' }}>Set the dimensions for the layer.</p>
  *     </div>
  *   </PopoverContent>
  * </Popover>
@@ -154,7 +154,7 @@ export type PopoverAnchorProps = Omit<
  * ```tsx
  * <Popover>
  *   <PopoverAnchor asChild>
- *     <div className="flex gap-2">
+ *     <div style={{ display: 'flex', gap: 8 }}>
  *       <span>Row as anchor</span>
  *       <PopoverTrigger>Trigger</PopoverTrigger>
  *     </div>
@@ -346,10 +346,10 @@ export type PopoverContentProps = {
  *
  * @example
  * ```tsx
- * <PopoverContent className="w-80" side="bottom" align="center" arrow>
- *   <div className="space-y-2">
- *     <h4 className="font-medium">Title</h4>
- *     <p className="text-sm text-muted-foreground">Rich content here.</p>
+ * <PopoverContent style={{ width: 320 }} side="bottom" align="center" arrow>
+ *   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+ *     <h4 style={{ fontWeight: 500 }}>Title</h4>
+ *     <p style={{ fontSize: 13, color: 'var(--muted-foreground)' }}>Rich content here.</p>
  *   </div>
  * </PopoverContent>
  * ```

@@ -364,7 +364,7 @@ const PinList = React.forwardRef<HTMLDivElement, PinListProps>(
 										animate={expandAnimate}
 										exit={expandInitial}
 										transition={moreSectionAnimationTransition}
-										className={cn(styles['section-items'], 'overflow-hidden')}
+										className={cn(styles['section-items'], styles['section-items--clipped'])}
 									>
 										{unpinned.map((item) => (
 											<PinListItemComponent

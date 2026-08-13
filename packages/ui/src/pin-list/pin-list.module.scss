@@ -16,6 +16,12 @@
   gap: var(--pin-list-section-items-gap, var(--spacing-3, 6px));
 }
 
+// The "more" section animates its own height open and closed; without clipping
+// the rows spill past the animating box mid-transition.
+.section-items--clipped {
+  overflow: hidden;
+}
+
 .label {
   display: flex;
   align-items: center;

@@ -87,13 +87,13 @@ export type ToggleGroupProps = (
  * ```tsx
  * <ToggleGroup type="single" defaultValue="center">
  *   <ToggleGroupItem value="left" aria-label="Align left">
- *     <AlignLeft className="h-3 w-3" />
+ *     <AlignLeft size={12} />
  *   </ToggleGroupItem>
  *   <ToggleGroupItem value="center" aria-label="Align center">
- *     <AlignCenter className="h-3 w-3" />
+ *     <AlignCenter size={12} />
  *   </ToggleGroupItem>
  *   <ToggleGroupItem value="right" aria-label="Align right">
- *     <AlignRight className="h-3 w-3" />
+ *     <AlignRight size={12} />
  *   </ToggleGroupItem>
  * </ToggleGroup>
  * ```
@@ -103,8 +103,8 @@ export type ToggleGroupProps = (
  * import { ToggleGroupSimple } from '@signozhq/ui';
  *
  * const items = [
- *   { value: 'bold', label: <Bold className="h-3 w-3" />, 'aria-label': 'Bold' },
- *   { value: 'grid', label: <><LayoutGrid className="h-6 w-6" /> Label</> },
+ *   { value: 'bold', label: <Bold size={12} />, 'aria-label': 'Bold' },
+ *   { value: 'grid', label: <><LayoutGrid size={24} /> Label</> },
  * ];
  * <ToggleGroupSimple type="single" items={items} defaultValue="bold" />
  * ```
@@ -150,14 +150,14 @@ export type ToggleGroupItemProps = {
  * @example Icon only
  * ```tsx
  * <ToggleGroupItem value="bold" aria-label="Bold">
- *   <Bold className="h-3 w-3" />
+ *   <Bold size={12} />
  * </ToggleGroupItem>
  * ```
  *
  * @example Icon and label
  * ```tsx
  * <ToggleGroupItem value="grid">
- *   <LayoutGrid className="h-6 w-6" /> Label
+ *   <LayoutGrid size={24} /> Label
  * </ToggleGroupItem>
  * ```
  *

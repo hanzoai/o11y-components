@@ -36,7 +36,7 @@ export type SelectItemProps = {
  *
  * // With icon
  * <SelectItem value="react" textValue="React">
- *   <Code className="mr-2 h-4 w-4" />
+ *   <Code size={16} style={{ marginRight: 8 }} />
  *   React
  * </SelectItem>
  *

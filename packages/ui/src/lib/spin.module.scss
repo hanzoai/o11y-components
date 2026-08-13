@@ -1,0 +1,18 @@
+// One home for the loading rotation. Imported by every control that shows a
+// spinner so the animation ships with the library instead of being borrowed
+// from whatever utility CSS the consumer happens to compile.
+//
+// The animation name is written bare, not wrapped in a var() fallback: CSS
+// Modules rewrites `@keyframes spin` to a scoped name and only rewrites
+// references it can see, which does not include the inside of a var().
+// Duration stays tunable, which is the part worth overriding.
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.spin {
+	animation: spin var(--spin-duration, 0.7s) linear infinite;
+}
