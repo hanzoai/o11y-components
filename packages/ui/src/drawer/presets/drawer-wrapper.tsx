@@ -152,9 +152,9 @@ export interface DrawerWrapperProps {
  *     </Button>
  *   }
  * >
- *   <div className="flex flex-col gap-4 text-sm leading-5">
+ *   <div style={{ display: 'flex', flexDirection: 'column', gap: 16, fontSize: 13, lineHeight: '20px' }}>
  *     <p>Drawer content goes here.</p>
- *     <div className="flex justify-end">
+ *     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
  *       <DialogClose asChild>
  *         <Button variant="solid" color="primary">
  *           Save Changes
@@ -180,7 +180,7 @@ export interface DrawerWrapperProps {
  *     </Button>
  *   }
  * >
- *   <div className="flex flex-col gap-4 text-sm leading-5">
+ *   <div style={{ display: 'flex', flexDirection: 'column', gap: 16, fontSize: 13, lineHeight: '20px' }}>
  *     <p>Drawer content goes here.</p>
  *     <Button variant="solid" color="primary" onClick={() => setOpen(false)}>
  *       Close Drawer

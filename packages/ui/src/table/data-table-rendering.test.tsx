@@ -1,5 +1,6 @@
 import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import spin from '../lib/spin.module.scss';
 import { createColumns, createPersonData, renderDataTable } from './data-table.test-utils.js';
 
 describe('DataTable rendering', () => {
@@ -30,7 +31,7 @@ describe('DataTable rendering', () => {
 
 	it('shows loading spinner when isLoading', () => {
 		renderDataTable({ isLoading: true, testId: 'table-4' });
-		expect(document.querySelector('.animate-fast-spin')).toBeInTheDocument();
+		expect(screen.getByTestId('loader-circle')).toHaveClass(spin['spin']);
 	});
 
 	it('hides headers when showHeaders is false', () => {

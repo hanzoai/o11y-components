@@ -55,7 +55,7 @@ export type ToggleProps = Pick<
  * @example Standalone toggle
  * ```tsx
  * <Toggle aria-label="Toggle bold" value={bold} onChange={setBold}>
- *   <Bold className="h-3 w-3" />
+ *   <Bold size={12} />
  * </Toggle>
  * ```
  */

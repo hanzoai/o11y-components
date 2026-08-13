@@ -115,7 +115,7 @@ export type InputProps = Simplify<
  * ```tsx
  * // With prefix and suffix
  * <Input
- *   prefix={<span className="text-xs text-vanilla-500">@</span>}
+ *   prefix={<span style={{ fontSize: 11, color: 'var(--muted-foreground)' }}>@</span>}
  *   suffix={<button type="button">Clear</button>}
  *   placeholder="username"
  * />
@@ -207,7 +207,7 @@ export type InputPasswordProps = Omit<InputProps, 'type' | 'ref'>;
  * @example
  * ```tsx
  * // Dark themed password input
- * <div className="bg-slate-900 p-4">
+ * <div style={{ backgroundColor: 'var(--bg-ink-500)', padding: 16 }}>
  *   <Input.Password placeholder="Enter password" theme="dark" />
  * </div>
  * ```

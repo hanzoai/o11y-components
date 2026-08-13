@@ -68,7 +68,7 @@ export type DialogProps = {
  *       </DialogHeader>
  *       <DialogDescription>
  *         <p>Dialog content goes here.</p>
- *         <div className="flex justify-end">
+ *         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
  *           <Button variant="solid" color="primary" onClick={() => setOpen(false)}>
  *             Close
  *           </Button>

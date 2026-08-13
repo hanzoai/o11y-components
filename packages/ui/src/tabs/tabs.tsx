@@ -463,10 +463,10 @@ export type TabsContentProps = Pick<
  * ```tsx
  * // Multiple content panels with custom styling
  * <>
- *   <TabsContent value="code" className="p-4">
+ *   <TabsContent value="code" style={{ padding: 16 }}>
  *     <CodeEditor />
  *   </TabsContent>
- *   <TabsContent value="preview" className="p-4">
+ *   <TabsContent value="preview" style={{ padding: 16 }}>
  *     <LivePreview />
  *   </TabsContent>
  * </>
