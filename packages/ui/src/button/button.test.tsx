@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { createRef } from 'react';
 import { describe, expect, it, vi } from 'vitest';
+import spin from '../lib/spin.module.scss';
 import { Button, ButtonBackground, ButtonColor, ButtonSize, ButtonVariant } from './button.js';
 import { ButtonGroup } from './button-group.js';
 
@@ -46,7 +47,7 @@ describe('Button', () => {
 		fireEvent.click(button);
 		expect(onClick).toHaveBeenCalledTimes(0);
 
-		expect(button.querySelector('.animate-fast-spin')).toBeInTheDocument();
+		expect(screen.getByTestId('loader-circle')).toHaveClass(spin['spin']);
 	});
 
 	it('hides prefix and suffix when loading', () => {

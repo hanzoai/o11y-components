@@ -2,6 +2,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { LoaderCircle } from '@signozhq/icons';
 import type React from 'react';
 import { cloneElement, createContext, forwardRef, useContext } from 'react';
+import spin from '../lib/spin.module.scss';
 import { cn } from '../lib/utils.js';
 import styles from './button.module.scss';
 
@@ -250,7 +251,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				{...props}
 			>
 				{loading ? (
-					<LoaderCircle size={iconSizes[size]} className="animate-fast-spin" />
+					<LoaderCircle size={iconSizes[size]} className={spin['spin']} />
 				) : (
 					(prefix &&
 						cloneElement(prefix, {

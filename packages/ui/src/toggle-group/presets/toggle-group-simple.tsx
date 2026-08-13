@@ -67,8 +67,8 @@ ToggleGroupSimpleInner.displayName = 'ToggleGroupSimpleInner';
  * @example Items with icon only
  * ```tsx
  * const items = [
- *   { value: 'bold', label: <Bold className="h-3 w-3" />, 'aria-label': 'Bold' },
- *   { value: 'italic', label: <Italic className="h-3 w-3" />, 'aria-label': 'Italic' },
+ *   { value: 'bold', label: <Bold size={12} />, 'aria-label': 'Bold' },
+ *   { value: 'italic', label: <Italic size={12} />, 'aria-label': 'Italic' },
  * ];
  *
  * <ToggleGroupSimple type="multiple" items={items} defaultValue={['bold']} />
@@ -77,8 +77,8 @@ ToggleGroupSimpleInner.displayName = 'ToggleGroupSimpleInner';
  * @example Items with icon and label (ReactNode)
  * ```tsx
  * const items = [
- *   { value: 'grid', label: <><LayoutGrid className="h-6 w-6" /> Label</> },
- *   { value: 'list', label: <><List className="h-6 w-6" /> Label</> },
+ *   { value: 'grid', label: <><LayoutGrid size={24} /> Label</> },
+ *   { value: 'list', label: <><List size={24} /> Label</> },
  * ];
  *
  * <ToggleGroupSimple type="single" items={items} defaultValue="grid" />
