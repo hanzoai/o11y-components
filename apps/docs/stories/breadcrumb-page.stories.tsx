@@ -151,7 +151,7 @@ export const LongText: Story = {
 
 export const WithCustomClassName: Story = {
 	args: {
-		className: 'text-blue-400',
+		className: 'demo-accent',
 		children: 'Styled Page',
 	},
 	render: (args) => (

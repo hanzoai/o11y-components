@@ -120,21 +120,64 @@ export const Default: Story = {
 		collapsible: false,
 	},
 	render: (args) => (
-		<div className="h-[400px] border rounded-lg overflow-hidden m-6">
+		<div
+			style={{
+				height: 400,
+				borderStyle: 'solid',
+				borderWidth: 1,
+				borderRadius: 4,
+				overflow: 'hidden',
+				margin: 24,
+			}}
+		>
 			<ResizablePanelGroup orientation="horizontal">
 				<ResizablePanel {...args}>
-					<div className="flex h-full items-center justify-center bg-muted">
-						<div className="text-center">
-							<Code className="mx-auto mb-2 h-6 w-6 text-muted-foreground" />
-							<span className="text-sm font-medium">Resizable Panel</span>
-							<p className="text-xs text-muted-foreground mt-1">50% default size</p>
+					<div
+						style={{
+							display: 'flex',
+							height: '100%',
+							alignItems: 'center',
+							justifyContent: 'center',
+							backgroundColor: 'var(--muted)',
+						}}
+					>
+						<div style={{ textAlign: 'center' }}>
+							<Code
+								style={{
+									marginInline: 'auto',
+									marginBottom: 8,
+									height: 24,
+									width: 24,
+									color: 'var(--muted-foreground)',
+								}}
+							/>
+							<span style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+								Resizable Panel
+							</span>
+							<p
+								style={{
+									fontSize: 12,
+									lineHeight: 1.33333,
+									color: 'var(--muted-foreground)',
+									marginTop: 4,
+								}}
+							>
+								50% default size
+							</p>
 						</div>
 					</div>
 				</ResizablePanel>
 				<ResizableHandle withHandle />
 				<ResizablePanel defaultSize="50%">
-					<div className="flex h-full items-center justify-center">
-						<span className="text-sm font-medium">Fixed Panel</span>
+					<div
+						style={{
+							display: 'flex',
+							height: '100%',
+							alignItems: 'center',
+							justifyContent: 'center',
+						}}
+					>
+						<span style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>Fixed Panel</span>
 					</div>
 				</ResizablePanel>
 			</ResizablePanelGroup>
@@ -150,24 +193,62 @@ export const WithMinMaxConstraints: Story = {
 		collapsible: false,
 	},
 	render: (args) => (
-		<div className="m-6">
-			<div className="mb-4 p-4 bg-muted rounded-lg">
-				<h3 className="font-medium mb-2">Size Constraints:</h3>
-				<ul className="text-sm text-muted-foreground space-y-1">
+		<div style={{ margin: 24 }}>
+			<div
+				style={{ marginBottom: 16, padding: 16, backgroundColor: 'var(--muted)', borderRadius: 4 }}
+			>
+				<h3 style={{ fontWeight: 500, marginBottom: 8 }}>Size Constraints:</h3>
+				<ul
+					className="stack-4"
+					style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}
+				>
 					<li>• Default: 30%</li>
 					<li>• Minimum: 20%</li>
 					<li>• Maximum: 60%</li>
 					<li>• Try resizing - it won't go beyond these limits!</li>
 				</ul>
 			</div>
-			<div className="h-[400px] border rounded-lg overflow-hidden">
+			<div
+				style={{
+					height: 400,
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					overflow: 'hidden',
+				}}
+			>
 				<ResizablePanelGroup orientation="horizontal">
 					<ResizablePanel {...args}>
-						<div className="flex h-full items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20">
-							<div className="text-center">
-								<Settings className="mx-auto mb-2 h-6 w-6 text-blue-600" />
-								<span className="text-sm font-medium">Constrained Panel</span>
-								<div className="text-xs text-muted-foreground mt-2">
+						<div
+							className="panel-blue"
+							style={{
+								display: 'flex',
+								height: '100%',
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+						>
+							<div style={{ textAlign: 'center' }}>
+								<Settings
+									style={{
+										marginInline: 'auto',
+										marginBottom: 8,
+										height: 24,
+										width: 24,
+										color: '#155dfc',
+									}}
+								/>
+								<span style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+									Constrained Panel
+								</span>
+								<div
+									style={{
+										fontSize: 12,
+										lineHeight: 1.33333,
+										color: 'var(--muted-foreground)',
+										marginTop: 8,
+									}}
+								>
 									<div>Min: 20% • Max: 60%</div>
 								</div>
 							</div>
@@ -175,8 +256,17 @@ export const WithMinMaxConstraints: Story = {
 					</ResizablePanel>
 					<ResizableHandle withHandle />
 					<ResizablePanel defaultSize="70%">
-						<div className="flex h-full items-center justify-center">
-							<span className="text-sm font-medium">Flexible Panel</span>
+						<div
+							style={{
+								display: 'flex',
+								height: '100%',
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+						>
+							<span style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+								Flexible Panel
+							</span>
 						</div>
 					</ResizablePanel>
 				</ResizablePanelGroup>
@@ -193,30 +283,66 @@ export const Collapsible: Story = {
 		collapsible: true,
 	},
 	render: (args) => (
-		<div className="m-6">
-			<div className="mb-4 p-4 bg-muted rounded-lg">
-				<h3 className="font-medium mb-2">Collapsible Panel:</h3>
-				<ul className="text-sm text-muted-foreground space-y-1">
+		<div style={{ margin: 24 }}>
+			<div
+				style={{ marginBottom: 16, padding: 16, backgroundColor: 'var(--muted)', borderRadius: 4 }}
+			>
+				<h3 style={{ fontWeight: 500, marginBottom: 8 }}>Collapsible Panel:</h3>
+				<ul
+					className="stack-4"
+					style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}
+				>
 					<li>• Drag the left panel to its minimum size to collapse it</li>
 					<li>• Click the resize handle to restore it</li>
 					<li>• Great for sidebars and tool panels!</li>
 				</ul>
 			</div>
-			<div className="h-[400px] border rounded-lg overflow-hidden">
+			<div
+				style={{
+					height: 400,
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					overflow: 'hidden',
+				}}
+			>
 				<ResizablePanelGroup orientation="horizontal">
 					<ResizablePanel {...args}>
-						<div className="flex h-full flex-col p-4 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20">
-							<Code className="h-5 w-5 mb-2 text-green-600" />
-							<h3 className="font-medium mb-2">Collapsible Sidebar</h3>
-							<p className="text-xs text-muted-foreground">Drag me to the edge!</p>
+						<div
+							className="panel-green"
+							style={{ display: 'flex', height: '100%', flexDirection: 'column', padding: 16 }}
+						>
+							<Code style={{ height: 20, width: 20, marginBottom: 8, color: '#00a544' }} />
+							<h3 style={{ fontWeight: 500, marginBottom: 8 }}>Collapsible Sidebar</h3>
+							<p style={{ fontSize: 12, lineHeight: 1.33333, color: 'var(--muted-foreground)' }}>
+								Drag me to the edge!
+							</p>
 						</div>
 					</ResizablePanel>
 					<ResizableHandle withHandle />
 					<ResizablePanel defaultSize="75%">
-						<div className="flex h-full items-center justify-center">
-							<div className="text-center">
-								<span className="text-sm font-medium">Main Content</span>
-								<p className="text-xs text-muted-foreground mt-1">Expands when sidebar collapses</p>
+						<div
+							style={{
+								display: 'flex',
+								height: '100%',
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+						>
+							<div style={{ textAlign: 'center' }}>
+								<span style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+									Main Content
+								</span>
+								<p
+									style={{
+										fontSize: 12,
+										lineHeight: 1.33333,
+										color: 'var(--muted-foreground)',
+										marginTop: 4,
+									}}
+								>
+									Expands when sidebar collapses
+								</p>
 							</div>
 						</div>
 					</ResizablePanel>
@@ -228,38 +354,98 @@ export const Collapsible: Story = {
 
 export const MultipleCollapsiblePanels: Story = {
 	render: () => (
-		<div className="m-6">
-			<div className="mb-4 p-4 bg-muted rounded-lg">
-				<h3 className="font-medium mb-2">Both side panels are collapsible:</h3>
-				<p className="text-sm text-muted-foreground">
+		<div style={{ margin: 24 }}>
+			<div
+				style={{ marginBottom: 16, padding: 16, backgroundColor: 'var(--muted)', borderRadius: 4 }}
+			>
+				<h3 style={{ fontWeight: 500, marginBottom: 8 }}>Both side panels are collapsible:</h3>
+				<p style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}>
 					Drag either side panel to its edge to collapse it
 				</p>
 			</div>
-			<div className="h-[400px] border rounded-lg overflow-hidden">
+			<div
+				style={{
+					height: 400,
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					overflow: 'hidden',
+				}}
+			>
 				<ResizablePanelGroup orientation="horizontal">
 					<ResizablePanel defaultSize="20%" minSize="15%" maxSize="35%" collapsible={true}>
-						<div className="flex h-full flex-col p-4 bg-muted">
-							<Settings className="h-5 w-5 mb-2 text-muted-foreground" />
-							<h3 className="font-medium mb-2">Left Sidebar</h3>
-							<p className="text-xs text-muted-foreground">Collapsible</p>
+						<div
+							style={{
+								display: 'flex',
+								height: '100%',
+								flexDirection: 'column',
+								padding: 16,
+								backgroundColor: 'var(--muted)',
+							}}
+						>
+							<Settings
+								style={{ height: 20, width: 20, marginBottom: 8, color: 'var(--muted-foreground)' }}
+							/>
+							<h3 style={{ fontWeight: 500, marginBottom: 8 }}>Left Sidebar</h3>
+							<p style={{ fontSize: 12, lineHeight: 1.33333, color: 'var(--muted-foreground)' }}>
+								Collapsible
+							</p>
 						</div>
 					</ResizablePanel>
 					<ResizableHandle withHandle />
 					<ResizablePanel defaultSize="60%">
-						<div className="flex h-full items-center justify-center">
-							<div className="text-center">
-								<Code className="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
-								<span className="text-sm font-medium">Main Editor</span>
-								<p className="text-xs text-muted-foreground mt-1">Always visible</p>
+						<div
+							style={{
+								display: 'flex',
+								height: '100%',
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+						>
+							<div style={{ textAlign: 'center' }}>
+								<Code
+									style={{
+										marginInline: 'auto',
+										marginBottom: 8,
+										height: 32,
+										width: 32,
+										color: 'var(--muted-foreground)',
+									}}
+								/>
+								<span style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+									Main Editor
+								</span>
+								<p
+									style={{
+										fontSize: 12,
+										lineHeight: 1.33333,
+										color: 'var(--muted-foreground)',
+										marginTop: 4,
+									}}
+								>
+									Always visible
+								</p>
 							</div>
 						</div>
 					</ResizablePanel>
 					<ResizableHandle withHandle />
 					<ResizablePanel defaultSize="20%" minSize="15%" maxSize="35%" collapsible={true}>
-						<div className="flex h-full flex-col p-4 bg-muted">
-							<Settings className="h-5 w-5 mb-2 text-muted-foreground" />
-							<h3 className="font-medium mb-2">Right Sidebar</h3>
-							<p className="text-xs text-muted-foreground">Collapsible</p>
+						<div
+							style={{
+								display: 'flex',
+								height: '100%',
+								flexDirection: 'column',
+								padding: 16,
+								backgroundColor: 'var(--muted)',
+							}}
+						>
+							<Settings
+								style={{ height: 20, width: 20, marginBottom: 8, color: 'var(--muted-foreground)' }}
+							/>
+							<h3 style={{ fontWeight: 500, marginBottom: 8 }}>Right Sidebar</h3>
+							<p style={{ fontSize: 12, lineHeight: 1.33333, color: 'var(--muted-foreground)' }}>
+								Collapsible
+							</p>
 						</div>
 					</ResizablePanel>
 				</ResizablePanelGroup>
@@ -275,27 +461,68 @@ export const VerticalPanels: Story = {
 		collapsible: true,
 	},
 	render: (args) => (
-		<div className="m-6">
-			<div className="mb-4 p-4 bg-muted rounded-lg">
-				<h3 className="font-medium mb-2">Vertical collapsible panel:</h3>
-				<p className="text-sm text-muted-foreground">Drag the bottom panel down to collapse it</p>
+		<div style={{ margin: 24 }}>
+			<div
+				style={{ marginBottom: 16, padding: 16, backgroundColor: 'var(--muted)', borderRadius: 4 }}
+			>
+				<h3 style={{ fontWeight: 500, marginBottom: 8 }}>Vertical collapsible panel:</h3>
+				<p style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}>
+					Drag the bottom panel down to collapse it
+				</p>
 			</div>
-			<div className="h-[500px] border rounded-lg overflow-hidden">
+			<div
+				style={{
+					height: 500,
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					overflow: 'hidden',
+				}}
+			>
 				<ResizablePanelGroup orientation="vertical">
 					<ResizablePanel defaultSize="70%">
-						<div className="flex h-full items-center justify-center">
-							<div className="text-center">
-								<Code className="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
-								<span className="text-sm font-medium">Editor Area</span>
+						<div
+							style={{
+								display: 'flex',
+								height: '100%',
+								alignItems: 'center',
+								justifyContent: 'center',
+							}}
+						>
+							<div style={{ textAlign: 'center' }}>
+								<Code
+									style={{
+										marginInline: 'auto',
+										marginBottom: 8,
+										height: 32,
+										width: 32,
+										color: 'var(--muted-foreground)',
+									}}
+								/>
+								<span style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+									Editor Area
+								</span>
 							</div>
 						</div>
 					</ResizablePanel>
 					<ResizableHandle withHandle />
 					<ResizablePanel {...args}>
-						<div className="flex h-full flex-col p-4 bg-muted">
-							<Settings className="h-5 w-5 mb-2 text-muted-foreground" />
-							<h3 className="font-medium mb-2">Terminal</h3>
-							<p className="text-xs text-muted-foreground">Drag down to collapse</p>
+						<div
+							style={{
+								display: 'flex',
+								height: '100%',
+								flexDirection: 'column',
+								padding: 16,
+								backgroundColor: 'var(--muted)',
+							}}
+						>
+							<Settings
+								style={{ height: 20, width: 20, marginBottom: 8, color: 'var(--muted-foreground)' }}
+							/>
+							<h3 style={{ fontWeight: 500, marginBottom: 8 }}>Terminal</h3>
+							<p style={{ fontSize: 12, lineHeight: 1.33333, color: 'var(--muted-foreground)' }}>
+								Drag down to collapse
+							</p>
 						</div>
 					</ResizablePanel>
 				</ResizablePanelGroup>

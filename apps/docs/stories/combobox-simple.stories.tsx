@@ -156,7 +156,7 @@ export const Default: Story = {
 		placeholder: 'Select a framework...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -171,9 +171,18 @@ export const Controlled: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={value} onChange={(v) => setValue(v?.toString())} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
 			</div>
 		);
 	},
@@ -186,7 +195,7 @@ export const WithDefaultValue: Story = {
 		defaultValue: 'react',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -220,7 +229,7 @@ export const WithGroups: Story = {
 		placeholder: 'Select a technology...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -231,7 +240,7 @@ const itemsWithIcons = [
 		value: 'react',
 		label: (
 			<>
-				<Code className="mr-2 h-4 w-4" />
+				<Code style={{ marginRight: 8, height: 16, width: 16 }} />
 				React
 			</>
 		),
@@ -240,7 +249,7 @@ const itemsWithIcons = [
 		value: 'nodejs',
 		label: (
 			<>
-				<Terminal className="mr-2 h-4 w-4" />
+				<Terminal style={{ marginRight: 8, height: 16, width: 16 }} />
 				Node.js
 			</>
 		),
@@ -249,7 +258,7 @@ const itemsWithIcons = [
 		value: 'postgres',
 		label: (
 			<>
-				<Database className="mr-2 h-4 w-4" />
+				<Database style={{ marginRight: 8, height: 16, width: 16 }} />
 				PostgreSQL
 			</>
 		),
@@ -258,7 +267,7 @@ const itemsWithIcons = [
 		value: 'git',
 		label: (
 			<>
-				<GitBranch className="mr-2 h-4 w-4" />
+				<GitBranch style={{ marginRight: 8, height: 16, width: 16 }} />
 				Git
 			</>
 		),
@@ -271,7 +280,7 @@ export const WithIcons: Story = {
 		placeholder: 'Select a tool...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -287,7 +296,7 @@ export const WithGroupsAndIcons: Story = {
 						value: 'react',
 						label: (
 							<>
-								<Code className="mr-2 h-4 w-4" />
+								<Code style={{ marginRight: 8, height: 16, width: 16 }} />
 								React
 							</>
 						),
@@ -296,7 +305,7 @@ export const WithGroupsAndIcons: Story = {
 						value: 'vue',
 						label: (
 							<>
-								<Code className="mr-2 h-4 w-4" />
+								<Code style={{ marginRight: 8, height: 16, width: 16 }} />
 								Vue
 							</>
 						),
@@ -310,7 +319,7 @@ export const WithGroupsAndIcons: Story = {
 						value: 'postgres',
 						label: (
 							<>
-								<Database className="mr-2 h-4 w-4" />
+								<Database style={{ marginRight: 8, height: 16, width: 16 }} />
 								PostgreSQL
 							</>
 						),
@@ -319,7 +328,7 @@ export const WithGroupsAndIcons: Story = {
 						value: 'redis',
 						label: (
 							<>
-								<Database className="mr-2 h-4 w-4" />
+								<Database style={{ marginRight: 8, height: 16, width: 16 }} />
 								Redis
 							</>
 						),
@@ -330,7 +339,7 @@ export const WithGroupsAndIcons: Story = {
 		placeholder: 'Select a technology...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -343,7 +352,7 @@ export const Disabled: Story = {
 		disabled: true,
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),

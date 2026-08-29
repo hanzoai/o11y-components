@@ -74,7 +74,7 @@ type Story = StoryObj<typeof TooltipRoot>;
 export const Default: Story = {
 	render: () => (
 		<TooltipProvider delayDuration={0}>
-			<div className="p-20 flex items-center justify-center">
+			<div style={{ padding: 80, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 				<TooltipSimple title="I'm a basic tooltip" arrow>
 					<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>
 						Hover me
@@ -91,18 +91,29 @@ export const TooltipShowcase: Story = {
 	},
 	render: () => (
 		<TooltipProvider delayDuration={0}>
-			<div className="p-8 rounded-lg bg-vanilla-100 dark:bg-background min-h-[600px]">
-				<div className="space-y-16">
-					<div className="space-y-4">
-						<h2 className="text-base font-semibold text-foreground">Positions</h2>
-						<div className="flex flex-wrap gap-8 items-center">
+			<div
+				style={{
+					backgroundColor: 'var(--background)',
+					padding: 32,
+					borderRadius: 4,
+					minHeight: 600,
+				}}
+			>
+				<div className="stack-64">
+					<div className="stack-16">
+						<h2
+							style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+						>
+							Positions
+						</h2>
+						<div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
 							{SIDES.map((side) => (
 								<TooltipRoot key={side}>
 									<TooltipTrigger asChild>
 										<Button
 											variant={ButtonVariant.Solid}
 											color={ButtonColor.Secondary}
-											className="capitalize"
+											style={{ textTransform: 'capitalize' }}
 										>
 											{side}
 										</Button>
@@ -115,16 +126,20 @@ export const TooltipShowcase: Story = {
 						</div>
 					</div>
 
-					<div className="space-y-4">
-						<h2 className="text-base font-semibold text-foreground">Align variations</h2>
-						<div className="flex flex-wrap gap-8">
+					<div className="stack-16">
+						<h2
+							style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+						>
+							Align variations
+						</h2>
+						<div style={{ display: 'flex', flexWrap: 'wrap', gap: 32 }}>
 							{ALIGNS.map((align) => (
 								<TooltipRoot key={align}>
 									<TooltipTrigger asChild>
 										<Button
 											variant={ButtonVariant.Solid}
 											color={ButtonColor.Secondary}
-											className="capitalize"
+											style={{ textTransform: 'capitalize' }}
 										>
 											{align}
 										</Button>
@@ -137,9 +152,13 @@ export const TooltipShowcase: Story = {
 						</div>
 					</div>
 
-					<div className="space-y-4">
-						<h2 className="text-base font-semibold text-foreground">With / without arrow</h2>
-						<div className="flex gap-4">
+					<div className="stack-16">
+						<h2
+							style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+						>
+							With / without arrow
+						</h2>
+						<div style={{ display: 'flex', gap: 16 }}>
 							<TooltipSimple title="No arrow" arrow={false}>
 								<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>
 									Without arrow
@@ -153,9 +172,13 @@ export const TooltipShowcase: Story = {
 						</div>
 					</div>
 
-					<div className="space-y-4">
-						<h2 className="text-base font-semibold text-foreground">Delay variations</h2>
-						<div className="flex gap-4 flex-wrap">
+					<div className="stack-16">
+						<h2
+							style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+						>
+							Delay variations
+						</h2>
+						<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 							<TooltipSimple title="No delay (0ms)" delayDuration={0}>
 								<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>
 									0ms
@@ -179,8 +202,12 @@ export const TooltipShowcase: Story = {
 						</div>
 					</div>
 
-					<div className="space-y-4">
-						<h2 className="text-base font-semibold text-foreground">Default open</h2>
+					<div className="stack-16">
+						<h2
+							style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+						>
+							Default open
+						</h2>
 						<TooltipSimple defaultOpen title="I am open by default">
 							<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>
 								Hover or focus to see tooltip
@@ -188,8 +215,10 @@ export const TooltipShowcase: Story = {
 						</TooltipSimple>
 					</div>
 
-					<div className="space-y-4">
-						<h2 className="text-base font-semibold text-foreground">
+					<div className="stack-16">
+						<h2
+							style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+						>
 							Custom content (composition)
 						</h2>
 						<TooltipRoot>
@@ -199,9 +228,11 @@ export const TooltipShowcase: Story = {
 								</Button>
 							</TooltipTrigger>
 							<TooltipContent side="top" arrow>
-								<span className="font-medium">Custom tooltip</span>
+								<span style={{ fontWeight: 500 }}>Custom tooltip</span>
 								<br />
-								<span className="text-sm opacity-90">With multiple lines</span>
+								<span style={{ fontSize: 14, lineHeight: 1.42857, opacity: 0.9 }}>
+									With multiple lines
+								</span>
 							</TooltipContent>
 						</TooltipRoot>
 					</div>

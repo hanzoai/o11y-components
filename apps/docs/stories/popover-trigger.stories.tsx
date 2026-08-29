@@ -33,8 +33,10 @@ export const Default: Story = {
 					Open popover
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent className="w-64">
-				<p className="text-sm">Use PopoverTrigger asChild to wrap any interactive element.</p>
+			<PopoverContent style={{ width: 256 }}>
+				<p style={{ fontSize: 14, lineHeight: 1.42857 }}>
+					Use PopoverTrigger asChild to wrap any interactive element.
+				</p>
 			</PopoverContent>
 		</Popover>
 	),

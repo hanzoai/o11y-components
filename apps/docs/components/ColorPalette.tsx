@@ -12,7 +12,7 @@ function getContrastTextColor(hexColor: string): string {
 	// brightness calculation
 	const brightness = (r + g + b) / 3;
 
-	return brightness > 127 ? 'text-black' : 'text-white';
+	return brightness > 127 ? '#000000' : '#ffffff';
 }
 
 function ColorPalette() {
@@ -29,27 +29,69 @@ function ColorPalette() {
 	};
 
 	return (
-		<div className="p-5">
-			<h1 className="mb-5 text-lg font-bold text-card-foreground">Pallette</h1>
+		<div style={{ padding: 20 }}>
+			<h1
+				style={{
+					marginBottom: 20,
+					fontSize: 18,
+					lineHeight: 1.55556,
+					fontWeight: 700,
+					color: 'var(--card-foreground)',
+				}}
+			>
+				Pallette
+			</h1>
 
 			{/* Regular colors */}
-			<div className="grid grid-cols-4 gap-5 mb-12">
+			<div
+				style={{
+					display: 'grid',
+					gridTemplateColumns: 'repeat(4,minmax(0,1fr))',
+					gap: 20,
+					marginBottom: 48,
+				}}
+			>
 				{colors
 					.filter((item) => item.name !== 'Gradient')
 					.map((color) => (
 						<div key={color.name}>
-							<h3 className="mt-4 text-base font-bold capitalize text-card-foreground">
+							<h3
+								style={{
+									marginTop: 16,
+									fontSize: 16,
+									lineHeight: 1.5,
+									fontWeight: 700,
+									textTransform: 'capitalize',
+									color: 'var(--card-foreground)',
+								}}
+							>
 								{color.name}
 							</h3>
-							<div className="overflow-hidden rounded-lg shadow-lg">
+							<div
+								style={{
+									overflow: 'hidden',
+									borderRadius: 4,
+									boxShadow:
+										'0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a',
+								}}
+							>
 								{color.shades.map((shade) => (
 									<div
 										key={shade.name}
-										className={`flex items-center justify-between w-full h-12 px-4 font-semibold ${getContrastTextColor(shade.value)}`}
-										style={{ backgroundColor: shade.value }}
+										style={{
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'space-between',
+											width: '100%',
+											height: 48,
+											paddingInline: 16,
+											fontWeight: 600,
+											color: getContrastTextColor(shade.value),
+											backgroundColor: shade.value,
+										}}
 									>
 										<span>{shade.name}</span>
-										<span className="uppercase">{shade.value}</span>
+										<span style={{ textTransform: 'uppercase' }}>{shade.value}</span>
 									</div>
 								))}
 							</div>
@@ -58,25 +100,65 @@ function ColorPalette() {
 			</div>
 
 			{/* Accents */}
-			<div className="mb-12">
-				<h1 className="mb-5 text-lg font-bold text-card-foreground">Accents</h1>
+			<div style={{ marginBottom: 48 }}>
+				<h1
+					style={{
+						marginBottom: 20,
+						fontSize: 18,
+						lineHeight: 1.55556,
+						fontWeight: 700,
+						color: 'var(--card-foreground)',
+					}}
+				>
+					Accents
+				</h1>
 
 				{/* Primary Accents */}
-				<div className="mb-8">
-					<h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-card-foreground opacity-70">
+				<div style={{ marginBottom: 32 }}>
+					<h2
+						style={{
+							marginBottom: 16,
+							fontSize: 12,
+							lineHeight: 1.33333,
+							fontWeight: 600,
+							textTransform: 'uppercase',
+							letterSpacing: 'var(--letter-spacing-wider)',
+							color: 'var(--card-foreground)',
+							opacity: 0.7,
+						}}
+					>
 						PRIMARY
 					</h2>
-					<div className="flex gap-4">
+					<div style={{ display: 'flex', gap: 16 }}>
 						{primaryAccents.map((accentName) => {
 							const accent = getAccentColor(accentName);
 							if (!accent) return null;
 							return (
-								<div key={accent.name} className="flex flex-col gap-3">
+								<div
+									key={accent.name}
+									style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+								>
 									<div
-										className="h-[70px] w-[150px] rounded shadow-lg"
-										style={{ backgroundColor: accent.value }}
+										style={{
+											height: 70,
+											width: 150,
+											borderRadius: 4,
+											boxShadow:
+												'0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a',
+											backgroundColor: accent.value,
+										}}
 									/>
-									<p className="text-xs font-semibold uppercase tracking-wider text-card-foreground opacity-70">
+									<p
+										style={{
+											fontSize: 12,
+											lineHeight: 1.33333,
+											fontWeight: 600,
+											textTransform: 'uppercase',
+											letterSpacing: 'var(--letter-spacing-wider)',
+											color: 'var(--card-foreground)',
+											opacity: 0.7,
+										}}
+									>
 										{accent.name}
 									</p>
 								</div>
@@ -87,20 +169,50 @@ function ColorPalette() {
 
 				{/* Secondary Accents */}
 				<div>
-					<h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-card-foreground opacity-70">
+					<h2
+						style={{
+							marginBottom: 16,
+							fontSize: 12,
+							lineHeight: 1.33333,
+							fontWeight: 600,
+							textTransform: 'uppercase',
+							letterSpacing: 'var(--letter-spacing-wider)',
+							color: 'var(--card-foreground)',
+							opacity: 0.7,
+						}}
+					>
 						SECONDARY
 					</h2>
-					<div className="flex flex-wrap gap-4">
+					<div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
 						{secondaryAccents.map((accentName) => {
 							const accent = getAccentColor(accentName);
 							if (!accent) return null;
 							return (
-								<div key={accent.name} className="flex flex-col gap-3">
+								<div
+									key={accent.name}
+									style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+								>
 									<div
-										className="h-[70px] w-[150px] rounded shadow-lg"
-										style={{ backgroundColor: accent.value }}
+										style={{
+											height: 70,
+											width: 150,
+											borderRadius: 4,
+											boxShadow:
+												'0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a',
+											backgroundColor: accent.value,
+										}}
 									/>
-									<p className="text-xs font-semibold uppercase tracking-wider text-card-foreground opacity-70">
+									<p
+										style={{
+											fontSize: 12,
+											lineHeight: 1.33333,
+											fontWeight: 600,
+											textTransform: 'uppercase',
+											letterSpacing: 'var(--letter-spacing-wider)',
+											color: 'var(--card-foreground)',
+											opacity: 0.7,
+										}}
+									>
 										{accent.name}
 									</p>
 								</div>
@@ -115,16 +227,49 @@ function ColorPalette() {
 				.filter((item) => item.name === 'Gradient')
 				.map((color) => (
 					<div key={color.name}>
-						<h1 className="mb-5 text-lg font-bold text-vanilla-100">Gradients</h1>
+						<h1
+							style={{
+								marginBottom: 20,
+								fontSize: 18,
+								lineHeight: 1.55556,
+								fontWeight: 700,
+								color: 'var(--bg-vanilla-100)',
+							}}
+						>
+							Gradients
+						</h1>
 
-						<div className="grid grid-cols-6 gap-5 mb-12">
+						<div
+							style={{
+								display: 'grid',
+								gridTemplateColumns: 'repeat(6,minmax(0,1fr))',
+								gap: 20,
+								marginBottom: 48,
+							}}
+						>
 							{color.shades.map((shade) => (
-								<div className=" shadow-lg" key={shade.name}>
+								<div
+									style={{
+										boxShadow:
+											'0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a',
+									}}
+									key={shade.name}
+								>
 									<div
-										className={`flex items-center justify-between w-full h-20 px-4 font-semibold overflow-hidden rounded-lg`}
-										style={{ backgroundImage: shade.value }}
+										style={{
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'space-between',
+											width: '100%',
+											height: 80,
+											paddingInline: 16,
+											fontWeight: 600,
+											overflow: 'hidden',
+											borderRadius: 'var(--radius)',
+											backgroundImage: shade.value,
+										}}
 									></div>
-									<span className="text-vanilla-100">{shade.name}</span>
+									<span style={{ color: 'var(--bg-vanilla-100)' }}>{shade.name}</span>
 								</div>
 							))}
 						</div>

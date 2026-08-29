@@ -40,9 +40,9 @@ export default function MyComponent() {
 			title="Edit Details"
 			trigger={<Button variant="solid">Open Dialog</Button>}
 		>
-			<div className="flex flex-col gap-4">
+			<div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 				<p>Dialog content goes here</p>
-				<div className="flex justify-end">
+				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 					<Button variant="solid" color="primary" onClick={() => setOpen(false)}>
 						Save Changes
 					</Button>

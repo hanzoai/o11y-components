@@ -65,7 +65,7 @@ export const Playground: Story = {
 		active: false,
 	},
 	render: (props) => (
-		<div className="p-4">
+		<div style={{ padding: 16 }}>
 			<Kbd {...props} />
 		</div>
 	),
@@ -85,7 +85,7 @@ export const AllSizes: Story = {
 		asChild: { control: false },
 	},
 	render: () => (
-		<div className="flex items-center gap-3 p-4">
+		<div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 16 }}>
 			<Kbd size="sm">⌘K</Kbd>
 			<Kbd size="default">⌘K</Kbd>
 			<Kbd size="lg">⌘K</Kbd>
@@ -107,7 +107,7 @@ export const CommonKeys: Story = {
 		asChild: { control: false },
 	},
 	render: () => (
-		<div className="flex flex-wrap items-center gap-2 p-4">
+		<div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 8, padding: 16 }}>
 			{['⌘', '⌥', '⇧', '⌃', '↵', '⌫', '⇥', 'Esc', 'Space', '↑', '↓', '←', '→'].map((key) => (
 				<Kbd key={key}>{key}</Kbd>
 			))}
@@ -130,12 +130,20 @@ export const KeyboardShortcuts: Story = {
 		asChild: { control: false },
 	},
 	render: () => (
-		<div className="space-y-4 p-4">
+		<div className="stack-16" style={{ padding: 16 }}>
 			<div>
-				<h3 className="text-sm font-medium mb-3 text-vanilla-800 dark:text-vanilla-300">
+				<h3
+					style={{
+						color: 'var(--foreground)',
+						fontSize: 14,
+						lineHeight: 1.42857,
+						fontWeight: 500,
+						marginBottom: 12,
+					}}
+				>
 					Common Shortcuts
 				</h3>
-				<div className="space-y-2">
+				<div className="stack-8">
 					{[
 						{ label: 'Save', keys: ['⌘', 'S'] },
 						{ label: 'Copy', keys: ['⌘', 'C'] },
@@ -144,9 +152,19 @@ export const KeyboardShortcuts: Story = {
 						{ label: 'Find', keys: ['⌘', 'F'] },
 						{ label: 'Command palette', keys: ['⌘', 'K'] },
 					].map(({ label, keys }) => (
-						<div key={label} className="flex items-center justify-between max-w-xs">
-							<span className="text-sm text-vanilla-800 dark:text-vanilla-300">{label}</span>
-							<div className="flex items-center gap-1">
+						<div
+							key={label}
+							style={{
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'space-between',
+								maxWidth: 320,
+							}}
+						>
+							<span style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>
+								{label}
+							</span>
+							<div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
 								{keys.map((key, i) => (
 									<Kbd key={i}>{key}</Kbd>
 								))}
@@ -156,17 +174,35 @@ export const KeyboardShortcuts: Story = {
 				</div>
 			</div>
 			<div>
-				<h3 className="text-sm font-medium mb-3 text-vanilla-800 dark:text-vanilla-300">
+				<h3
+					style={{
+						color: 'var(--foreground)',
+						fontSize: 14,
+						lineHeight: 1.42857,
+						fontWeight: 500,
+						marginBottom: 12,
+					}}
+				>
 					Multi-modifier
 				</h3>
-				<div className="space-y-2">
+				<div className="stack-8">
 					{[
 						{ label: 'Redo', keys: ['⌘', '⇧', 'Z'] },
 						{ label: 'Force quit', keys: ['⌘', '⌥', 'Esc'] },
 					].map(({ label, keys }) => (
-						<div key={label} className="flex items-center justify-between max-w-xs">
-							<span className="text-sm text-vanilla-800 dark:text-vanilla-300">{label}</span>
-							<div className="flex items-center gap-1">
+						<div
+							key={label}
+							style={{
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'space-between',
+								maxWidth: 320,
+							}}
+						>
+							<span style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>
+								{label}
+							</span>
+							<div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
 								{keys.map((key, i) => (
 									<Kbd key={i}>{key}</Kbd>
 								))}
@@ -194,7 +230,16 @@ export const InlineText: Story = {
 		asChild: { control: false },
 	},
 	render: () => (
-		<div className="space-y-3 p-4 text-sm text-vanilla-800 dark:text-vanilla-300 max-w-md">
+		<div
+			className="stack-12"
+			style={{
+				color: 'var(--foreground)',
+				padding: 16,
+				fontSize: 14,
+				lineHeight: 1.42857,
+				maxWidth: 448,
+			}}
+		>
 			<p>
 				Press <Kbd size="sm">⌘</Kbd> <Kbd size="sm">K</Kbd> to open the command palette.
 			</p>
@@ -225,21 +270,37 @@ export const ActiveState: Story = {
 		active: { control: false },
 	},
 	render: () => (
-		<div className="space-y-4 p-4">
+		<div className="stack-16" style={{ padding: 16 }}>
 			<div>
-				<h3 className="text-sm font-medium mb-3 text-vanilla-800 dark:text-vanilla-300">
+				<h3
+					style={{
+						color: 'var(--foreground)',
+						fontSize: 14,
+						lineHeight: 1.42857,
+						fontWeight: 500,
+						marginBottom: 12,
+					}}
+				>
 					Default vs Active
 				</h3>
-				<div className="flex items-center gap-2">
+				<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
 					<Kbd>⌘</Kbd>
 					<Kbd active>⌘</Kbd>
 				</div>
 			</div>
 			<div>
-				<h3 className="text-sm font-medium mb-3 text-vanilla-800 dark:text-vanilla-300">
+				<h3
+					style={{
+						color: 'var(--foreground)',
+						fontSize: 14,
+						lineHeight: 1.42857,
+						fontWeight: 500,
+						marginBottom: 12,
+					}}
+				>
 					All Sizes
 				</h3>
-				<div className="flex items-center gap-2">
+				<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
 					<Kbd size="sm" active>
 						⌘
 					</Kbd>
@@ -252,10 +313,18 @@ export const ActiveState: Story = {
 				</div>
 			</div>
 			<div>
-				<h3 className="text-sm font-medium mb-3 text-vanilla-800 dark:text-vanilla-300">
+				<h3
+					style={{
+						color: 'var(--foreground)',
+						fontSize: 14,
+						lineHeight: 1.42857,
+						fontWeight: 500,
+						marginBottom: 12,
+					}}
+				>
 					Active Key in a Shortcut
 				</h3>
-				<div className="flex items-center gap-1">
+				<div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
 					<Kbd active>⌘</Kbd>
 					<Kbd>K</Kbd>
 				</div>

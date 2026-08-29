@@ -18,7 +18,7 @@ type Story = StoryObj<typeof PopoverSimple>;
 export const Default: Story = {
 	args: {
 		trigger: undefined,
-		className: 'w-64',
+		style: { width: 256 },
 		side: 'bottom',
 		align: 'center',
 		arrow: false,
@@ -32,7 +32,7 @@ export const Default: Story = {
 				</Button>
 			}
 		>
-			<p className="text-sm">
+			<p style={{ fontSize: 14, lineHeight: 1.42857 }}>
 				Simple popover content. Pass trigger and children instead of composing subcomponents.
 			</p>
 		</PopoverSimple>

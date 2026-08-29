@@ -12,9 +12,9 @@ type Story = StoryObj<typeof Toaster>;
 // Basic toast examples
 export const BasicToasts: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Basic Toast Examples</h2>
-			<div className="flex gap-4 flex-wrap">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>Basic Toast Examples</h2>
+			<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 				<Button onClick={() => toast('Hello World!')} variant="solid" color="primary">
 					Default Toast
 				</Button>
@@ -55,9 +55,11 @@ export const BasicToasts: Story = {
 // Toast with descriptions
 export const ToastWithDescriptions: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Toasts with Descriptions</h2>
-			<div className="flex gap-4 flex-wrap">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>
+				Toasts with Descriptions
+			</h2>
+			<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 				<Button
 					onClick={() =>
 						toast('File uploaded', {
@@ -100,9 +102,9 @@ export const ToastWithDescriptions: Story = {
 // Toast with actions
 export const ToastWithActions: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Toasts with Actions</h2>
-			<div className="flex gap-4 flex-wrap">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>Toasts with Actions</h2>
+			<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 				<Button
 					onClick={() =>
 						toast('Undo action', {
@@ -156,12 +158,12 @@ export const ToastWithActions: Story = {
 // Toast positions
 export const ToastPositions: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Toast Positions</h2>
-			<div className="grid grid-cols-2 gap-4">
-				<div className="space-y-2">
-					<h3 className="text-sm font-medium">Top Positions</h3>
-					<div className="flex gap-2 flex-wrap">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>Toast Positions</h2>
+			<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,minmax(0,1fr))', gap: 16 }}>
+				<div className="stack-8">
+					<h3 style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>Top Positions</h3>
+					<div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
 						<Button
 							onClick={() => toast('Top left', { position: 'top-left' })}
 							variant="outlined"
@@ -188,9 +190,9 @@ export const ToastPositions: Story = {
 						</Button>
 					</div>
 				</div>
-				<div className="space-y-2">
-					<h3 className="text-sm font-medium">Bottom Positions</h3>
-					<div className="flex gap-2 flex-wrap">
+				<div className="stack-8">
+					<h3 style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>Bottom Positions</h3>
+					<div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
 						<Button
 							onClick={() => toast('Bottom left', { position: 'bottom-left' })}
 							variant="outlined"
@@ -226,9 +228,9 @@ export const ToastPositions: Story = {
 // Toast durations
 export const ToastDurations: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Toast Durations</h2>
-			<div className="flex gap-4 flex-wrap">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>Toast Durations</h2>
+			<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 				<Button
 					onClick={() => toast('Quick message', { duration: 1000 })}
 					variant="solid"
@@ -266,15 +268,26 @@ export const ToastDurations: Story = {
 // Toast with custom styling
 export const CustomStyledToasts: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Custom Styled Toasts</h2>
-			<div className="flex gap-4 flex-wrap">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>Custom Styled Toasts</h2>
+			<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 				<Button
 					onClick={() =>
 						toast.custom(() => (
-							<div className="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
-								<div className="font-semibold">Custom Toast</div>
-								<div className="text-sm opacity-90">This is a custom styled toast</div>
+							<div
+								style={{
+									backgroundColor: '#3080ff',
+									color: '#fff',
+									padding: 16,
+									borderRadius: 4,
+									boxShadow:
+										'0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a',
+								}}
+							>
+								<div style={{ fontWeight: 600 }}>Custom Toast</div>
+								<div style={{ fontSize: 14, lineHeight: 1.42857, opacity: 0.9 }}>
+									This is a custom styled toast
+								</div>
 							</div>
 						))
 					}
@@ -286,9 +299,20 @@ export const CustomStyledToasts: Story = {
 				<Button
 					onClick={() =>
 						toast.custom(() => (
-							<div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-lg shadow-lg">
-								<div className="font-semibold">Gradient Toast</div>
-								<div className="text-sm opacity-90">With gradient background</div>
+							<div
+								style={{
+									backgroundImage: 'linear-gradient(to right in oklab, #ac4bff, #f6339a)',
+									color: '#fff',
+									padding: 16,
+									borderRadius: 4,
+									boxShadow:
+										'0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a',
+								}}
+							>
+								<div style={{ fontWeight: 600 }}>Gradient Toast</div>
+								<div style={{ fontSize: 14, lineHeight: 1.42857, opacity: 0.9 }}>
+									With gradient background
+								</div>
 							</div>
 						))
 					}
@@ -300,9 +324,21 @@ export const CustomStyledToasts: Story = {
 				<Button
 					onClick={() =>
 						toast.custom(() => (
-							<div className="bg-yellow-400 text-black p-4 rounded-lg shadow-lg border-2 border-yellow-600">
-								<div className="font-semibold">⚠️ Warning</div>
-								<div className="text-sm">Custom warning style</div>
+							<div
+								style={{
+									backgroundColor: '#fac800',
+									color: '#000',
+									padding: 16,
+									borderRadius: 4,
+									boxShadow:
+										'0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a',
+									borderStyle: 'solid',
+									borderWidth: 2,
+									borderColor: '#cd8900',
+								}}
+							>
+								<div style={{ fontWeight: 600 }}>⚠️ Warning</div>
+								<div style={{ fontSize: 14, lineHeight: 1.42857 }}>Custom warning style</div>
 							</div>
 						))
 					}
@@ -320,9 +356,9 @@ export const CustomStyledToasts: Story = {
 // Toast with promises
 export const ToastWithPromises: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Toasts with Promises</h2>
-			<div className="flex gap-4 flex-wrap">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>Toasts with Promises</h2>
+			<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 				<Button
 					onClick={() => {
 						const promise = new Promise((resolve) => setTimeout(resolve, 2000));
@@ -382,9 +418,9 @@ export const ToastWithPromises: Story = {
 // Multiple toasts
 export const MultipleToasts: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Multiple Toasts</h2>
-			<div className="flex gap-4 flex-wrap">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>Multiple Toasts</h2>
+			<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 				<Button
 					onClick={() => {
 						toast('First toast');
@@ -430,12 +466,12 @@ export const MultipleToasts: Story = {
 // Default story for component display
 export const Default: Story = {
 	render: () => (
-		<div className="p-8 space-y-4">
-			<h2 className="text-lg font-semibold">Sonner Toast Component</h2>
-			<p className="text-sm text-muted-foreground">
+		<div className="stack-16" style={{ padding: 32 }}>
+			<h2 style={{ fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>Sonner Toast Component</h2>
+			<p style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}>
 				Click the buttons below to see different types of toasts in action.
 			</p>
-			<div className="flex gap-4 flex-wrap">
+			<div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
 				<Button onClick={() => toast('Hello World!')} variant="solid" color="primary">
 					Show Toast
 				</Button>

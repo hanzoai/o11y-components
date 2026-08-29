@@ -18,7 +18,7 @@ import { Bold } from '@signozhq/icons';
 export default function MyComponent() {
   return (
     <Toggle aria-label="Toggle bold" defaultValue={false}>
-      <Bold className="h-3 w-3" />
+      <Bold style={{ height: 12, width: 12 }} />
     </Toggle>
   );
 }
@@ -35,7 +35,7 @@ export default function MyComponent() {
 
   return (
     <Toggle aria-label="Toggle bold" value={bold} onChange={setBold}>
-      <Bold className="h-3 w-3" />
+      <Bold style={{ height: 12, width: 12 }} />
     </Toggle>
   );
 }

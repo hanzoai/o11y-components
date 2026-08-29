@@ -111,8 +111,8 @@ const meta: Meta<typeof PinList> = {
 	},
 	decorators: [
 		(Story) => (
-			<div className="p-8 bg-background min-h-[360px]">
-				<div className="max-w-[360px]">
+			<div style={{ padding: 32, backgroundColor: 'var(--background)', minHeight: 360 }}>
+				<div style={{ maxWidth: 360 }}>
 					<Story />
 				</div>
 			</div>
@@ -272,15 +272,15 @@ export const WithCustomClassNames: Story = {
 			createPinListItem('1', 'Logs', <FileText />, {
 				isPinned: true,
 				active: true,
-				className: 'bg-primary/10',
+				className: 'demo-highlight',
 			}),
 			createPinListItem('2', 'Metrics', <ChartBar />, { isPinned: false }),
 		],
 		shortcutsLabel: 'SHORTCUTS',
 		moreLabel: 'MORE',
-		className: 'bg-muted/30 p-4 rounded-lg border border-border/50',
-		itemClassName: 'hover:shadow-sm transition-all duration-200',
-		labelClassName: 'text-primary font-headers tracking-widest',
+		className: 'demo-panel',
+		itemClassName: 'demo-item',
+		labelClassName: 'demo-label',
 	},
 	name: 'With Custom ClassNames',
 };

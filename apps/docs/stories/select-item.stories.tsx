@@ -63,7 +63,7 @@ export const Default: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<Select value={value} onChange={(v) => setValue(v as string)}>
 					<SelectTrigger placeholder="Select a framework..." />
 					<SelectContent>
@@ -84,24 +84,24 @@ export const WithIcons: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<Select value={value} onChange={(v) => setValue(v as string)}>
 					<SelectTrigger placeholder="Select a tool..." />
 					<SelectContent>
 						<SelectItem value="react" textValue="React">
-							<Code className="mr-2 h-4 w-4" />
+							<Code style={{ marginRight: 8, height: 16, width: 16 }} />
 							React
 						</SelectItem>
 						<SelectItem value="nodejs" textValue="Node.js">
-							<Terminal className="mr-2 h-4 w-4" />
+							<Terminal style={{ marginRight: 8, height: 16, width: 16 }} />
 							Node.js
 						</SelectItem>
 						<SelectItem value="postgres" textValue="PostgreSQL">
-							<Database className="mr-2 h-4 w-4" />
+							<Database style={{ marginRight: 8, height: 16, width: 16 }} />
 							PostgreSQL
 						</SelectItem>
 						<SelectItem value="git" textValue="Git">
-							<GitBranch className="mr-2 h-4 w-4" />
+							<GitBranch style={{ marginRight: 8, height: 16, width: 16 }} />
 							Git
 						</SelectItem>
 					</SelectContent>
@@ -116,7 +116,7 @@ export const Disabled: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<Select value={value} onChange={(v) => setValue(v as string)}>
 					<SelectTrigger placeholder="Select a framework..." />
 					<SelectContent>
@@ -137,7 +137,7 @@ export const InMultiSelect: Story = {
 		const [values, setValues] = useState<string[]>([]);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<Select multiple value={values} onChange={(v) => setValues(v as string[])}>
 					<SelectTrigger placeholder="Select frameworks..." />
 					<SelectContent>
@@ -148,7 +148,14 @@ export const InMultiSelect: Story = {
 						))}
 					</SelectContent>
 				</Select>
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Selected: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
 			</div>

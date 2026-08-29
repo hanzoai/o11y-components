@@ -42,8 +42,15 @@ export const Default: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
-				<p className="mb-4 text-sm text-muted-foreground">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
+				<p
+					style={{
+						marginBottom: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					SelectIcon is typically used internally by SelectTrigger. This example shows the default
 					chevron icon.
 				</p>
@@ -65,31 +72,31 @@ export const Default: Story = {
 export const StandaloneUsage: Story = {
 	render: () => {
 		return (
-			<div className="p-8 w-full max-w-sm space-y-6">
-				<p className="text-sm text-muted-foreground">
+			<div className="stack-24" style={{ padding: 32, width: '100%', maxWidth: 384 }}>
+				<p style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}>
 					SelectIcon is primarily an internal component used by SelectTrigger. These examples show
 					the icon styling when rendered standalone.
 				</p>
 
-				<div className="space-y-4">
-					<div className="flex items-center gap-4">
-						<span className="text-sm w-32">ChevronDown:</span>
+				<div className="stack-16">
+					<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+						<span style={{ fontSize: 14, lineHeight: 1.42857, width: 128 }}>ChevronDown:</span>
 						<SelectIcon asChild>
-							<ChevronDown className="h-4 w-4" />
+							<ChevronDown style={{ height: 16, width: 16 }} />
 						</SelectIcon>
 					</div>
 
-					<div className="flex items-center gap-4">
-						<span className="text-sm w-32">ChevronUp:</span>
+					<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+						<span style={{ fontSize: 14, lineHeight: 1.42857, width: 128 }}>ChevronUp:</span>
 						<SelectIcon asChild>
-							<ChevronUp className="h-4 w-4" />
+							<ChevronUp style={{ height: 16, width: 16 }} />
 						</SelectIcon>
 					</div>
 
-					<div className="flex items-center gap-4">
-						<span className="text-sm w-32">ChevronsUpDown:</span>
+					<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+						<span style={{ fontSize: 14, lineHeight: 1.42857, width: 128 }}>ChevronsUpDown:</span>
 						<SelectIcon asChild>
-							<ChevronsUpDown className="h-4 w-4" />
+							<ChevronsUpDown style={{ height: 16, width: 16 }} />
 						</SelectIcon>
 					</div>
 				</div>

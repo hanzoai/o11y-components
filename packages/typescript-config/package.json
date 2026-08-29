@@ -1,14 +1,13 @@
 {
-	"name": "@repo/typescript-config",
-	"version": "0.0.0",
-	"private": true,
-	"license": "MIT",
-	"type": "module",
-	"publishConfig": {
-		"access": "public"
-	},
-	"devDependencies": {
-		"@signozhq/tailwind-config": "workspace:*",
-		"vite-plugin-dts": "^5.0.0"
-	}
+  "name": "@repo/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "vite-plugin-dts": "catalog:"
+  }
 }

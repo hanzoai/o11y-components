@@ -122,7 +122,7 @@ export const Default: Story = {
 		placeholder: 'Select a framework...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<SelectSimple {...args} />
 		</div>
 	),
@@ -137,9 +137,18 @@ export const Controlled: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<SelectSimple {...args} value={value} onChange={(v) => setValue(v as string)} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
 			</div>
 		);
 	},
@@ -152,7 +161,7 @@ export const WithDefaultValue: Story = {
 		defaultValue: 'react',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<SelectSimple {...args} />
 		</div>
 	),
@@ -186,7 +195,7 @@ export const WithGroups: Story = {
 		placeholder: 'Select a technology...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<SelectSimple {...args} />
 		</div>
 	),
@@ -197,7 +206,7 @@ const itemsWithIcons = [
 		value: 'react',
 		label: (
 			<>
-				<Code className="mr-2 h-4 w-4" />
+				<Code style={{ marginRight: 8, height: 16, width: 16 }} />
 				React
 			</>
 		),
@@ -207,7 +216,7 @@ const itemsWithIcons = [
 		value: 'nodejs',
 		label: (
 			<>
-				<Terminal className="mr-2 h-4 w-4" />
+				<Terminal style={{ marginRight: 8, height: 16, width: 16 }} />
 				Node.js
 			</>
 		),
@@ -217,7 +226,7 @@ const itemsWithIcons = [
 		value: 'postgres',
 		label: (
 			<>
-				<Database className="mr-2 h-4 w-4" />
+				<Database style={{ marginRight: 8, height: 16, width: 16 }} />
 				PostgreSQL
 			</>
 		),
@@ -227,7 +236,7 @@ const itemsWithIcons = [
 		value: 'git',
 		label: (
 			<>
-				<GitBranch className="mr-2 h-4 w-4" />
+				<GitBranch style={{ marginRight: 8, height: 16, width: 16 }} />
 				Git
 			</>
 		),
@@ -241,7 +250,7 @@ export const WithIcons: Story = {
 		placeholder: 'Select a tool...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<SelectSimple {...args} />
 		</div>
 	),
@@ -257,9 +266,16 @@ export const MultiSelect: Story = {
 		const [values, setValues] = useState<string[]>([]);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<SelectSimple {...args} value={values} onChange={(v) => setValues(v as string[])} />
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Selected: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
 			</div>
@@ -277,9 +293,16 @@ export const MultiSelectWithIcons: Story = {
 		const [values, setValues] = useState<string[]>([]);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<SelectSimple {...args} value={values} onChange={(v) => setValues(v as string[])} />
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Selected: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
 			</div>
@@ -294,7 +317,7 @@ export const Disabled: Story = {
 		disabled: true,
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<SelectSimple {...args} />
 		</div>
 	),

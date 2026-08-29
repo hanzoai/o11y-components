@@ -41,7 +41,9 @@ export const Default: Story = {
 					<DrawerTitle {...args} />
 				</DrawerHeader>
 				<DrawerDescription>
-					<p className="text-sm">The title labels the drawer content for assistive technologies.</p>
+					<p style={{ fontSize: 14, lineHeight: 1.42857 }}>
+						The title labels the drawer content for assistive technologies.
+					</p>
 				</DrawerDescription>
 			</DrawerContent>
 		</Drawer>

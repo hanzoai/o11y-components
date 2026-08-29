@@ -82,9 +82,17 @@ export const EllipsisPositions: Story = {
 		width: { control: false },
 	},
 	render: () => (
-		<div className="space-y-4 p-4">
-			<div className="flex items-center gap-3">
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300 w-12 shrink-0">
+		<div className="stack-16" style={{ padding: 16 }}>
+			<div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+				<span
+					style={{
+						color: 'var(--muted-foreground)',
+						fontSize: 12,
+						lineHeight: 1.33333,
+						width: 48,
+						flexShrink: 0,
+					}}
+				>
 					Center:
 				</span>
 				<div style={{ width: '240px' }}>
@@ -93,16 +101,36 @@ export const EllipsisPositions: Story = {
 					</TextEllipsis>
 				</div>
 			</div>
-			<div className="flex items-center gap-3">
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300 w-12 shrink-0">Start:</span>
+			<div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+				<span
+					style={{
+						color: 'var(--muted-foreground)',
+						fontSize: 12,
+						lineHeight: 1.33333,
+						width: 48,
+						flexShrink: 0,
+					}}
+				>
+					Start:
+				</span>
 				<div style={{ width: '240px' }}>
 					<TextEllipsis position="start">
 						path/to/very/long/filename/that/needs/truncation.tsx
 					</TextEllipsis>
 				</div>
 			</div>
-			<div className="flex items-center gap-3">
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300 w-12 shrink-0">End:</span>
+			<div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+				<span
+					style={{
+						color: 'var(--muted-foreground)',
+						fontSize: 12,
+						lineHeight: 1.33333,
+						width: 48,
+						flexShrink: 0,
+					}}
+				>
+					End:
+				</span>
 				<div style={{ width: '240px' }}>
 					<TextEllipsis position="end">
 						A long description that should be truncated at the end of the text
@@ -129,12 +157,20 @@ export const FilePaths: Story = {
 		width: { control: false },
 	},
 	render: () => (
-		<div className="space-y-4 p-4">
+		<div className="stack-16" style={{ padding: 16 }}>
 			<div>
-				<h3 className="text-sm font-medium mb-2 text-vanilla-800 dark:text-vanilla-300">
+				<h3
+					style={{
+						color: 'var(--foreground)',
+						fontSize: 14,
+						lineHeight: 1.42857,
+						fontWeight: 500,
+						marginBottom: 8,
+					}}
+				>
 					Start Truncation (shows filename)
 				</h3>
-				<div className="flex flex-col gap-2" style={{ width: '280px' }}>
+				<div style={{ display: 'flex', flexDirection: 'column', gap: 8, width: '280px' }}>
 					<TextEllipsis position="start">
 						/var/log/application/server/debug/2024-01-15.log
 					</TextEllipsis>
@@ -147,10 +183,18 @@ export const FilePaths: Story = {
 				</div>
 			</div>
 			<div>
-				<h3 className="text-sm font-medium mb-2 text-vanilla-800 dark:text-vanilla-300">
+				<h3
+					style={{
+						color: 'var(--foreground)',
+						fontSize: 14,
+						lineHeight: 1.42857,
+						fontWeight: 500,
+						marginBottom: 8,
+					}}
+				>
 					Center Truncation (shows root and filename)
 				</h3>
-				<div className="flex flex-col gap-2" style={{ width: '280px' }}>
+				<div style={{ display: 'flex', flexDirection: 'column', gap: 8, width: '280px' }}>
 					<TextEllipsis position="center">
 						/var/log/application/server/debug/2024-01-15.log
 					</TextEllipsis>
@@ -179,27 +223,35 @@ export const CustomEllipsis: Story = {
 		width: { control: false },
 	},
 	render: () => (
-		<div className="space-y-3 p-4" style={{ width: '280px' }}>
+		<div className="stack-12" style={{ padding: 16, width: '280px' }}>
 			<div>
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300">Default (...)</span>
+				<span style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+					Default (...)
+				</span>
 				<TextEllipsis ellipsis="...">
 					This is a very long text that will be truncated with default ellipsis
 				</TextEllipsis>
 			</div>
 			<div>
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300">Unicode (…)</span>
+				<span style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+					Unicode (…)
+				</span>
 				<TextEllipsis ellipsis="…">
 					This is a very long text that will be truncated with unicode ellipsis
 				</TextEllipsis>
 			</div>
 			<div>
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300">Tilde (~)</span>
+				<span style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+					Tilde (~)
+				</span>
 				<TextEllipsis ellipsis="~" position="start">
 					/home/user/projects/my-app/src/components/Button/index.tsx
 				</TextEllipsis>
 			</div>
 			<div>
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300">More (›)</span>
+				<span style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+					More (›)
+				</span>
 				<TextEllipsis ellipsis=" ›" position="end">
 					Read more about this very long topic with lots of details
 				</TextEllipsis>
@@ -224,13 +276,23 @@ export const ResponsiveContainer: Story = {
 		width: { control: false },
 	},
 	render: () => (
-		<div className="space-y-4 p-4">
-			<p className="text-xs text-vanilla-600 dark:text-vanilla-300">
+		<div className="stack-16" style={{ padding: 16 }}>
+			<p style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
 				Resize the browser window to see the text adapt automatically.
 			</p>
 			<div
-				className="flex flex-col gap-2 p-3 border border-vanilla-300 dark:border-vanilla-700 rounded"
-				style={{ width: '100%', maxWidth: '400px' }}
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					gap: 8,
+					padding: 12,
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderColor: 'var(--bg-vanilla-300)',
+					borderRadius: 4,
+					width: '100%',
+					maxWidth: '400px',
+				}}
 			>
 				<TextEllipsis position="center">
 					kubernetes-deployment-production-east-us-2-replica-set
@@ -266,15 +328,21 @@ export const WithExternalWidth: Story = {
 		const { ref, width } = useTextEllipsisWidth<HTMLDivElement>();
 
 		return (
-			<div className="space-y-4 p-4">
-				<p className="text-xs text-vanilla-600 dark:text-vanilla-300">
+			<div className="stack-16" style={{ padding: 16 }}>
+				<p style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
 					Using <code>useTextEllipsisWidth</code> hook to measure the container and pass width
 					externally. Current width: {width}px
 				</p>
 				<div
 					ref={ref as any}
-					className="p-3 border border-vanilla-300 dark:border-vanilla-700 rounded"
-					style={{ width: '320px' }}
+					style={{
+						padding: 12,
+						borderStyle: 'solid',
+						borderWidth: 1,
+						borderColor: 'var(--bg-vanilla-300)',
+						borderRadius: 4,
+						width: '320px',
+					}}
 				>
 					<TextEllipsis position="center" width={width}>
 						kubernetes-deployment-production-east-us-2
@@ -302,13 +370,21 @@ export const TooltipOnTruncation: Story = {
 		title: { control: false },
 	},
 	render: () => (
-		<div className="space-y-4 p-4">
-			<p className="text-xs text-vanilla-600 dark:text-vanilla-300">
+		<div className="stack-16" style={{ padding: 16 }}>
+			<p style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
 				Hover over the truncated text to see the full content as a tooltip.
 			</p>
-			<div className="flex flex-col gap-2" style={{ width: '240px' }}>
+			<div style={{ display: 'flex', flexDirection: 'column', gap: 8, width: '240px' }}>
 				<div>
-					<span className="text-xs text-vanilla-600 dark:text-vanilla-300 block mb-1">
+					<span
+						style={{
+							color: 'var(--muted-foreground)',
+							fontSize: 12,
+							lineHeight: 1.33333,
+							display: 'block',
+							marginBottom: 4,
+						}}
+					>
 						Auto title (full text):
 					</span>
 					<TextEllipsis position="center">
@@ -316,7 +392,15 @@ export const TooltipOnTruncation: Story = {
 					</TextEllipsis>
 				</div>
 				<div>
-					<span className="text-xs text-vanilla-600 dark:text-vanilla-300 block mb-1">
+					<span
+						style={{
+							color: 'var(--muted-foreground)',
+							fontSize: 12,
+							lineHeight: 1.33333,
+							display: 'block',
+							marginBottom: 4,
+						}}
+					>
 						Custom title override:
 					</span>
 					<TextEllipsis
@@ -327,7 +411,15 @@ export const TooltipOnTruncation: Story = {
 					</TextEllipsis>
 				</div>
 				<div>
-					<span className="text-xs text-vanilla-600 dark:text-vanilla-300 block mb-1">
+					<span
+						style={{
+							color: 'var(--muted-foreground)',
+							fontSize: 12,
+							lineHeight: 1.33333,
+							display: 'block',
+							marginBottom: 4,
+						}}
+					>
 						Short text (no tooltip):
 					</span>
 					<TextEllipsis position="center">Short text</TextEllipsis>

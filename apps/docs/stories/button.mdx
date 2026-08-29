@@ -78,7 +78,7 @@ Place an icon before or after the label with `prefix` / `suffix`. For an icon-on
 `variant="action"` reads its background from the surface it's placed on via the `background` prop (`ink-500`, `ink-400`, `vanilla-100`, `vanilla-200`).
 
 ```tsx
-<div className="p-6 bg-ink-500">
+<div style={{ padding: 24, backgroundColor: 'var(--bg-ink-500)' }}>
 	<Button variant="action" background="ink-500" prefix={<ChevronLeft />}>
 		Action
 	</Button>

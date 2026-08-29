@@ -42,7 +42,7 @@ export const Default: Story = {
 						<DrawerTitle>Drawer overlay</DrawerTitle>
 					</DrawerHeader>
 					<DrawerDescription>
-						<p className="text-sm">
+						<p style={{ fontSize: 14, lineHeight: 1.42857 }}>
 							The overlay dims the background and blocks interaction with the page while the drawer
 							is open.
 						</p>

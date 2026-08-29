@@ -29,20 +29,19 @@ If you want to toggle/change between themes, you just need to update the value o
 
 > **tip**: Take a look at [./apps/docs/blue-demo.css](./apps/docs/blue-demo.css) to learn how to create a new theme.
 
-### How to use with Tailwind
+### Theme layer
 
-In case you want to have our design tokens exposed directly to Tailwind, you can install the following package:
+`@signozhq/theme` carries the `[data-theme-color]` accent overrides and the base
+element defaults (global border colour, keyboard focus ring, page background):
 
 ```sh
-pnpm add @signozhq/tailwind-config
+pnpm add @signozhq/theme
 ```
 
-And then import the following css:
-
 ```css
-@import 'tailwindcss';
-@config "@signozhq/tailwind-config";
-@import '@signozhq/tailwind-config/global.css';
+@import "@signozhq/design-tokens/dist/style.css";
+@import "@signozhq/design-tokens/dist/themes/signoz-tokens.css";
+@import "@signozhq/theme";
 ```
 
 ## Storybook
@@ -51,10 +50,10 @@ To learn more about the available components, take a look at: https://periscope.
 
 ## Available Packages
 
-| Package                     | Description                                                       |
-| --------------------------- | ----------------------------------------------------------------- |
-| `@signozhq/tailwind-config` | Tailwind config, design tokens, and `global.css` (required first) |
-| `@signozhq/ui`              | All UI components (single package with subpath exports)           |
+| Package             | Description                                                     |
+| ------------------- | --------------------------------------------------------------- |
+| `@signozhq/theme`   | Accent overrides and base element defaults (import first)         |
+| `@signozhq/ui`      | All UI components (single package with subpath exports)           |
 
 All components live in `@signozhq/ui`. Import by subpath:
 

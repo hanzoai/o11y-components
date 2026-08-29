@@ -1,4 +1,3 @@
-import tailwindConfig from '@signozhq/tailwind-config';
 import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
 
@@ -35,14 +34,11 @@ const config = {
 		disableTelemetry: true,
 	},
 	async viteFinal(config) {
-		const { default: tailwindcss } = await import('@tailwindcss/vite');
-
 		return mergeConfig(config, {
 			resolve: {
 				...config.resolve,
 				alias: config.resolve?.alias ?? [],
 			},
-			plugins: [tailwindcss(tailwindConfig)],
 		});
 	},
 	typescript: {

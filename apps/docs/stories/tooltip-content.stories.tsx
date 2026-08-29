@@ -108,7 +108,7 @@ export const Default: Story = {
 	},
 	render: (args: Partial<TooltipContentProps>) => (
 		<TooltipProvider delayDuration={0}>
-			<div className="p-20 flex items-center justify-center">
+			<div style={{ padding: 80, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 				<TooltipRoot>
 					<TooltipTrigger asChild>
 						<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>

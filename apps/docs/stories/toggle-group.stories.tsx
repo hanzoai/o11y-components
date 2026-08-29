@@ -119,16 +119,16 @@ export const Default: Story = {
 	render: (args) => (
 		<ToggleGroup {...args}>
 			<ToggleGroupItem value="left" aria-label="Align left">
-				<AlignLeft className="h-3 w-3" />
+				<AlignLeft style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 			<ToggleGroupItem value="center" aria-label="Align center">
-				<AlignCenter className="h-3 w-3" />
+				<AlignCenter style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 			<ToggleGroupItem value="right" aria-label="Align right">
-				<AlignRight className="h-3 w-3" />
+				<AlignRight style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 			<ToggleGroupItem value="justify" aria-label="Justify">
-				<AlignJustify className="h-3 w-3" />
+				<AlignJustify style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 		</ToggleGroup>
 	),
@@ -139,33 +139,52 @@ export const ToggleGroupShowcase: Story = {
 		docs: { story: { autoplay: true } },
 	},
 	render: () => (
-		<div className="p-8 rounded-lg bg-vanilla-100 dark:bg-background">
-			<div className="space-y-12">
+		<div style={{ backgroundColor: 'var(--background)', padding: 32, borderRadius: 4 }}>
+			<div className="stack-48">
 				{COLORS.map((color) => (
-					<div key={color} className="space-y-4">
-						<h2 className="text-base font-semibold capitalize text-foreground">{color}</h2>
-						<div className="flex flex-wrap gap-8">
+					<div key={color} className="stack-16">
+						<h2
+							style={{
+								fontSize: 16,
+								lineHeight: 1.5,
+								fontWeight: 600,
+								textTransform: 'capitalize',
+								color: 'var(--foreground)',
+							}}
+						>
+							{color}
+						</h2>
+						<div style={{ display: 'flex', flexWrap: 'wrap', gap: 32 }}>
 							{SIZES.map((size) => (
-								<div key={size} className="space-y-2">
-									<h3 className="text-sm font-medium capitalize">{size}</h3>
+								<div key={size} className="stack-8">
+									<h3
+										style={{
+											fontSize: 14,
+											lineHeight: 1.42857,
+											fontWeight: 500,
+											textTransform: 'capitalize',
+										}}
+									>
+										{size}
+									</h3>
 									<ToggleGroup type="single" defaultValue="center" color={color} size={size}>
 										<ToggleGroupItem value="left" aria-label="Align left">
-											<AlignLeft className="h-3 w-3" />
+											<AlignLeft style={{ height: 12, width: 12 }} />
 										</ToggleGroupItem>
 										<ToggleGroupItem value="center" aria-label="Align center">
-											<AlignCenter className="h-3 w-3" />
+											<AlignCenter style={{ height: 12, width: 12 }} />
 										</ToggleGroupItem>
 										<ToggleGroupItem value="right" aria-label="Align right">
-											<AlignRight className="h-3 w-3" />
+											<AlignRight style={{ height: 12, width: 12 }} />
 										</ToggleGroupItem>
 										<ToggleGroupItem value="justify" aria-label="Justify">
-											<AlignJustify className="h-3 w-3" />
+											<AlignJustify style={{ height: 12, width: 12 }} />
 										</ToggleGroupItem>
 									</ToggleGroup>
 								</div>
 							))}
-							<div className="space-y-2">
-								<h3 className="text-sm font-medium">Disabled</h3>
+							<div className="stack-8">
+								<h3 style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>Disabled</h3>
 								<ToggleGroup
 									type="single"
 									defaultValue="center"
@@ -174,16 +193,16 @@ export const ToggleGroupShowcase: Story = {
 									disabled
 								>
 									<ToggleGroupItem value="left" aria-label="Align left">
-										<AlignLeft className="h-3 w-3" />
+										<AlignLeft style={{ height: 12, width: 12 }} />
 									</ToggleGroupItem>
 									<ToggleGroupItem value="center" aria-label="Align center">
-										<AlignCenter className="h-3 w-3" />
+										<AlignCenter style={{ height: 12, width: 12 }} />
 									</ToggleGroupItem>
 									<ToggleGroupItem value="right" aria-label="Align right">
-										<AlignRight className="h-3 w-3" />
+										<AlignRight style={{ height: 12, width: 12 }} />
 									</ToggleGroupItem>
 									<ToggleGroupItem value="justify" aria-label="Justify">
-										<AlignJustify className="h-3 w-3" />
+										<AlignJustify style={{ height: 12, width: 12 }} />
 									</ToggleGroupItem>
 								</ToggleGroup>
 							</div>
@@ -205,16 +224,16 @@ export const SingleChoice: Story = {
 	render: (args) => (
 		<ToggleGroup {...args}>
 			<ToggleGroupItem value="left" aria-label="Align left">
-				<AlignLeft className="h-3 w-3" />
+				<AlignLeft style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 			<ToggleGroupItem value="center" aria-label="Align center">
-				<AlignCenter className="h-3 w-3" />
+				<AlignCenter style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 			<ToggleGroupItem value="right" aria-label="Align right">
-				<AlignRight className="h-3 w-3" />
+				<AlignRight style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 			<ToggleGroupItem value="justify" aria-label="Justify">
-				<AlignJustify className="h-3 w-3" />
+				<AlignJustify style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 		</ToggleGroup>
 	),
@@ -230,13 +249,13 @@ export const MultipleChoices: Story = {
 	render: (args) => (
 		<ToggleGroup {...args}>
 			<ToggleGroupItem value="bold" aria-label="Bold">
-				<Bold className="h-3 w-3" />
+				<Bold style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 			<ToggleGroupItem value="italic" aria-label="Italic">
-				<Italic className="h-3 w-3" />
+				<Italic style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 			<ToggleGroupItem value="underline" aria-label="Underline">
-				<Underline className="h-3 w-3" />
+				<Underline style={{ height: 12, width: 12 }} />
 			</ToggleGroupItem>
 		</ToggleGroup>
 	),
@@ -252,13 +271,13 @@ export const WithLabels: Story = {
 	render: (args) => (
 		<ToggleGroup {...args}>
 			<ToggleGroupItem value="first">
-				<LayoutGrid className="h-6 w-6" /> Label
+				<LayoutGrid style={{ height: 24, width: 24 }} /> Label
 			</ToggleGroupItem>
 			<ToggleGroupItem value="second">
-				<LayoutGrid className="h-6 w-6" /> Label
+				<LayoutGrid style={{ height: 24, width: 24 }} /> Label
 			</ToggleGroupItem>
 			<ToggleGroupItem value="third">
-				<LayoutGrid className="h-6 w-6" /> Label
+				<LayoutGrid style={{ height: 24, width: 24 }} /> Label
 			</ToggleGroupItem>
 		</ToggleGroup>
 	),

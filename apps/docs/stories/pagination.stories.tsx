@@ -105,7 +105,9 @@ export const Default: Story = {
 		return (
 			<div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
 				<div>
-					<p className="mb-2 text-sm text-gray-400">3 Pages - First Selected</p>
+					<p style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, color: '#99a1af' }}>
+						3 Pages - First Selected
+					</p>
 					<Pagination
 						total={30}
 						pageSize={10}
@@ -114,8 +116,10 @@ export const Default: Story = {
 					/>
 				</div>
 
-				<div className="mt-6">
-					<p className="mb-2 text-sm text-gray-400">3 Pages - Second Selected</p>
+				<div style={{ marginTop: 24 }}>
+					<p style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, color: '#99a1af' }}>
+						3 Pages - Second Selected
+					</p>
 					<Pagination
 						total={30}
 						pageSize={10}
@@ -124,8 +128,10 @@ export const Default: Story = {
 					/>
 				</div>
 
-				<div className="mt-6">
-					<p className="mb-2 text-sm text-gray-400">10 Pages - First Selected</p>
+				<div style={{ marginTop: 24 }}>
+					<p style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, color: '#99a1af' }}>
+						10 Pages - First Selected
+					</p>
 					<Pagination
 						total={100}
 						pageSize={10}
@@ -134,8 +140,10 @@ export const Default: Story = {
 					/>
 				</div>
 
-				<div className="mt-6">
-					<p className="mb-2 text-sm text-gray-400">10 Pages - Middle Selected (Page 7)</p>
+				<div style={{ marginTop: 24 }}>
+					<p style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, color: '#99a1af' }}>
+						10 Pages - Middle Selected (Page 7)
+					</p>
 					<Pagination
 						total={100}
 						pageSize={10}
@@ -144,8 +152,10 @@ export const Default: Story = {
 					/>
 				</div>
 
-				<div className="mt-6">
-					<p className="mb-2 text-sm text-gray-400">5 Pages - Center Aligned</p>
+				<div style={{ marginTop: 24 }}>
+					<p style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, color: '#99a1af' }}>
+						5 Pages - Center Aligned
+					</p>
 					<Pagination
 						total={50}
 						pageSize={10}
@@ -155,8 +165,10 @@ export const Default: Story = {
 					/>
 				</div>
 
-				<div className="mt-6">
-					<p className="mb-2 text-sm text-gray-400">5 Pages - End Aligned</p>
+				<div style={{ marginTop: 24 }}>
+					<p style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, color: '#99a1af' }}>
+						5 Pages - End Aligned
+					</p>
 					<Pagination
 						total={50}
 						pageSize={10}
@@ -166,8 +178,10 @@ export const Default: Story = {
 					/>
 				</div>
 
-				<div className="mt-6">
-					<p className="mb-2 text-sm text-gray-400">10 Pages - Last Selected</p>
+				<div style={{ marginTop: 24 }}>
+					<p style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, color: '#99a1af' }}>
+						10 Pages - Last Selected
+					</p>
 					<Pagination
 						total={100}
 						pageSize={10}

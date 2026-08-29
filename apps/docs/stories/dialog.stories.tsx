@@ -58,11 +58,20 @@ export const Default: Story = {
 								<DialogTitle>Edit report details</DialogTitle>
 							</DialogHeader>
 							<DialogDescription>
-								<div className="flex flex-col gap-4 text-sm font-normal leading-5 font-inter font-regular">
+								<div
+									style={{
+										display: 'flex',
+										flexDirection: 'column',
+										gap: 16,
+										fontSize: 14,
+										lineHeight: 20,
+										fontWeight: 400,
+									}}
+								>
 									<p>
 										Dialog content goes here. Use the primitive dialog components for full control.
 									</p>
-									<div className="flex justify-end">
+									<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 										<Button
 											variant={ButtonVariant.Solid}
 											color={ButtonColor.Primary}
@@ -106,7 +115,16 @@ export const Controlled: Story = {
 					</Button>
 				}
 			>
-				<div className="flex flex-col gap-4 text-sm font-normal leading-5 font-inter font-regular">
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						gap: 16,
+						fontSize: 14,
+						lineHeight: 20,
+						fontWeight: 400,
+					}}
+				>
 					<p>Dialog content goes here. Uses AnimatePresence for exit animation.</p>
 				</div>
 			</DialogWrapper>
@@ -120,7 +138,7 @@ export const WidthVariants: Story = {
 		const widths = ['narrow', 'base', 'wide', 'extra-wide'] as const;
 
 		return (
-			<div className="flex flex-wrap gap-4">
+			<div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
 				{widths.map((width) => (
 					<DialogWrapper
 						key={width}
@@ -134,9 +152,18 @@ export const WidthVariants: Story = {
 							</Button>
 						}
 					>
-						<div className="flex flex-col gap-4 text-sm font-normal leading-5 font-inter font-regular">
+						<div
+							style={{
+								display: 'flex',
+								flexDirection: 'column',
+								gap: 16,
+								fontSize: 14,
+								lineHeight: 20,
+								fontWeight: 400,
+							}}
+						>
 							<p>This dialog uses the {width} width variant.</p>
-							<div className="flex justify-end">
+							<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 								<Button
 									variant={ButtonVariant.Solid}
 									color={ButtonColor.Primary}
@@ -160,7 +187,7 @@ export const PositionVariants: Story = {
 		);
 
 		return (
-			<div className="flex flex-wrap gap-4">
+			<div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
 				{(['center', 'top', 'left', 'right', 'bottom'] as const).map((position) => (
 					<Dialog
 						key={position}
@@ -187,7 +214,16 @@ export const PositionVariants: Story = {
 										</DialogTitle>
 									</DialogHeader>
 									<DialogDescription>
-										<div className="flex flex-col gap-4 text-sm font-normal leading-5 font-inter font-regular">
+										<div
+											style={{
+												display: 'flex',
+												flexDirection: 'column',
+												gap: 16,
+												fontSize: 14,
+												lineHeight: 20,
+												fontWeight: 400,
+											}}
+										>
 											<p>This dialog is positioned at {position}.</p>
 										</div>
 									</DialogDescription>
@@ -229,9 +265,18 @@ export const WithoutCloseButton: Story = {
 				</Button>
 			}
 		>
-			<div className="flex flex-col gap-4 text-sm font-normal leading-5 font-inter font-regular">
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					gap: 16,
+					fontSize: 14,
+					lineHeight: 20,
+					fontWeight: 400,
+				}}
+			>
 				<p>This dialog has no close (X) button. Use the button below or click outside to close.</p>
-				<div className="flex justify-end">
+				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 					<DialogClose asChild>
 						<Button variant={ButtonVariant.Solid} color={ButtonColor.Primary}>
 							Close
@@ -261,7 +306,7 @@ export const Primitive: Story = {
 								<DialogTitle icon={<Code size={16} />}>Primitive composition</DialogTitle>
 							</DialogHeader>
 							<DialogDescription>
-								<p className="text-sm font-normal leading-5 font-inter font-regular">
+								<p style={{ fontSize: 14, lineHeight: 20, fontWeight: 400 }}>
 									Use Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle,
 									DialogDescription and DialogFooter for full control.
 								</p>

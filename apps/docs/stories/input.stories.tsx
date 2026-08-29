@@ -161,70 +161,107 @@ export const InputTypes: Story = {
 		className: { control: false },
 	},
 	render: () => (
-		<div className="p-8 space-y-6 bg-background">
-			<div className="space-y-4">
-				<h3 className="text-sm font-medium text-vanilla-800 dark:text-vanilla-300">
+		<div className="stack-24" style={{ padding: 32, backgroundColor: 'var(--background)' }}>
+			<div className="stack-16">
+				<h3
+					style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}
+				>
 					Common Input Types
 				</h3>
-				<div className="space-y-4 max-w-md">
-					<div className="space-y-2">
+				<div className="stack-16" style={{ maxWidth: 448 }}>
+					<div className="stack-8">
 						<label
 							htmlFor="type-text"
-							className="block text-xs text-vanilla-600 dark:text-vanilla-400"
+							style={{
+								color: 'var(--muted-foreground)',
+								display: 'block',
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
 						>
 							Text
 						</label>
 						<Input id="type-text" type="text" placeholder="Enter text" />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="type-email"
-							className="block text-xs text-vanilla-600 dark:text-vanilla-400"
+							style={{
+								color: 'var(--muted-foreground)',
+								display: 'block',
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
 						>
 							Email
 						</label>
 						<Input id="type-email" type="email" placeholder="email@example.com" />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="type-password"
-							className="block text-xs text-vanilla-600 dark:text-vanilla-400"
+							style={{
+								color: 'var(--muted-foreground)',
+								display: 'block',
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
 						>
 							Password
 						</label>
 						<Input id="type-password" type="password" placeholder="Enter password" />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="type-number"
-							className="block text-xs text-vanilla-600 dark:text-vanilla-400"
+							style={{
+								color: 'var(--muted-foreground)',
+								display: 'block',
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
 						>
 							Number
 						</label>
 						<Input id="type-number" type="number" placeholder="Enter number" />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="type-tel"
-							className="block text-xs text-vanilla-600 dark:text-vanilla-400"
+							style={{
+								color: 'var(--muted-foreground)',
+								display: 'block',
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
 						>
 							Telephone
 						</label>
 						<Input id="type-tel" type="tel" placeholder="+1 (555) 000-0000" />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="type-url"
-							className="block text-xs text-vanilla-600 dark:text-vanilla-400"
+							style={{
+								color: 'var(--muted-foreground)',
+								display: 'block',
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
 						>
 							URL
 						</label>
 						<Input id="type-url" type="url" placeholder="https://example.com" />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="type-search"
-							className="block text-xs text-vanilla-600 dark:text-vanilla-400"
+							style={{
+								color: 'var(--muted-foreground)',
+								display: 'block',
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
 						>
 							Search
 						</label>
@@ -256,30 +293,48 @@ export const WithLabels: Story = {
 		className: { control: false },
 	},
 	render: () => (
-		<div className="p-8 space-y-6 bg-background">
-			<div className="space-y-4 max-w-md">
-				<div className="space-y-2">
+		<div className="stack-24" style={{ padding: 32, backgroundColor: 'var(--background)' }}>
+			<div className="stack-16" style={{ maxWidth: 448 }}>
+				<div className="stack-8">
 					<label
 						htmlFor="labeled-input-1"
-						className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+						style={{
+							color: 'var(--foreground)',
+							display: 'block',
+							fontSize: 14,
+							lineHeight: 1.42857,
+							fontWeight: 500,
+						}}
 					>
 						Full Name
 					</label>
 					<Input id="labeled-input-1" placeholder="John Doe" />
 				</div>
-				<div className="space-y-2">
+				<div className="stack-8">
 					<label
 						htmlFor="labeled-input-2"
-						className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+						style={{
+							color: 'var(--foreground)',
+							display: 'block',
+							fontSize: 14,
+							lineHeight: 1.42857,
+							fontWeight: 500,
+						}}
 					>
 						Email Address
 					</label>
 					<Input id="labeled-input-2" type="email" placeholder="john@example.com" />
 				</div>
-				<div className="space-y-2">
+				<div className="stack-8">
 					<label
 						htmlFor="labeled-input-3"
-						className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+						style={{
+							color: 'var(--foreground)',
+							display: 'block',
+							fontSize: 14,
+							lineHeight: 1.42857,
+							fontWeight: 500,
+						}}
 					>
 						Phone Number
 					</label>
@@ -310,12 +365,18 @@ export const DisabledStates: Story = {
 		className: { control: false },
 	},
 	render: () => (
-		<div className="p-8 space-y-6 bg-background">
-			<div className="space-y-4 max-w-md">
-				<div className="space-y-2">
+		<div className="stack-24" style={{ padding: 32, backgroundColor: 'var(--background)' }}>
+			<div className="stack-16" style={{ maxWidth: 448 }}>
+				<div className="stack-8">
 					<label
 						htmlFor="disabled-input"
-						className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+						style={{
+							color: 'var(--foreground)',
+							display: 'block',
+							fontSize: 14,
+							lineHeight: 1.42857,
+							fontWeight: 500,
+						}}
 					>
 						Disabled Input
 					</label>
@@ -346,12 +407,18 @@ export const ReadOnlyStates: Story = {
 		className: { control: false },
 	},
 	render: () => (
-		<div className="p-8 space-y-6 bg-background">
-			<div className="space-y-4 max-w-md">
-				<div className="space-y-2">
+		<div className="stack-24" style={{ padding: 32, backgroundColor: 'var(--background)' }}>
+			<div className="stack-16" style={{ maxWidth: 448 }}>
+				<div className="stack-8">
 					<label
 						htmlFor="readonly-input"
-						className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+						style={{
+							color: 'var(--foreground)',
+							display: 'block',
+							fontSize: 14,
+							lineHeight: 1.42857,
+							fontWeight: 500,
+						}}
 					>
 						Read-Only Input
 					</label>
@@ -382,17 +449,25 @@ export const RequiredFields: Story = {
 		className: { control: false },
 	},
 	render: () => (
-		<div className="p-8 space-y-6 bg-background">
-			<div className="space-y-4 max-w-md">
-				<div className="space-y-2">
+		<div className="stack-24" style={{ padding: 32, backgroundColor: 'var(--background)' }}>
+			<div className="stack-16" style={{ maxWidth: 448 }}>
+				<div className="stack-8">
 					<label
 						htmlFor="required-input"
-						className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+						style={{
+							color: 'var(--foreground)',
+							display: 'block',
+							fontSize: 14,
+							lineHeight: 1.42857,
+							fontWeight: 500,
+						}}
 					>
-						Email Address <span className="text-red-500">*</span>
+						Email Address <span style={{ color: '#fb2c36' }}>*</span>
 					</label>
 					<Input id="required-input" type="email" placeholder="Required field" required />
-					<p className="text-xs text-vanilla-600 dark:text-vanilla-400">This field is required</p>
+					<p style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+						This field is required
+					</p>
 				</div>
 			</div>
 		</div>
@@ -419,43 +494,71 @@ export const FormExamples: Story = {
 		className: { control: false },
 	},
 	render: () => (
-		<div className="p-8 space-y-8 bg-background">
-			<div className="max-w-md space-y-6">
-				<h3 className="text-sm font-medium text-vanilla-800 dark:text-vanilla-300">Contact Form</h3>
-				<form className="space-y-4">
-					<div className="space-y-2">
+		<div className="stack-32" style={{ padding: 32, backgroundColor: 'var(--background)' }}>
+			<div className="stack-24" style={{ maxWidth: 448 }}>
+				<h3
+					style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}
+				>
+					Contact Form
+				</h3>
+				<form className="stack-16">
+					<div className="stack-8">
 						<label
 							htmlFor="form-name"
-							className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+							style={{
+								color: 'var(--foreground)',
+								display: 'block',
+								fontSize: 14,
+								lineHeight: 1.42857,
+								fontWeight: 500,
+							}}
 						>
-							Full Name <span className="text-red-500">*</span>
+							Full Name <span style={{ color: '#fb2c36' }}>*</span>
 						</label>
 						<Input id="form-name" placeholder="John Doe" required />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="form-email"
-							className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+							style={{
+								color: 'var(--foreground)',
+								display: 'block',
+								fontSize: 14,
+								lineHeight: 1.42857,
+								fontWeight: 500,
+							}}
 						>
-							Email Address <span className="text-red-500">*</span>
+							Email Address <span style={{ color: '#fb2c36' }}>*</span>
 						</label>
 						<Input id="form-email" type="email" placeholder="john@example.com" required />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="form-phone"
-							className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+							style={{
+								color: 'var(--foreground)',
+								display: 'block',
+								fontSize: 14,
+								lineHeight: 1.42857,
+								fontWeight: 500,
+							}}
 						>
 							Phone Number
 						</label>
 						<Input id="form-phone" type="tel" placeholder="+1 (555) 000-0000" />
 					</div>
-					<div className="space-y-2">
+					<div className="stack-8">
 						<label
 							htmlFor="form-password"
-							className="block text-sm font-medium text-vanilla-800 dark:text-vanilla-300"
+							style={{
+								color: 'var(--foreground)',
+								display: 'block',
+								fontSize: 14,
+								lineHeight: 1.42857,
+								fontWeight: 500,
+							}}
 						>
-							Password <span className="text-red-500">*</span>
+							Password <span style={{ color: '#fb2c36' }}>*</span>
 						</label>
 						<Input id="form-password" placeholder="Enter password" required type="password" />
 					</div>
@@ -489,8 +592,8 @@ export const PasswordInput: Story = {
 	},
 	render: (args) => {
 		return (
-			<div className="p-5 mt-5">
-				<h2 className="mb-3">Input.Password Example</h2>
+			<div style={{ padding: 20, marginTop: 20 }}>
+				<h2 style={{ marginBottom: 12 }}>Input.Password Example</h2>
 
 				<Input.Password {...args} />
 			</div>

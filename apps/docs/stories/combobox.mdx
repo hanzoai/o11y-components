@@ -59,9 +59,9 @@ import { useState } from 'react';
 import { Code, Database } from '@signozhq/icons';
 
 const items = [
-	{ value: 'react', label: <><Code className="mr-2 h-4 w-4" />React</> },
-	{ value: 'vue', label: <><Code className="mr-2 h-4 w-4" />Vue</> },
-	{ value: 'postgres', label: <><Database className="mr-2 h-4 w-4" />PostgreSQL</> },
+	{ value: 'react', label: <><Code style={{ marginRight: 8, height: 16, width: 16 }} />React</> },
+	{ value: 'vue', label: <><Code style={{ marginRight: 8, height: 16, width: 16 }} />Vue</> },
+	{ value: 'postgres', label: <><Database style={{ marginRight: 8, height: 16, width: 16 }} />PostgreSQL</> },
 ];
 
 export default function MyComponent() {
@@ -86,8 +86,8 @@ import { useState } from 'react';
 import { Code } from '@signozhq/icons';
 
 const items = [
-	{ value: 'react', label: <><Code className="mr-2 h-4 w-4" />React</>, displayValue: 'React' },
-	{ value: 'vue', label: <><Code className="mr-2 h-4 w-4" />Vue</>, displayValue: 'Vue' },
+	{ value: 'react', label: <><Code style={{ marginRight: 8, height: 16, width: 16 }} />React</>, displayValue: 'React' },
+	{ value: 'vue', label: <><Code style={{ marginRight: 8, height: 16, width: 16 }} />Vue</>, displayValue: 'Vue' },
 ];
 
 export default function MyComponent() {
@@ -312,7 +312,7 @@ import { Popover, PopoverTrigger, PopoverContent, ComboboxSimple, Button } from 
 	<PopoverTrigger asChild>
 		<Button variant="outline">Open filters</Button>
 	</PopoverTrigger>
-	<PopoverContent className="w-80">
+	<PopoverContent style={{ width: 320 }}>
 		<ComboboxSimple
 			items={items}
 			value={value}

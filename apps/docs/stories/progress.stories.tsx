@@ -94,7 +94,7 @@ export default meta;
 
 // Default Template
 const Template: StoryFn<typeof Progress> = (args: ProgressProps) => (
-	<div className="w-full max-w-md p-4">
+	<div style={{ width: '100%', maxWidth: 448, padding: 16 }}>
 		<Progress {...args} />
 	</div>
 );
@@ -107,13 +107,27 @@ Default.args = {
 
 // 2. Sizes: Show both default and small sizes
 export const Sizes: StoryFn = () => (
-	<div className="flex w-full max-w-md flex-col gap-6 p-4 text-vanilla-100">
+	<div
+		style={{
+			display: 'flex',
+			width: '100%',
+			maxWidth: 448,
+			flexDirection: 'column',
+			gap: 24,
+			padding: 16,
+			color: 'var(--bg-vanilla-100)',
+		}}
+	>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">Small Size</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				Small Size
+			</h3>
 			<Progress percent={70} size="small" />
 		</div>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">Default Size</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				Default Size
+			</h3>
 			<Progress percent={70} size="default" />
 		</div>
 	</div>
@@ -121,17 +135,33 @@ export const Sizes: StoryFn = () => (
 
 // 3. Dynamic Colors: custom hex values or design tokens
 export const DynamicColors: StoryFn = () => (
-	<div className="flex w-full max-w-md flex-col gap-6 p-4 text-vanilla-100">
+	<div
+		style={{
+			display: 'flex',
+			width: '100%',
+			maxWidth: 448,
+			flexDirection: 'column',
+			gap: 24,
+			padding: 16,
+			color: 'var(--bg-vanilla-100)',
+		}}
+	>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">Critical (Red)</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				Critical (Red)
+			</h3>
 			<Progress percent={80} strokeColor="#ef4444" />
 		</div>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">Warning (Yellow)</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				Warning (Yellow)
+			</h3>
 			<Progress percent={60} strokeColor="#eab308" />
 		</div>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">Success (Green)</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				Success (Green)
+			</h3>
 			<Progress percent={100} strokeColor="#22c55e" />
 		</div>
 	</div>
@@ -139,13 +169,27 @@ export const DynamicColors: StoryFn = () => (
 
 // 4. Segmented (Steps)
 export const Segmented: StoryFn = () => (
-	<div className="flex w-full max-w-md flex-col gap-6 p-4 text-vanilla-100">
+	<div
+		style={{
+			display: 'flex',
+			width: '100%',
+			maxWidth: 448,
+			flexDirection: 'column',
+			gap: 24,
+			padding: 16,
+			color: 'var(--bg-vanilla-100)',
+		}}
+	>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">5 Steps, 40%</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				5 Steps, 40%
+			</h3>
 			<Progress percent={40} steps={5} />
 		</div>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">10 Steps, 70%</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				10 Steps, 70%
+			</h3>
 			<Progress percent={70} steps={10} strokeColor="#10b981" />
 		</div>
 	</div>
@@ -153,13 +197,27 @@ export const Segmented: StoryFn = () => (
 
 // 5. With Info
 export const WithInfo: StoryFn = () => (
-	<div className="flex w-full max-w-md flex-col gap-6 p-4 text-vanilla-100">
+	<div
+		style={{
+			display: 'flex',
+			width: '100%',
+			maxWidth: 448,
+			flexDirection: 'column',
+			gap: 24,
+			padding: 16,
+			color: 'var(--bg-vanilla-100)',
+		}}
+	>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">Showing Info Text</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				Showing Info Text
+			</h3>
 			<Progress percent={45} showInfo />
 		</div>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">Active Status with Info</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
+				Active Status with Info
+			</h3>
 			<Progress percent={85} showInfo status="active" />
 		</div>
 	</div>
@@ -167,15 +225,25 @@ export const WithInfo: StoryFn = () => (
 
 // 6. Stroke Linecap (Extra)
 export const StrokeLinecap: StoryFn = () => (
-	<div className="flex w-full max-w-md flex-col gap-6 p-4 text-vanilla-100">
+	<div
+		style={{
+			display: 'flex',
+			width: '100%',
+			maxWidth: 448,
+			flexDirection: 'column',
+			gap: 24,
+			padding: 16,
+			color: 'var(--bg-vanilla-100)',
+		}}
+	>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>
 				Round (Default for track, butt for indicator usually, but let's test)
 			</h3>
 			<Progress percent={50} strokeLinecap="round" />
 		</div>
 		<div>
-			<h3 className="mb-2 text-sm font-medium">Butt</h3>
+			<h3 style={{ marginBottom: 8, fontSize: 14, lineHeight: 1.42857, fontWeight: 500 }}>Butt</h3>
 			<Progress percent={50} strokeLinecap="butt" />
 		</div>
 	</div>

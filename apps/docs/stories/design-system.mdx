@@ -59,7 +59,7 @@ All tokens are available as CSS custom properties:
 Tokens are mapped to Tailwind utility classes:
 
 ```tsx
-<div className="bg-l1-background text-l1-foreground border border-l2-border">
+<div style={{ backgroundColor: 'var(--l1-background)', color: 'var(--l1-foreground)', borderStyle: 'solid', borderWidth: 1, borderColor: 'var(--l2-border)' }}>
   Content here
 </div>
 ```
@@ -82,7 +82,7 @@ The surface level system provides a consistent approach to layered UI. Each leve
 The outermost container, typically the page or app shell background.
 
 ```tsx
-<div className="bg-l1-background text-l1-foreground">
+<div style={{ backgroundColor: 'var(--l1-background)', color: 'var(--l1-foreground)' }}>
   {/* Page content */}
 </div>
 ```
@@ -96,8 +96,8 @@ The outermost container, typically the page or app shell background.
 Secondary surfaces that sit on top of L1.
 
 ```tsx
-<div className="bg-l1-background">
-  <div className="bg-l2-background border border-l2-border rounded-lg p-4">
+<div style={{ backgroundColor: 'var(--l1-background)' }}>
+  <div style={{ backgroundColor: 'var(--l2-background)', borderStyle: 'solid', borderWidth: 1, borderColor: 'var(--l2-border)', borderRadius: 4, padding: 16 }}>
     {/* Card content */}
   </div>
 </div>
@@ -112,8 +112,8 @@ Secondary surfaces that sit on top of L1.
 Tertiary surfaces within L2 containers.
 
 ```tsx
-<div className="bg-l2-background p-4">
-  <input className="bg-l3-background border border-l3-border rounded px-3 py-2" />
+<div style={{ backgroundColor: 'var(--l2-background)', padding: 16 }}>
+  <input style={{ backgroundColor: 'var(--l3-background)', borderStyle: 'solid', borderWidth: 1, borderColor: 'var(--l3-border)', borderRadius: 4, paddingInline: 12, paddingBlock: 8 }} />
 </div>
 ```
 
@@ -141,7 +141,7 @@ Of each level:
 Each level has corresponding hover tokens:
 
 ```tsx
-<button className="bg-l2-background hover:bg-l2-background-hover">
+<button className="demo-button">
   Hover me
 </button>
 ```
@@ -160,7 +160,7 @@ Start with existing semantic tokens wherever possible:
 // dialog.tsx
 function DialogContent({ children }) {
   return (
-    <div className="bg-l1-background border border-l2-border rounded-lg shadow-lg">
+    <div style={{ backgroundColor: 'var(--l1-background)', borderStyle: 'solid', borderWidth: 1, borderColor: 'var(--l2-border)', borderRadius: 4, boxShadow: '0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a' }}>
       {children}
     </div>
   );
@@ -271,8 +271,8 @@ If you're migrating from the legacy token system, use this mapping:
 
 **Before:**
 ```tsx
-<div className="bg-card text-card-foreground border-border">
-  <button className="bg-primary text-primary-foreground">
+<div style={{ backgroundColor: 'var(--card)', color: 'var(--card-foreground)', borderColor: 'var(--border)' }}>
+  <button style={{ backgroundColor: 'var(--primary)', color: 'var(--primary-foreground)' }}>
     Click
   </button>
 </div>
@@ -280,8 +280,8 @@ If you're migrating from the legacy token system, use this mapping:
 
 **After:**
 ```tsx
-<div className="bg-l2-background text-l2-foreground border-l2-border">
-  <button className="bg-primary-background text-primary-foreground">
+<div style={{ backgroundColor: 'var(--l2-background)', color: 'var(--l2-foreground)', borderColor: 'var(--l2-border)' }}>
+  <button style={{ backgroundColor: 'var(--primary-background)', color: 'var(--primary-foreground)' }}>
     Click
   </button>
 </div>

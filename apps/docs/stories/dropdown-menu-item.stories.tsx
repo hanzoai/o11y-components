@@ -55,7 +55,7 @@ export const Default: Story = {
 		destructive: false,
 	},
 	render: (args) => (
-		<div className="p-8">
+		<div style={{ padding: 32 }}>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant="solid" color="secondary">
@@ -63,11 +63,13 @@ export const Default: Story = {
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
-					<DropdownMenuItem {...args} leftIcon={<User className="h-4 w-4" />} />
-					<DropdownMenuItem leftIcon={<Settings className="h-4 w-4" />}>Settings</DropdownMenuItem>
+					<DropdownMenuItem {...args} leftIcon={<User style={{ height: 16, width: 16 }} />} />
+					<DropdownMenuItem leftIcon={<Settings style={{ height: 16, width: 16 }} />}>
+						Settings
+					</DropdownMenuItem>
 					<DropdownMenuItem
 						destructive
-						leftIcon={<LogOut className="h-4 w-4" />}
+						leftIcon={<LogOut style={{ height: 16, width: 16 }} />}
 						onSelect={() => {}}
 					>
 						Logout
@@ -85,7 +87,7 @@ export const WithShortcut: Story = {
 		disabled: false,
 	},
 	render: (args) => (
-		<div className="p-8">
+		<div style={{ padding: 32 }}>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant="solid" color="secondary">
@@ -93,15 +95,15 @@ export const WithShortcut: Story = {
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
-					<DropdownMenuItem {...args} leftIcon={<User className="h-4 w-4" />}>
+					<DropdownMenuItem {...args} leftIcon={<User style={{ height: 16, width: 16 }} />}>
 						{args.children}
 						<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
 					</DropdownMenuItem>
-					<DropdownMenuItem leftIcon={<Settings className="h-4 w-4" />}>
+					<DropdownMenuItem leftIcon={<Settings style={{ height: 16, width: 16 }} />}>
 						Settings
 						<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
 					</DropdownMenuItem>
-					<DropdownMenuItem leftIcon={<Check className="h-4 w-4" />}>
+					<DropdownMenuItem leftIcon={<Check style={{ height: 16, width: 16 }} />}>
 						With checkmark
 						<DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
 					</DropdownMenuItem>

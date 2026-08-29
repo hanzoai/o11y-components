@@ -38,7 +38,7 @@ export const Default: Story = {
 					<DialogTitle>Dialog header</DialogTitle>
 				</DialogHeader>
 				<DialogDescription>
-					<p className="text-sm font-normal leading-5 font-inter font-regular">
+					<p style={{ fontSize: 14, lineHeight: 20, fontWeight: 400 }}>
 						The header typically contains the title and optional actions.
 					</p>
 				</DialogDescription>

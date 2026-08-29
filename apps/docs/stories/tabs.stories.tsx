@@ -97,7 +97,7 @@ const playgroundItems: (TabItemProps & { variant?: TabVariants })[] = [
 		key: 'overview',
 		label: 'Overview',
 		children: 'Overview content panel',
-		prefixIcon: <Settings2 className="size-4" />,
+		prefixIcon: <Settings2 style={{ width: 16, height: 16 }} />,
 	},
 	{
 		key: 'issues',
@@ -105,13 +105,13 @@ const playgroundItems: (TabItemProps & { variant?: TabVariants })[] = [
 		children: 'Issues content panel',
 		disabled: true,
 		disabledReason: 'Issues are temporarily unavailable',
-		prefixIcon: <CircleAlert className="size-4" />,
+		prefixIcon: <CircleAlert style={{ width: 16, height: 16 }} />,
 	},
 	{
 		key: 'history',
 		label: 'History',
 		children: 'History content panel',
-		suffixIcon: <History className="size-4" />,
+		suffixIcon: <History style={{ width: 16, height: 16 }} />,
 	},
 	{
 		key: 'another',
@@ -135,7 +135,7 @@ const playgroundItems: (TabItemProps & { variant?: TabVariants })[] = [
 		label: 'Settings',
 		children: 'Settings content panel',
 		variant: 'secondary',
-		prefixIcon: <Settings className="size-4" />,
+		prefixIcon: <Settings style={{ width: 16, height: 16 }} />,
 		disabled: true,
 		disabledReason: 'You need admin privileges to access settings',
 	},
@@ -146,7 +146,7 @@ const defaultItems: TabItemProps[] = [
 		key: 'overview',
 		label: 'Overview',
 		children: 'Overview content panel',
-		prefixIcon: <Settings2 className="size-4" />,
+		prefixIcon: <Settings2 style={{ width: 16, height: 16 }} />,
 	},
 	{
 		key: 'issues',
@@ -154,13 +154,13 @@ const defaultItems: TabItemProps[] = [
 		children: 'Issues content panel',
 		disabled: true,
 		disabledReason: 'Issues are temporarily unavailable',
-		prefixIcon: <CircleAlert className="size-4" />,
+		prefixIcon: <CircleAlert style={{ width: 16, height: 16 }} />,
 	},
 	{
 		key: 'history',
 		label: 'History',
 		children: 'History content panel',
-		suffixIcon: <History className="size-4" />,
+		suffixIcon: <History style={{ width: 16, height: 16 }} />,
 	},
 	{
 		key: 'another',
@@ -180,9 +180,11 @@ export const Default: Story = {
 
 export const AllVariants: Story = {
 	render: () => (
-		<div className="space-y-8">
+		<div className="stack-32">
 			<div>
-				<h2 className="mb-4 text-lg font-semibold">Primary Variant</h2>
+				<h2 style={{ marginBottom: 16, fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>
+					Primary Variant
+				</h2>
 				<Tabs
 					items={playgroundItems.filter((i) => i.variant !== 'secondary')}
 					variant="primary"
@@ -191,7 +193,9 @@ export const AllVariants: Story = {
 			</div>
 
 			<div>
-				<h2 className="mb-4 text-lg font-semibold">Secondary Variant</h2>
+				<h2 style={{ marginBottom: 16, fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>
+					Secondary Variant
+				</h2>
 				<Tabs
 					items={playgroundItems
 						.filter((i) => i.variant === 'secondary')
@@ -202,21 +206,23 @@ export const AllVariants: Story = {
 			</div>
 
 			<div>
-				<h2 className="mb-4 text-lg font-semibold">With Icons</h2>
+				<h2 style={{ marginBottom: 16, fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>
+					With Icons
+				</h2>
 				<Tabs
 					items={[
 						{
 							key: 'apps',
 							label: 'Applications',
 							children: 'Applications list',
-							prefixIcon: <LayoutGrid className="size-4" />,
-							suffixIcon: <List className="size-4" />,
+							prefixIcon: <LayoutGrid style={{ width: 16, height: 16 }} />,
+							suffixIcon: <List style={{ width: 16, height: 16 }} />,
 						},
 						{
 							key: 'modules',
 							label: 'Modules',
 							children: 'Modules content',
-							prefixIcon: <Component className="size-4" />,
+							prefixIcon: <Component style={{ width: 16, height: 16 }} />,
 						},
 					]}
 					variant="primary"
@@ -225,15 +231,17 @@ export const AllVariants: Story = {
 			</div>
 
 			<div>
-				<h2 className="mb-4 text-lg font-semibold">Dashboard Navigation</h2>
+				<h2 style={{ marginBottom: 16, fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>
+					Dashboard Navigation
+				</h2>
 				<Tabs
 					items={[
 						{
 							key: 'overview',
 							label: 'Overview',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Overview</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>Overview</h1>
 								</div>
 							),
 						},
@@ -241,8 +249,10 @@ export const AllVariants: Story = {
 							key: 'integrations',
 							label: 'Integrations',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Integrations</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>
+										Integrations
+									</h1>
 								</div>
 							),
 						},
@@ -250,8 +260,8 @@ export const AllVariants: Story = {
 							key: 'activity',
 							label: 'Activity',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Activity</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>Activity</h1>
 								</div>
 							),
 						},
@@ -259,8 +269,8 @@ export const AllVariants: Story = {
 							key: 'domains',
 							label: 'Domains',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Domains</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>Domains</h1>
 								</div>
 							),
 						},
@@ -268,8 +278,8 @@ export const AllVariants: Story = {
 							key: 'usage',
 							label: 'Usage',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Usage</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>Usage</h1>
 								</div>
 							),
 						},
@@ -277,8 +287,8 @@ export const AllVariants: Story = {
 							key: 'monitoring',
 							label: 'Monitoring',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Monitoring</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>Monitoring</h1>
 								</div>
 							),
 						},
@@ -286,8 +296,10 @@ export const AllVariants: Story = {
 							key: 'observability',
 							label: 'Observability',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Observability</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>
+										Observability
+									</h1>
 								</div>
 							),
 						},
@@ -295,8 +307,8 @@ export const AllVariants: Story = {
 							key: 'storage',
 							label: 'Storage',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Storage</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>Storage</h1>
 								</div>
 							),
 						},
@@ -304,8 +316,8 @@ export const AllVariants: Story = {
 							key: 'ai',
 							label: 'AI',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">AI</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>AI</h1>
 								</div>
 							),
 						},
@@ -313,8 +325,8 @@ export const AllVariants: Story = {
 							key: 'support',
 							label: 'Support',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Support</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>Support</h1>
 								</div>
 							),
 						},
@@ -322,8 +334,8 @@ export const AllVariants: Story = {
 							key: 'settings',
 							label: 'Settings',
 							children: (
-								<div className="pt-4">
-									<h1 className="text-2xl font-semibold">Settings</h1>
+								<div style={{ paddingTop: 16 }}>
+									<h1 style={{ fontSize: 24, lineHeight: 1.33333, fontWeight: 600 }}>Settings</h1>
 								</div>
 							),
 						},
@@ -341,7 +353,7 @@ const primaryItems = [
 		key: 'overview',
 		label: 'Overview',
 		children: 'Overview content',
-		prefixIcon: <Settings className="size-4" />,
+		prefixIcon: <Settings style={{ width: 16, height: 16 }} />,
 	},
 	{
 		key: 'issues',
@@ -349,13 +361,13 @@ const primaryItems = [
 		children: 'Issues content',
 		disabled: true,
 		disabledReason: 'Issues feature is currently under maintenance',
-		prefixIcon: <CircleAlert className="size-4" />,
+		prefixIcon: <CircleAlert style={{ width: 16, height: 16 }} />,
 	},
 	{
 		key: 'history',
 		label: 'History',
 		children: 'History content',
-		suffixIcon: <History className="size-4" />,
+		suffixIcon: <History style={{ width: 16, height: 16 }} />,
 	},
 ];
 
@@ -393,9 +405,11 @@ export const Secondary: Story = {
 
 export const DisabledStates: Story = {
 	render: () => (
-		<div className="space-y-8">
+		<div className="stack-32">
 			<div>
-				<h2 className="mb-4 text-lg font-semibold">Disabled Tabs with Custom Reasons</h2>
+				<h2 style={{ marginBottom: 16, fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>
+					Disabled Tabs with Custom Reasons
+				</h2>
 				<Tabs
 					items={[
 						{
@@ -409,7 +423,7 @@ export const DisabledStates: Story = {
 							children: 'Locked content',
 							disabled: true,
 							disabledReason: 'This feature is locked',
-							prefixIcon: <Lock className="size-4" />,
+							prefixIcon: <Lock style={{ width: 16, height: 16 }} />,
 						},
 						{
 							key: 'maintenance',
@@ -417,7 +431,7 @@ export const DisabledStates: Story = {
 							children: 'Maintenance content',
 							disabled: true,
 							disabledReason: 'This section is under maintenance',
-							prefixIcon: <Clock className="size-4" />,
+							prefixIcon: <Clock style={{ width: 16, height: 16 }} />,
 						},
 						{
 							key: 'permissions',
@@ -425,7 +439,7 @@ export const DisabledStates: Story = {
 							children: 'Permissions content',
 							disabled: true,
 							disabledReason: 'You do not have permission to access this area',
-							prefixIcon: <ShieldAlert className="size-4" />,
+							prefixIcon: <ShieldAlert style={{ width: 16, height: 16 }} />,
 						},
 						{
 							key: 'default',
@@ -441,7 +455,9 @@ export const DisabledStates: Story = {
 			</div>
 
 			<div>
-				<h2 className="mb-4 text-lg font-semibold">Secondary Variant Disabled States</h2>
+				<h2 style={{ marginBottom: 16, fontSize: 18, lineHeight: 1.55556, fontWeight: 600 }}>
+					Secondary Variant Disabled States
+				</h2>
 				<Tabs
 					items={[
 						{

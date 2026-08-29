@@ -43,7 +43,7 @@ export const Default: Story = {
 					<DialogTitle>Dialog content</DialogTitle>
 				</DialogHeader>
 				<DialogDescription>
-					<p className="text-sm font-normal leading-5 font-inter font-regular">
+					<p style={{ fontSize: 14, lineHeight: 20, fontWeight: 400 }}>
 						This story focuses on the DialogContent surface and its layout-related props.
 					</p>
 				</DialogDescription>

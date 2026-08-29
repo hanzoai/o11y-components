@@ -43,7 +43,7 @@ export const Default: Story = {
 					<DialogSubtitle {...args} />
 				</DialogHeader>
 				<DialogDescription>
-					<p className="text-sm font-normal leading-5 font-inter font-regular">
+					<p style={{ fontSize: 14, lineHeight: 20, fontWeight: 400 }}>
 						The subtitle provides supporting text below the title.
 					</p>
 				</DialogDescription>

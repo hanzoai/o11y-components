@@ -20,7 +20,7 @@ function SubMenuFrame({
 	children: React.ReactNode;
 }) {
 	return (
-		<div className="p-8">
+		<div style={{ padding: 32 }}>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant="solid" color="secondary">
@@ -77,11 +77,13 @@ export const Default: Story = {
 				defaultOpen: args.defaultOpen,
 			}}
 		>
-			<DropdownMenuSubTrigger leftIcon={<Settings className="h-4 w-4" />}>
+			<DropdownMenuSubTrigger leftIcon={<Settings style={{ height: 16, width: 16 }} />}>
 				More Options
 			</DropdownMenuSubTrigger>
 			<DropdownMenuSubContent sideOffset={4}>
-				<DropdownMenuItem leftIcon={<Link className="h-4 w-4" />}>Sub Item 1</DropdownMenuItem>
+				<DropdownMenuItem leftIcon={<Link style={{ height: 16, width: 16 }} />}>
+					Sub Item 1
+				</DropdownMenuItem>
 				<DropdownMenuItem>Sub Item 2</DropdownMenuItem>
 				<DropdownMenuItem>Sub Item 3</DropdownMenuItem>
 			</DropdownMenuSubContent>
@@ -95,11 +97,13 @@ export const DefaultOpen: Story = {
 	},
 	render: (args) => (
 		<SubMenuFrame subProps={{ defaultOpen: args.defaultOpen }}>
-			<DropdownMenuSubTrigger leftIcon={<Settings className="h-4 w-4" />}>
+			<DropdownMenuSubTrigger leftIcon={<Settings style={{ height: 16, width: 16 }} />}>
 				More Options
 			</DropdownMenuSubTrigger>
 			<DropdownMenuSubContent sideOffset={4}>
-				<DropdownMenuItem leftIcon={<Link className="h-4 w-4" />}>Sub Item 1</DropdownMenuItem>
+				<DropdownMenuItem leftIcon={<Link style={{ height: 16, width: 16 }} />}>
+					Sub Item 1
+				</DropdownMenuItem>
 				<DropdownMenuItem>Sub Item 2</DropdownMenuItem>
 				<DropdownMenuItem>Sub Item 3</DropdownMenuItem>
 			</DropdownMenuSubContent>
@@ -112,11 +116,13 @@ export const Controlled: Story = {
 		const [open, setOpen] = React.useState(false);
 		return (
 			<SubMenuFrame subProps={{ open, onOpenChange: setOpen }}>
-				<DropdownMenuSubTrigger leftIcon={<Settings className="h-4 w-4" />}>
+				<DropdownMenuSubTrigger leftIcon={<Settings style={{ height: 16, width: 16 }} />}>
 					More Options
 				</DropdownMenuSubTrigger>
 				<DropdownMenuSubContent sideOffset={4}>
-					<DropdownMenuItem leftIcon={<Link className="h-4 w-4" />}>Sub Item 1</DropdownMenuItem>
+					<DropdownMenuItem leftIcon={<Link style={{ height: 16, width: 16 }} />}>
+						Sub Item 1
+					</DropdownMenuItem>
 					<DropdownMenuItem>Sub Item 2</DropdownMenuItem>
 					<DropdownMenuItem>Sub Item 3</DropdownMenuItem>
 				</DropdownMenuSubContent>

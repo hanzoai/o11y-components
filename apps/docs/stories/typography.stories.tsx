@@ -14,11 +14,21 @@ const getFontWeight = (variant: string): string => {
 };
 
 const FontSizeShowcase: React.FC = () => (
-	<div className="p-5">
-		<h1 className="mb-5 text-lg font-bold text-vanilla-100">Font Sizes</h1>
-		<div className="grid grid-cols-1 gap-4">
+	<div style={{ padding: 20 }}>
+		<h1
+			style={{
+				marginBottom: 20,
+				fontSize: 18,
+				lineHeight: 1.55556,
+				fontWeight: 700,
+				color: 'var(--bg-vanilla-100)',
+			}}
+		>
+			Font Sizes
+		</h1>
+		<div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,minmax(0,1fr))', gap: 16 }}>
 			{Object.keys(typography.FONTSIZE).map((variant) => (
-				<div key={variant} className="text-vanilla-100">
+				<div key={variant} style={{ color: 'var(--bg-vanilla-100)' }}>
 					<h2 style={{ fontSize: getFontSize(variant) }}>
 						{variant} - {getFontSize(variant)}
 					</h2>
@@ -32,11 +42,21 @@ const FontSizeShowcase: React.FC = () => (
 );
 
 const FontWeightShowcase: React.FC = () => (
-	<div className="p-5">
-		<h1 className="mb-5 text-lg font-bold text-vanilla-100">Font Weights</h1>
-		<div className="grid grid-cols-1 gap-4">
+	<div style={{ padding: 20 }}>
+		<h1
+			style={{
+				marginBottom: 20,
+				fontSize: 18,
+				lineHeight: 1.55556,
+				fontWeight: 700,
+				color: 'var(--bg-vanilla-100)',
+			}}
+		>
+			Font Weights
+		</h1>
+		<div style={{ display: 'grid', gridTemplateColumns: 'repeat(1,minmax(0,1fr))', gap: 16 }}>
 			{Object.keys(typography.FONTWEIGHT).map((variant) => (
-				<div key={variant} className="text-vanilla-100">
+				<div key={variant} style={{ color: 'var(--bg-vanilla-100)' }}>
 					<h2 style={{ fontWeight: getFontWeight(variant) }}>
 						{variant} - {getFontWeight(variant)}
 					</h2>
@@ -208,7 +228,7 @@ export const Playground: Story = {
 		muted: false,
 	},
 	render: (props) => (
-		<div className="p-6">
+		<div style={{ padding: 24 }}>
 			<Typography {...props} />
 		</div>
 	),
@@ -235,12 +255,17 @@ export const SemanticSizes: Story = {
 		] as const;
 
 		return (
-			<div className="space-y-4 p-6">
+			<div className="stack-16" style={{ padding: 24 }}>
 				{sizes.map(({ name, px }) => (
-					<div key={name} className="flex items-baseline gap-4">
+					<div key={name} style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
 						<span
-							className="text-vanilla-400 shrink-0"
-							style={{ width: 100, fontSize: 12, textAlign: 'right' }}
+							style={{
+								color: 'var(--bg-vanilla-400)',
+								flexShrink: 0,
+								width: 100,
+								fontSize: 12,
+								textAlign: 'right',
+							}}
 						>
 							{name} ({px})
 						</span>
@@ -278,12 +303,17 @@ export const AllSizes: Story = {
 		] as const;
 
 		return (
-			<div className="space-y-4 p-6">
+			<div className="stack-16" style={{ padding: 24 }}>
 				{sizes.map((s) => (
-					<div key={s} className="flex items-baseline gap-4">
+					<div key={s} style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
 						<span
-							className="text-vanilla-400 shrink-0"
-							style={{ width: 48, fontSize: 12, textAlign: 'right' }}
+							style={{
+								color: 'var(--bg-vanilla-400)',
+								flexShrink: 0,
+								width: 48,
+								fontSize: 12,
+								textAlign: 'right',
+							}}
 						>
 							{s}
 						</span>
@@ -316,12 +346,17 @@ export const AllWeights: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-4 p-6">
+		<div className="stack-16" style={{ padding: 24 }}>
 			{ALL_WEIGHTS.map(({ name, value }) => (
-				<div key={name} className="flex items-baseline gap-4">
+				<div key={name} style={{ display: 'flex', alignItems: 'baseline', gap: 16 }}>
 					<span
-						className="text-vanilla-400 shrink-0"
-						style={{ width: 110, fontSize: 12, textAlign: 'right' }}
+						style={{
+							color: 'var(--bg-vanilla-400)',
+							flexShrink: 0,
+							width: 110,
+							fontSize: 12,
+							textAlign: 'right',
+						}}
 					>
 						{name.toUpperCase()} - {value}
 					</span>
@@ -344,7 +379,7 @@ export const HeadingVariant: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-4 p-6">
+		<div className="stack-16" style={{ padding: 24 }}>
 			<Typography variant="title" as="h1" size="5xl">
 				Heading 1
 			</Typography>
@@ -377,7 +412,7 @@ export const TextVariant: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-4 p-6">
+		<div className="stack-16" style={{ padding: 24 }}>
 			<div>
 				<Typography size="lg">
 					This is a paragraph of body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -402,19 +437,19 @@ export const Alignment: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-4 p-6">
-			<div className="w-100">
-				<Typography align="left" size="lg" className="w-100">
+		<div className="stack-16" style={{ padding: 24 }}>
+			<div style={{ width: 400 }}>
+				<Typography align="left" size="lg" style={{ width: 400 }}>
 					Left-aligned text
 				</Typography>
 			</div>
-			<div className="w-100">
-				<Typography align="center" size="lg" className="w-100">
+			<div style={{ width: 400 }}>
+				<Typography align="center" size="lg" style={{ width: 400 }}>
 					Center-aligned text
 				</Typography>
 			</div>
-			<div className="w-100">
-				<Typography align="right" size="lg" className="w-100">
+			<div style={{ width: 400 }}>
+				<Typography align="right" size="lg" style={{ width: 400 }}>
 					Right-aligned text
 				</Typography>
 			</div>
@@ -432,7 +467,7 @@ export const Truncation: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-6 p-6" style={{ maxWidth: 400 }}>
+		<div className="stack-24" style={{ padding: 24, maxWidth: 400 }}>
 			<div>
 				<Typography size="sm" muted style={{ marginBottom: 4 }}>
 					truncate=1
@@ -477,7 +512,7 @@ export const MutedState: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-2 p-6">
+		<div className="stack-8" style={{ padding: 24 }}>
 			<div>
 				<Typography size="lg" weight="bold">
 					Primary heading text
@@ -504,7 +539,7 @@ export const ColorVariants: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-2 p-6">
+		<div className="stack-8" style={{ padding: 24 }}>
 			<div>
 				<Typography>Default text</Typography>
 			</div>
@@ -533,7 +568,7 @@ export const TextDecorations: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-2 p-6">
+		<div className="stack-8" style={{ padding: 24 }}>
 			<div>
 				<Typography strong>Strong/bold text</Typography>
 			</div>
@@ -561,7 +596,7 @@ export const TitleLevels: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-4 p-6">
+		<div className="stack-16" style={{ padding: 24 }}>
 			<Typography.Title level={1}>Heading Level 1 (h1)</Typography.Title>
 			<Typography.Title level={2}>Heading Level 2 (h2)</Typography.Title>
 			<Typography.Title level={3}>Heading Level 3 (h3)</Typography.Title>
@@ -580,7 +615,7 @@ export const CompoundComponents: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-4 p-6">
+		<div className="stack-16" style={{ padding: 24 }}>
 			<div>
 				<Typography.Title level={2}>Typography.Title</Typography.Title>
 			</div>
@@ -609,7 +644,7 @@ export const Copyable: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-2 p-6">
+		<div className="stack-8" style={{ padding: 24 }}>
 			<div>
 				<Typography copyable>Click the icon to copy this text</Typography>
 			</div>
@@ -631,7 +666,7 @@ export const DisabledState: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-2 p-6">
+		<div className="stack-8" style={{ padding: 24 }}>
 			<div>
 				<Typography>Normal text</Typography>
 			</div>
@@ -652,7 +687,7 @@ export const Interactive: Story = {
 		},
 	},
 	render: () => (
-		<div className="space-y-4 p-6">
+		<div className="stack-16" style={{ padding: 24 }}>
 			<div>
 				<Typography>Normal text (no hover effect)</Typography>
 			</div>

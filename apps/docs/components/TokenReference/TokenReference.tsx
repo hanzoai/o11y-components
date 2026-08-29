@@ -229,19 +229,52 @@ export function TokenReference({
 	const showTabs = showModeTabs && mode === 'all';
 
 	return (
-		<div className="min-h-screen bg-l1-background p-6 pt-0">
-			<div className="max-w-7xl mx-auto space-y-6">
+		<div
+			style={{
+				minHeight: '100vh',
+				backgroundColor: 'var(--l1-background)',
+				padding: 24,
+				paddingTop: 0,
+			}}
+		>
+			<div className="stack-24" style={{ maxWidth: 1280, marginInline: 'auto' }}>
 				{showHeader && (
-					<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+					<div className="stack-to-row" style={{ gap: 16 }}>
 						<div>
-							<h1 className="text-2xl font-bold text-l1-foreground">{title}</h1>
-							<p className="text-sm text-l2-foreground mt-1">{description}</p>
+							<h1
+								style={{
+									fontSize: 24,
+									lineHeight: 1.33333,
+									fontWeight: 700,
+									color: 'var(--l1-foreground)',
+								}}
+							>
+								{title}
+							</h1>
+							<p
+								style={{
+									fontSize: 14,
+									lineHeight: 1.42857,
+									color: 'var(--l2-foreground)',
+									marginTop: 4,
+								}}
+							>
+								{description}
+							</p>
 						</div>
 					</div>
 				)}
 
 				{showTabs && (
-					<div className="flex gap-2 border-b border-l2-border">
+					<div
+						style={{
+							display: 'flex',
+							gap: 8,
+							borderBottomStyle: 'solid',
+							borderBottomWidth: 1,
+							borderColor: 'var(--l2-border)',
+						}}
+					>
 						{shouldShowSemantic && (
 							<Button
 								onClick={() => {
@@ -279,16 +312,25 @@ export function TokenReference({
 					/>
 				)}
 
-				<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-					<div className="text-sm text-l3-foreground">
+				<div className="stack-to-row" style={{ gap: 12 }}>
+					<div style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--l3-foreground)' }}>
 						Showing {filteredTokens.length} tokens
 						{searchQuery && ` matching "${searchQuery}"`}
 						{selectedCategory && ` in ${selectedCategory}`}
 					</div>
 
 					{showThemeToggle && (
-						<div className="flex items-center gap-4">
-							<div className="flex rounded-lg border border-l2-border overflow-hidden">
+						<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+							<div
+								style={{
+									display: 'flex',
+									borderRadius: 4,
+									borderStyle: 'solid',
+									borderWidth: 1,
+									borderColor: 'var(--l2-border)',
+									overflow: 'hidden',
+								}}
+							>
 								<Button
 									type="button"
 									onClick={() => setThemeMode('light')}
@@ -310,7 +352,7 @@ export function TokenReference({
 					)}
 				</div>
 
-				<div className="space-y-6">
+				<div className="stack-24">
 					{Array.from(groupedTokens.entries()).map(([group, tokens]) => (
 						<TokenTable key={group} tokens={tokens} title={GROUP_LABELS[group] || group} />
 					))}

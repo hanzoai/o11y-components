@@ -1,11 +1,406 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-@import 'tailwindcss';
-@config "@signozhq/tailwind-config";
-@import '@signozhq/tailwind-config/global.css';
 @import "@signozhq/design-tokens/dist/style.css";
-@import '@signozhq/design-tokens/dist/themes/signoz-tokens.css';
-@source "./node_modules/@signozhq/*";
+@import "@signozhq/design-tokens/dist/themes/signoz-tokens.css";
+@import "@signozhq/theme";
+@import "./blue-demo.css";
 
-@source "./";
-@import './blue-demo.css';
+/* Reset.
+ *
+ * Tailwind's preflight used to supply this. Without it the browser's defaults
+ * come back — bold oversized headings, margins on p/h/ul, content-box sizing —
+ * and every component that expects to control its own box gets pushed around.
+ * Kept to what this site actually leans on rather than a full normalize.
+ */
+*,
+::before,
+::after,
+::backdrop {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	border-style: solid;
+}
+
+html {
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
+	tab-size: 4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+b,
+strong {
+	font-weight: bolder;
+}
+
+code,
+kbd,
+samp,
+pre {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+		'Courier New', monospace;
+	font-size: 1em;
+}
+
+small {
+	font-size: 80%;
+}
+
+ol,
+ul,
+menu {
+	list-style: none;
+}
+
+table {
+	text-indent: 0;
+	border-color: inherit;
+	border-collapse: collapse;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+	vertical-align: middle;
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+button,
+input,
+select,
+optgroup,
+textarea,
+::file-selector-button {
+	font: inherit;
+	letter-spacing: inherit;
+	color: inherit;
+	border-radius: 0;
+	background-color: transparent;
+	opacity: 1;
+}
+
+::placeholder {
+	opacity: 1;
+	color: color-mix(in oklab, currentcolor 50%, transparent);
+}
+
+textarea {
+	resize: vertical;
+}
+
+[hidden]:where(:not([hidden='until-found'])) {
+	display: none !important;
+}
+
+/* Story rules.
+ *
+ * Stories style themselves with plain style props. What is left here is only
+ * what a style prop cannot express: breakpoints, :hover, :last-child and
+ * ::-webkit pseudo-elements.
+ */
+
+/* Vertical rhythm between children of a plain block box.
+ *
+ * A flex column with a gap is the obvious substitute, but flex also stretches
+ * children to the container width, which turns a date picker trigger in a
+ * story into a full-width bar. A margin on the trailing edge of all but the
+ * last child leaves every child's own width alone, and a child that sets its
+ * own bottom margin replaces this one rather than adding to it.
+ *
+ * One rule per gap the stories use: the value has to live in the rule, because
+ * a custom property would be read on the child, where a nested stack shadows it.
+ */
+.stack-4 > :not(:last-child) {
+	margin-block-end: 4px;
+}
+
+.stack-6 > :not(:last-child) {
+	margin-block-end: 6px;
+}
+
+.stack-8 > :not(:last-child) {
+	margin-block-end: 8px;
+}
+
+.stack-12 > :not(:last-child) {
+	margin-block-end: 12px;
+}
+
+.stack-16 > :not(:last-child) {
+	margin-block-end: 16px;
+}
+
+.stack-24 > :not(:last-child) {
+	margin-block-end: 24px;
+}
+
+.stack-32 > :not(:last-child) {
+	margin-block-end: 32px;
+}
+
+.stack-48 > :not(:last-child) {
+	margin-block-end: 48px;
+}
+
+.stack-64 > :not(:last-child) {
+	margin-block-end: 64px;
+}
+
+/* Stacks vertically on narrow screens, spreads into a row once there is width. */
+.stack-to-row {
+	display: flex;
+	flex-direction: column;
+}
+
+@media (min-width: 40rem) {
+	.stack-to-row {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+/* Token reference table: columns drop away as the viewport narrows. */
+.at-sm,
+.at-lg,
+.at-sm-row,
+.at-lg-tag,
+.token-table-head {
+	display: none;
+}
+
+@media (min-width: 40rem) {
+	.at-sm {
+		display: block;
+	}
+
+	.at-sm-row {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.token-table-head {
+		display: grid;
+		grid-template-columns: auto 1fr auto auto;
+		gap: 16px;
+		padding: 8px 16px;
+		border-bottom: 1px solid var(--l2-border);
+		background-color: var(--l2-background);
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1.33333;
+		color: var(--l3-foreground);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+}
+
+@media (min-width: 64rem) {
+	.at-lg {
+		display: block;
+	}
+
+	.at-lg-tag {
+		display: inline-flex;
+		border-radius: 9999px;
+		background-color: var(--l2-background);
+		padding: 2px 8px;
+		font-size: 12px;
+		line-height: 1.33333;
+		color: var(--l2-foreground);
+		text-transform: capitalize;
+	}
+}
+
+.token-row {
+	border-bottom: 1px solid var(--l2-border);
+}
+
+.token-row:last-child {
+	border-bottom: 0;
+}
+
+.icon-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+	padding: 16px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	transition: border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-tile:hover {
+	border-color: var(--primary);
+}
+
+.toolbar-button {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	border: 1px solid;
+	border-radius: 16px;
+	box-shadow:
+		0 10px 15px -3px #0000001a,
+		0 4px 6px -4px #0000001a;
+	cursor: pointer;
+	transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toolbar-button:hover {
+	transform: scale(1.05);
+}
+
+.demo-button {
+	background-color: var(--l2-background);
+}
+
+.demo-button:hover {
+	background-color: var(--l2-background-hover);
+}
+
+.muted-button {
+	padding: 8px 16px;
+	border-radius: var(--radius);
+	background-color: var(--muted);
+	color: var(--foreground);
+	font-size: 14px;
+	line-height: 1.42857;
+}
+
+.muted-button:hover {
+	background-color: var(--accent);
+}
+
+/* The native picker glyph is redundant next to the story's own trigger. */
+.date-input {
+	appearance: none;
+	background-color: var(--background);
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+	display: none;
+	appearance: none;
+}
+
+.copy-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 8px;
+	border-radius: var(--radius);
+	font-size: 12px;
+	line-height: 1.33333;
+	transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy-button:hover {
+	background-color: var(--l2-background);
+}
+
+/* Sample classes for the stories that document the `className` escape hatch.
+ * A story is a teaching artefact, so the sample has to be a class a reader
+ * could actually write in their own app.
+ */
+.demo-accent {
+	color: var(--accent-primary);
+}
+
+.demo-strong {
+	font-weight: 700;
+}
+
+.demo-gap {
+	gap: 16px;
+}
+
+.demo-panel {
+	padding: 16px;
+	border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+	border-radius: var(--radius);
+	background-color: color-mix(in srgb, var(--muted) 30%, transparent);
+}
+
+.demo-highlight {
+	background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.demo-item {
+	transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-item:hover {
+	box-shadow:
+		0 1px 3px 0 #0000001a,
+		0 1px 2px -1px #0000001a;
+}
+
+.demo-label {
+	color: var(--primary);
+	letter-spacing: 0.1em;
+}
+
+/* Demo panels in the resizable stories fill with a gradient that differs
+ * between light and dark, so the pair needs a selector. Stops are the values
+ * the utilities resolved to.
+ */
+.panel-slate {
+	background-image: linear-gradient(to bottom right in oklab, var(--bg-slate-50), var(--bg-slate-100));
+}
+
+.panel-blue {
+	background-image: linear-gradient(to bottom right in oklab, #eff6ff, #e0e7ff);
+}
+
+.panel-green {
+	background-image: linear-gradient(to bottom right in oklab, #f0fdf4, #d0fae5);
+}
+
+.panel-amber {
+	background-image: linear-gradient(to bottom right in oklab, var(--bg-amber-50), #ffedd5);
+}
+
+.dark .panel-slate {
+	background-image: linear-gradient(to bottom right in oklab, #0f172b, #1d293d);
+}
+
+.dark .panel-blue {
+	background-image: linear-gradient(to bottom right in oklab, #1c398e33, #312c8533);
+}
+
+.dark .panel-green {
+	background-image: linear-gradient(to bottom right in oklab, #0d542b33, #004e3b33);
+}
+
+.dark .panel-amber {
+	background-image: linear-gradient(to bottom right in oklab, var(--bg-amber-900), #7e2a0c33);
+}

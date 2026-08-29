@@ -40,19 +40,34 @@ const IconCell = React.memo(
 		const { name, component: Icon } = icon;
 
 		return (
-			<div style={style} className="p-2">
-				<div className="flex flex-col items-center p-4 rounded-lg border border-border hover:border-primary transition-colors h-full">
-					<div className="flex items-center justify-center w-16 h-16 mb-2">
+			<div style={{ padding: 8, ...style }}>
+				<div className="icon-tile">
+					<div
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+							width: 64,
+							height: 64,
+							marginBottom: 8,
+						}}
+					>
 						<Icon size={size} strokeWidth={strokeWidth} color={color} />
 					</div>
-					<span className="text-sm text-center mb-2">{name}</span>
+					<span style={{ fontSize: 14, lineHeight: 1.42857, textAlign: 'center', marginBottom: 8 }}>
+						{name}
+					</span>
 					<Button
 						variant={ButtonVariant.Ghost}
 						color={ButtonColor.None}
 						size={ButtonSize.SM}
 						onClick={() => onCopy(name)}
 						prefix={
-							copiedIcon === name ? <Check className="size-4" /> : <Copy className="size-4" />
+							copiedIcon === name ? (
+								<Check style={{ width: 16, height: 16 }} />
+							) : (
+								<Copy style={{ width: 16, height: 16 }} />
+							)
 						}
 					>
 						{copiedIcon === name ? 'Copied!' : 'Copy'}
@@ -88,8 +103,8 @@ function IconGallery({ size = 24, strokeWidth = 2, color = 'currentColor' }: Ico
 	const ROW_HEIGHT = 180; // Height for each row
 
 	return (
-		<div className="flex flex-col h-[calc(100vh-100px)]">
-			<div className="flex flex-col gap-4 mb-4">
+		<div style={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh - 100px)' }}>
+			<div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 16 }}>
 				<Input
 					placeholder="Search icons..."
 					value={search}
@@ -97,7 +112,7 @@ function IconGallery({ size = 24, strokeWidth = 2, color = 'currentColor' }: Ico
 				/>
 			</div>
 
-			<div className="flex-1">
+			<div style={{ flex: 1 }}>
 				<AutoSizer>
 					{({ height, width }) => {
 						const columnCount = Math.max(1, Math.floor(width / COLUMN_WIDTH));

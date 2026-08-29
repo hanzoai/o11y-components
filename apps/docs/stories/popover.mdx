@@ -25,7 +25,7 @@ export default function MyComponent() {
 	return (
 		<PopoverSimple
 			trigger={<Button variant="outline">Open</Button>}
-			className="w-64"
+			style={{ width: 256 }}
 		>
 			<p>Simple popover content</p>
 		</PopoverSimple>
@@ -52,10 +52,10 @@ export default function MyComponent() {
 			<PopoverTrigger asChild>
 				<Button variant="outline">Open popover</Button>
 			</PopoverTrigger>
-			<PopoverContent className="w-80">
-				<div className="space-y-2">
-					<h4 className="font-medium">Title</h4>
-					<p className="text-sm text-muted-foreground">Content goes here.</p>
+			<PopoverContent style={{ width: 320 }}>
+				<div className="stack-8">
+					<h4 style={{ fontWeight: 500 }}>Title</h4>
+					<p style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}>Content goes here.</p>
 				</div>
 			</PopoverContent>
 		</Popover>
@@ -85,7 +85,7 @@ Use `PopoverAnchor` when you want the popover positioned against a different ele
 ```tsx
 <Popover>
 	<PopoverAnchor asChild>
-		<div className="flex gap-2">
+		<div style={{ display: 'flex', gap: 8 }}>
 			<span>Row as anchor</span>
 			<PopoverTrigger>Trigger</PopoverTrigger>
 		</div>
@@ -103,7 +103,7 @@ When nesting a popover inside another (e.g. a submenu or cascading picker), set 
 	<PopoverTrigger asChild>
 		<Button variant="outline">Open menu</Button>
 	</PopoverTrigger>
-	<PopoverContent className="w-64">
+	<PopoverContent style={{ width: 256 }}>
 		<p>Parent content</p>
 		<Popover>
 			<PopoverTrigger asChild>

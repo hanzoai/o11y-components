@@ -42,7 +42,7 @@ export default function MyComponent() {
 			title="Drawer title"
 			subTitle="Optional subtitle for the drawer."
 			footer={
-				<div className="flex gap-2 justify-end">
+				<div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
 					<Button variant="ghost">Cancel</Button>
 					<Button variant="solid" color="primary">
 						Save
@@ -184,7 +184,7 @@ export default function MyComponent() {
 							<DrawerTitle>Drawer title</DrawerTitle>
 						</DrawerHeader>
 						<DrawerDescription>
-							<div className="text-sm text-gray-600">
+							<div style={{ fontSize: 14, lineHeight: 1.42857, color: '#4a5565' }}>
 								Description and body content. Use the primitive components when you need
 								lower-level control.
 							</div>

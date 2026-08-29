@@ -87,9 +87,13 @@ const labelItems: ToggleGroupSimpleItem[] = [
 ];
 
 const iconItems: ToggleGroupSimpleItem[] = [
-	{ value: 'bold', label: <Bold className="h-3 w-3" />, 'aria-label': 'Bold' },
-	{ value: 'italic', label: <Italic className="h-3 w-3" />, 'aria-label': 'Italic' },
-	{ value: 'underline', label: <Underline className="h-3 w-3" />, 'aria-label': 'Underline' },
+	{ value: 'bold', label: <Bold style={{ height: 12, width: 12 }} />, 'aria-label': 'Bold' },
+	{ value: 'italic', label: <Italic style={{ height: 12, width: 12 }} />, 'aria-label': 'Italic' },
+	{
+		value: 'underline',
+		label: <Underline style={{ height: 12, width: 12 }} />,
+		'aria-label': 'Underline',
+	},
 ];
 
 const iconAndLabelItems: ToggleGroupSimpleItem[] = [
@@ -97,7 +101,7 @@ const iconAndLabelItems: ToggleGroupSimpleItem[] = [
 		value: 'grid',
 		label: (
 			<>
-				<LayoutGrid className="h-6 w-6" /> Grid
+				<LayoutGrid style={{ height: 24, width: 24 }} /> Grid
 			</>
 		),
 	},
@@ -105,7 +109,7 @@ const iconAndLabelItems: ToggleGroupSimpleItem[] = [
 		value: 'list',
 		label: (
 			<>
-				<List className="h-6 w-6" /> List
+				<List style={{ height: 24, width: 24 }} /> List
 			</>
 		),
 	},

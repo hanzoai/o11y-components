@@ -33,35 +33,81 @@ export const Default: Story = {
 		defaultOpen: false,
 	},
 	render: (args) => (
-		<div className="flex flex-col gap-4">
+		<div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 			<Popover {...args}>
 				<PopoverTrigger asChild>
 					<Button variant={ButtonVariant.Solid} color={ButtonColor.Primary}>
 						Open popover
 					</Button>
 				</PopoverTrigger>
-				<PopoverContent className="w-80">
-					<div className="grid gap-4">
-						<div className="space-y-2">
-							<h4 className="leading-none font-medium !mt-0">Dimensions</h4>
-							<p className="text-muted-foreground text-sm">Set the dimensions for the layer.</p>
+				<PopoverContent style={{ width: 320 }}>
+					<div style={{ display: 'grid', gap: 16 }}>
+						<div className="stack-8">
+							<h4 style={{ lineHeight: 1, fontWeight: 500, marginTop: 0 }}>Dimensions</h4>
+							<p style={{ color: 'var(--muted-foreground)', fontSize: 14, lineHeight: 1.42857 }}>
+								Set the dimensions for the layer.
+							</p>
 						</div>
-						<div className="grid gap-2">
-							<div className="grid grid-cols-3 items-center gap-4">
+						<div style={{ display: 'grid', gap: 8 }}>
+							<div
+								style={{
+									display: 'grid',
+									gridTemplateColumns: 'repeat(3,minmax(0,1fr))',
+									alignItems: 'center',
+									gap: 16,
+								}}
+							>
 								<label htmlFor="width">Width</label>
-								<Input id="width" defaultValue="100%" className="col-span-2 h-8" />
+								<Input
+									id="width"
+									defaultValue="100%"
+									style={{ gridColumn: 'span 2/span 2', height: 32 }}
+								/>
 							</div>
-							<div className="grid grid-cols-3 items-center gap-4">
+							<div
+								style={{
+									display: 'grid',
+									gridTemplateColumns: 'repeat(3,minmax(0,1fr))',
+									alignItems: 'center',
+									gap: 16,
+								}}
+							>
 								<label htmlFor="maxWidth">Max. width</label>
-								<Input id="maxWidth" defaultValue="300px" className="col-span-2 h-8" />
+								<Input
+									id="maxWidth"
+									defaultValue="300px"
+									style={{ gridColumn: 'span 2/span 2', height: 32 }}
+								/>
 							</div>
-							<div className="grid grid-cols-3 items-center gap-4">
+							<div
+								style={{
+									display: 'grid',
+									gridTemplateColumns: 'repeat(3,minmax(0,1fr))',
+									alignItems: 'center',
+									gap: 16,
+								}}
+							>
 								<label htmlFor="height">Height</label>
-								<Input id="height" defaultValue="25px" className="col-span-2 h-8" />
+								<Input
+									id="height"
+									defaultValue="25px"
+									style={{ gridColumn: 'span 2/span 2', height: 32 }}
+								/>
 							</div>
-							<div className="grid grid-cols-3 items-center gap-4">
+							<div
+								style={{
+									display: 'grid',
+									gridTemplateColumns: 'repeat(3,minmax(0,1fr))',
+									alignItems: 'center',
+									gap: 16,
+								}}
+							>
 								<label htmlFor="maxHeight">Max. height</label>
-								<Input id="maxHeight" defaultValue="none" className="col-span-2 h-8" />
+								<Input
+									id="maxHeight"
+									defaultValue="none"
+									style={{ gridColumn: 'span 2/span 2', height: 32 }}
+								/>
 							</div>
 						</div>
 					</div>
@@ -80,9 +126,12 @@ export const DateAndTimePicker: Story = {
 		const [time, setTime] = React.useState('10:30:00');
 
 		return (
-			<div className="container flex gap-4">
-				<div className="flex flex-col gap-3">
-					<label htmlFor="date-picker" className="px-1 text-xs">
+			<div style={{ width: '100%', maxWidth: 1536, display: 'flex', gap: 16 }}>
+				<div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+					<label
+						htmlFor="date-picker"
+						style={{ paddingInline: 4, fontSize: 12, lineHeight: 1.33333 }}
+					>
 						Date
 					</label>
 					<Popover open={open} onOpenChange={setOpen}>
@@ -91,13 +140,13 @@ export const DateAndTimePicker: Story = {
 								variant={ButtonVariant.Solid}
 								color={ButtonColor.Primary}
 								id="date-picker"
-								className="w-[360px] justify-between font-normal"
+								style={{ width: 360, justifyContent: 'space-between', fontWeight: 400 }}
 							>
 								{date ? `${date.toLocaleDateString()} : ${time}` : 'Select date'}
 								<ChevronDown size={16} />
 							</Button>
 						</PopoverTrigger>
-						<PopoverContent className="w-auto overflow-hidden p-0" align="start">
+						<PopoverContent style={{ width: 'auto', overflow: 'hidden', padding: 0 }} align="start">
 							<Calendar
 								mode="single"
 								selected={date}
@@ -106,8 +155,20 @@ export const DateAndTimePicker: Story = {
 									setOpen(false);
 								}}
 							/>
-							<div className="flex flex-col gap-3 p-3 border-t">
-								<label htmlFor="time-picker" className="px-1 text-xs">
+							<div
+								style={{
+									display: 'flex',
+									flexDirection: 'column',
+									gap: 12,
+									padding: 12,
+									borderTopStyle: 'solid',
+									borderTopWidth: 1,
+								}}
+							>
+								<label
+									htmlFor="time-picker"
+									style={{ paddingInline: 4, fontSize: 12, lineHeight: 1.33333 }}
+								>
 									Time
 								</label>
 								<Input
@@ -116,7 +177,7 @@ export const DateAndTimePicker: Story = {
 									onChange={(e) => setTime(e.target.value)}
 									id="time-picker"
 									step="1"
-									className="bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+									className="date-input"
 								/>
 							</div>
 						</PopoverContent>
@@ -133,55 +194,69 @@ export const PopoverShowcase: Story = {
 		docs: { story: { autoplay: true } },
 	},
 	render: () => (
-		<div className="p-8 rounded-lg bg-vanilla-100 dark:bg-background min-h-[600px]">
-			<div className="space-y-16">
-				<div className="space-y-4">
-					<h2 className="text-base font-semibold text-foreground">Positions</h2>
-					<div className="flex flex-wrap gap-8 items-center">
+		<div
+			style={{ backgroundColor: 'var(--background)', padding: 32, borderRadius: 4, minHeight: 600 }}
+		>
+			<div className="stack-64">
+				<div className="stack-16">
+					<h2
+						style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+					>
+						Positions
+					</h2>
+					<div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, alignItems: 'center' }}>
 						{SIDES.map((side) => (
 							<Popover key={side}>
 								<PopoverTrigger asChild>
 									<Button
 										variant={ButtonVariant.Solid}
 										color={ButtonColor.Secondary}
-										className="capitalize"
+										style={{ textTransform: 'capitalize' }}
 									>
 										{side}
 									</Button>
 								</PopoverTrigger>
 								<PopoverContent side={side} arrow>
-									<p className="text-sm">Popover on {side}</p>
+									<p style={{ fontSize: 14, lineHeight: 1.42857 }}>Popover on {side}</p>
 								</PopoverContent>
 							</Popover>
 						))}
 					</div>
 				</div>
 
-				<div className="space-y-4">
-					<h2 className="text-base font-semibold text-foreground">Align variations</h2>
-					<div className="flex flex-wrap gap-8">
+				<div className="stack-16">
+					<h2
+						style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+					>
+						Align variations
+					</h2>
+					<div style={{ display: 'flex', flexWrap: 'wrap', gap: 32 }}>
 						{ALIGNS.map((align) => (
 							<Popover key={align}>
 								<PopoverTrigger asChild>
 									<Button
 										variant={ButtonVariant.Solid}
 										color={ButtonColor.Secondary}
-										className="capitalize"
+										style={{ textTransform: 'capitalize' }}
 									>
 										{align}
 									</Button>
 								</PopoverTrigger>
 								<PopoverContent side="top" align={align} arrow>
-									<p className="text-sm">Align {align}</p>
+									<p style={{ fontSize: 14, lineHeight: 1.42857 }}>Align {align}</p>
 								</PopoverContent>
 							</Popover>
 						))}
 					</div>
 				</div>
 
-				<div className="space-y-4">
-					<h2 className="text-base font-semibold text-foreground">With / without arrow</h2>
-					<div className="flex gap-4">
+				<div className="stack-16">
+					<h2
+						style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+					>
+						With / without arrow
+					</h2>
+					<div style={{ display: 'flex', gap: 16 }}>
 						<Popover>
 							<PopoverTrigger asChild>
 								<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>
@@ -189,7 +264,7 @@ export const PopoverShowcase: Story = {
 								</Button>
 							</PopoverTrigger>
 							<PopoverContent arrow={false}>
-								<p className="text-sm">No arrow</p>
+								<p style={{ fontSize: 14, lineHeight: 1.42857 }}>No arrow</p>
 							</PopoverContent>
 						</Popover>
 						<Popover>
@@ -199,14 +274,18 @@ export const PopoverShowcase: Story = {
 								</Button>
 							</PopoverTrigger>
 							<PopoverContent arrow>
-								<p className="text-sm">With arrow</p>
+								<p style={{ fontSize: 14, lineHeight: 1.42857 }}>With arrow</p>
 							</PopoverContent>
 						</Popover>
 					</div>
 				</div>
 
-				<div className="space-y-4">
-					<h2 className="text-base font-semibold text-foreground">Default open</h2>
+				<div className="stack-16">
+					<h2
+						style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+					>
+						Default open
+					</h2>
 					<Popover defaultOpen>
 						<PopoverTrigger asChild>
 							<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>
@@ -214,23 +293,27 @@ export const PopoverShowcase: Story = {
 							</Button>
 						</PopoverTrigger>
 						<PopoverContent>
-							<p className="text-sm">I am open by default</p>
+							<p style={{ fontSize: 14, lineHeight: 1.42857 }}>I am open by default</p>
 						</PopoverContent>
 					</Popover>
 				</div>
 
-				<div className="space-y-4">
-					<h2 className="text-base font-semibold text-foreground">Custom content</h2>
+				<div className="stack-16">
+					<h2
+						style={{ fontSize: 16, lineHeight: 1.5, fontWeight: 600, color: 'var(--foreground)' }}
+					>
+						Custom content
+					</h2>
 					<Popover>
 						<PopoverTrigger asChild>
 							<Button variant={ButtonVariant.Solid} color={ButtonColor.Primary}>
 								Rich content
 							</Button>
 						</PopoverTrigger>
-						<PopoverContent className="w-64" arrow>
-							<div className="space-y-2">
-								<span className="font-medium">Custom popover</span>
-								<p className="text-sm text-muted-foreground">
+						<PopoverContent style={{ width: 256 }} arrow>
+							<div className="stack-8">
+								<span style={{ fontWeight: 500 }}>Custom popover</span>
+								<p style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}>
 									With multiple lines and rich content.
 								</p>
 							</div>
