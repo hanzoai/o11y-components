@@ -24,28 +24,36 @@ export function TokenSearch({
 	};
 
 	return (
-		<div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-			<div className="relative">
+		<div className="stack-to-row" style={{ gap: 16 }}>
+			<div style={{ position: 'relative' }}>
 				{/* TODO: Update when we have support for prefix icons on Inputs */}
-				<Search className="absolute left-3 top-1/2 -translate-y-1/2 text-l3-foreground" />
+				<Search
+					style={{
+						position: 'absolute',
+						left: 12,
+						top: '50%',
+						translate: '0 calc(calc(1 / 2 * 100%) * -1)',
+						color: 'var(--l3-foreground)',
+					}}
+				/>
 
 				<Input
 					type="text"
 					value={query}
 					onChange={handleSearchChange}
 					placeholder="Search tokens..."
-					className="px-10"
+					style={{ paddingInline: 40 }}
 				/>
 			</div>
 
 			{onCategoryFilter && categories && categories.length > 0 && (
-				<div className="flex flex-wrap gap-2">
+				<div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
 					<Button
 						type="button"
 						onClick={() => onCategoryFilter(null)}
 						variant={selectedCategory === null ? 'solid' : 'outlined'}
 						color={selectedCategory === null ? 'primary' : 'secondary'}
-						className="rounded-full"
+						style={{ borderRadius: 9999 }}
 					>
 						All
 					</Button>
@@ -56,7 +64,7 @@ export function TokenSearch({
 							onClick={() => onCategoryFilter(category)}
 							variant={selectedCategory === category ? 'solid' : 'outlined'}
 							color={selectedCategory === category ? 'primary' : 'secondary'}
-							className="rounded-full"
+							style={{ borderRadius: 9999 }}
 						>
 							{category}
 						</Button>

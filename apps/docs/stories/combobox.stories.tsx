@@ -107,7 +107,7 @@ export const Default: Story = {
 		placeholder: 'Select a framework...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -122,9 +122,18 @@ export const Controlled: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={value} onChange={(v) => setValue(v as string)} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
 			</div>
 		);
 	},
@@ -137,7 +146,7 @@ export const WithDefaultValue: Story = {
 		defaultValue: 'react',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -171,7 +180,7 @@ export const WithGroups: Story = {
 		placeholder: 'Select a technology...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -182,7 +191,7 @@ const itemsWithIcons = [
 		value: 'react',
 		label: (
 			<>
-				<Code className="mr-2 h-4 w-4" />
+				<Code style={{ marginRight: 8, height: 16, width: 16 }} />
 				React
 			</>
 		),
@@ -191,7 +200,7 @@ const itemsWithIcons = [
 		value: 'nodejs',
 		label: (
 			<>
-				<Terminal className="mr-2 h-4 w-4" />
+				<Terminal style={{ marginRight: 8, height: 16, width: 16 }} />
 				Node.js
 			</>
 		),
@@ -200,7 +209,7 @@ const itemsWithIcons = [
 		value: 'postgres',
 		label: (
 			<>
-				<Database className="mr-2 h-4 w-4" />
+				<Database style={{ marginRight: 8, height: 16, width: 16 }} />
 				PostgreSQL
 			</>
 		),
@@ -209,7 +218,7 @@ const itemsWithIcons = [
 		value: 'git',
 		label: (
 			<>
-				<GitBranch className="mr-2 h-4 w-4" />
+				<GitBranch style={{ marginRight: 8, height: 16, width: 16 }} />
 				Git
 			</>
 		),
@@ -222,7 +231,7 @@ export const WithIcons: Story = {
 		placeholder: 'Select a tool...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -238,7 +247,7 @@ export const WithGroupsAndIcons: Story = {
 						value: 'react',
 						label: (
 							<>
-								<Code className="mr-2 h-4 w-4" />
+								<Code style={{ marginRight: 8, height: 16, width: 16 }} />
 								React
 							</>
 						),
@@ -247,7 +256,7 @@ export const WithGroupsAndIcons: Story = {
 						value: 'vue',
 						label: (
 							<>
-								<Code className="mr-2 h-4 w-4" />
+								<Code style={{ marginRight: 8, height: 16, width: 16 }} />
 								Vue
 							</>
 						),
@@ -261,7 +270,7 @@ export const WithGroupsAndIcons: Story = {
 						value: 'postgres',
 						label: (
 							<>
-								<Database className="mr-2 h-4 w-4" />
+								<Database style={{ marginRight: 8, height: 16, width: 16 }} />
 								PostgreSQL
 							</>
 						),
@@ -270,7 +279,7 @@ export const WithGroupsAndIcons: Story = {
 						value: 'redis',
 						label: (
 							<>
-								<Database className="mr-2 h-4 w-4" />
+								<Database style={{ marginRight: 8, height: 16, width: 16 }} />
 								Redis
 							</>
 						),
@@ -281,7 +290,7 @@ export const WithGroupsAndIcons: Story = {
 		placeholder: 'Select a technology...',
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -297,9 +306,16 @@ export const MultiSelect: Story = {
 		const [values, setValues] = useState<string[]>([]);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={values} onChange={(v) => setValues(v as string[])} />
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Selected: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
 			</div>
@@ -315,7 +331,7 @@ export const MultiSelectWithDefaultValues: Story = {
 		defaultValue: ['react', 'vue'],
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -330,7 +346,7 @@ export const MultiSelectWithMaxPills: Story = {
 		maxDisplayedPills: 2,
 	},
 	render: (args) => (
-		<div className="p-8 w-full max-w-sm">
+		<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 			<ComboboxSimple {...args} />
 		</div>
 	),
@@ -347,12 +363,26 @@ export const AllowCreate: Story = {
 		const [values, setValues] = useState<string[]>([]);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={values} onChange={(v) => setValues(v as string[])} />
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Tags: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
-				<p className="mt-2 text-xs text-muted-foreground">
+				<p
+					style={{
+						marginTop: 8,
+						fontSize: 12,
+						lineHeight: 1.33333,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Type to filter, then click "Create" option to add new tags
 				</p>
 			</div>
@@ -375,9 +405,16 @@ export const AllowCreateWithCustomRender: Story = {
 		const [values, setValues] = useState<string[]>([]);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={values} onChange={(v) => setValues(v as string[])} />
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Tags: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
 			</div>
@@ -396,12 +433,26 @@ export const TagsMode: Story = {
 		const [values, setValues] = useState<string[]>(['initial-tag']);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={values} onChange={(v) => setValues(v as string[])} />
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Tags: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
-				<p className="mt-2 text-xs text-muted-foreground">
+				<p
+					style={{
+						marginTop: 8,
+						fontSize: 12,
+						lineHeight: 1.33333,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Free-form tag input - no predefined options
 				</p>
 			</div>
@@ -419,9 +470,18 @@ export const AllowCreateSingle: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={value} onChange={(v) => setValue(v as string)} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
 			</div>
 		);
 	},
@@ -441,9 +501,18 @@ export const AllowCreateSingleCustomText: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={value} onChange={(v) => setValue(v as string)} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
 			</div>
 		);
 	},
@@ -482,9 +551,18 @@ export const WithHints: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={value} onChange={(v) => setValue(v as string)} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
 			</div>
 		);
 	},
@@ -513,10 +591,26 @@ export const WithHintsAndCreate: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={value} onChange={(v) => setValue(v as string)} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
-				<p className="mt-2 text-xs text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
+				<p
+					style={{
+						marginTop: 8,
+						fontSize: 12,
+						lineHeight: 1.33333,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Try typing "tag:" to see filtered options, or create a new tag like "tag:mynewtag"
 				</p>
 			</div>
@@ -558,9 +652,16 @@ export const MultiSelectWithHints: Story = {
 		const [values, setValues] = useState<string[]>([]);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={values} onChange={(v) => setValues(v as string[])} />
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Filters: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
 			</div>
@@ -592,12 +693,26 @@ export const MultiSelectWithHintsAndCreate: Story = {
 		const [values, setValues] = useState<string[]>([]);
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={values} onChange={(v) => setValues(v as string[])} />
-				<p className="mt-4 text-sm text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Tags: {values.length > 0 ? values.join(', ') : 'none'}
 				</p>
-				<p className="mt-2 text-xs text-muted-foreground">
+				<p
+					style={{
+						marginTop: 8,
+						fontSize: 12,
+						lineHeight: 1.33333,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Type "tag:" to filter, or create custom tags like "tag:mynewtag"
 				</p>
 			</div>
@@ -607,9 +722,11 @@ export const MultiSelectWithHintsAndCreate: Story = {
 
 export const Loading: Story = {
 	render: () => (
-		<div className="p-8 w-full max-w-2xl space-y-8">
+		<div className="stack-32" style={{ padding: 32, width: '100%', maxWidth: 672 }}>
 			<div>
-				<h3 className="text-sm font-medium mb-2">Infinite Loading</h3>
+				<h3 style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500, marginBottom: 8 }}>
+					Infinite Loading
+				</h3>
 				<ComboboxSimple
 					items={[]}
 					placeholder="Select a framework..."
@@ -618,7 +735,9 @@ export const Loading: Story = {
 				/>
 			</div>
 			<div>
-				<h3 className="text-sm font-medium mb-2">Loading with Delay (5s)</h3>
+				<h3 style={{ fontSize: 14, lineHeight: 1.42857, fontWeight: 500, marginBottom: 8 }}>
+					Loading with Delay (5s)
+				</h3>
 				<ComboboxLoadingWithDelay />
 			</div>
 		</div>
@@ -661,10 +780,26 @@ export const WithKeywords: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={value} onChange={(v) => setValue(v as string)} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
-				<p className="mt-2 text-xs text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
+				<p
+					style={{
+						marginTop: 8,
+						fontSize: 12,
+						lineHeight: 1.33333,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Try searching: "minute", "hour", "quarter", "half", "daily"
 				</p>
 			</div>
@@ -686,10 +821,26 @@ export const WithStringLabelsFilter: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
 				<ComboboxSimple {...args} value={value} onChange={(v) => setValue(v as string)} />
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
-				<p className="mt-2 text-xs text-muted-foreground">
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
+				<p
+					style={{
+						marginTop: 8,
+						fontSize: 12,
+						lineHeight: 1.33333,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					Search by value ("us-east") or label ("Virginia", "Oregon", "Ireland")
 				</p>
 			</div>

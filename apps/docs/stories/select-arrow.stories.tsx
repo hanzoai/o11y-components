@@ -51,8 +51,15 @@ export const Default: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
-				<p className="mb-4 text-sm text-muted-foreground">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
+				<p
+					style={{
+						marginBottom: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					SelectArrow renders an arrow element that visually connects the trigger to the content.
 					Must be rendered inside SelectContent.
 				</p>
@@ -67,7 +74,16 @@ export const Default: Story = {
 						<SelectArrow />
 					</SelectContent>
 				</Select>
-				<p className="mt-4 text-sm text-muted-foreground">Selected: {value || 'none'}</p>
+				<p
+					style={{
+						marginTop: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
+					Selected: {value || 'none'}
+				</p>
 			</div>
 		);
 	},

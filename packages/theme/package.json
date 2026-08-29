@@ -1,0 +1,22 @@
+{
+	"name": "@signozhq/theme",
+	"version": "0.0.23",
+	"license": "MIT",
+	"type": "module",
+	"files": [
+		"theme.css"
+	],
+	"exports": {
+		".": "./theme.css"
+	},
+	"peerDependencies": {
+		"@signozhq/design-tokens": "^2.1.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hanzoai/o11y-components.git"
+	}
+}

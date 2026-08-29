@@ -39,7 +39,7 @@ export const Default: Story = {
 					<DrawerTitle>Delete this item</DrawerTitle>
 				</DrawerHeader>
 				<DrawerDescription>
-					<p className="text-sm">
+					<p style={{ fontSize: 14, lineHeight: 1.42857 }}>
 						Deleting this item cannot be undone and may affect related data.
 					</p>
 				</DrawerDescription>

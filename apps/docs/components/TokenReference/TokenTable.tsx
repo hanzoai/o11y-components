@@ -8,23 +8,54 @@ interface TokenTableProps {
 
 export function TokenTable({ tokens, title }: TokenTableProps) {
 	if (tokens.length === 0) {
-		return <div className="text-center py-8 text-l3-foreground">No tokens found</div>;
+		return (
+			<div style={{ textAlign: 'center', paddingBlock: 32, color: 'var(--l3-foreground)' }}>
+				No tokens found
+			</div>
+		);
 	}
 
 	return (
-		<div className="rounded-lg border border-l2-border bg-l1-background overflow-hidden">
+		<div
+			style={{
+				borderRadius: 4,
+				borderStyle: 'solid',
+				borderWidth: 1,
+				borderColor: 'var(--l2-border)',
+				backgroundColor: 'var(--l1-background)',
+				overflow: 'hidden',
+			}}
+		>
 			{title && (
-				<div className="px-4 py-3 border-b border-l2-border bg-l2-background">
-					<h3 className="text-sm font-semibold text-l1-foreground capitalize">{title}</h3>
+				<div
+					style={{
+						paddingInline: 16,
+						paddingBlock: 12,
+						borderBottomStyle: 'solid',
+						borderBottomWidth: 1,
+						borderColor: 'var(--l2-border)',
+						backgroundColor: 'var(--l2-background)',
+					}}
+				>
+					<h3
+						style={{
+							fontSize: 14,
+							lineHeight: 1.42857,
+							fontWeight: 600,
+							color: 'var(--l1-foreground)',
+							textTransform: 'capitalize',
+						}}
+					>
+						{title}
+					</h3>
 				</div>
 			)}
 
-			<div className="hidden sm:grid grid-cols-[auto_1fr_auto_auto_auto] gap-4 px-4 py-2 border-b border-l2-border bg-l2-background text-xs font-medium text-l3-foreground uppercase tracking-wider">
-				<span className="w-12">Preview</span>
+			<div className="token-table-head">
+				<span style={{ width: 48 }}>Preview</span>
 				<span>Token</span>
-				<span className="hidden sm:block">CSS Variable</span>
-				<span className="hidden md:block">Tailwind</span>
-				<span className="hidden lg:block">Category</span>
+				<span className="at-sm">CSS Variable</span>
+				<span className="at-lg">Category</span>
 			</div>
 
 			<div>

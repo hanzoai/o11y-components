@@ -149,7 +149,7 @@ export const WithIconsAndDropdown: Story = {
 
 export const WithClassName: Story = {
 	args: {
-		className: 'bg-slate-800 p-4 rounded',
+		className: 'demo-panel',
 		items: defaultItems,
 	},
 };

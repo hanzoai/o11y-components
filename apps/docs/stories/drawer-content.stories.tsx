@@ -65,7 +65,7 @@ export const Default: Story = {
 					<DrawerTitle>Drawer content</DrawerTitle>
 				</DrawerHeader>
 				<DrawerDescription>
-					<p className="text-sm">
+					<p style={{ fontSize: 14, lineHeight: 1.42857 }}>
 						This story focuses on the DrawerContent surface and its layout-related props.
 					</p>
 				</DrawerDescription>

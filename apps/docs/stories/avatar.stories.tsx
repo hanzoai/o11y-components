@@ -104,13 +104,18 @@ export const AllSizes: Story = {
 	render: () => {
 		const sizes: AvatarSize[] = ['sm', 'md', 'lg', 'xl'];
 		return (
-			<div className="flex items-end gap-4">
+			<div style={{ display: 'flex', alignItems: 'flex-end', gap: 16 }}>
 				{sizes.map((size) => (
-					<div key={size} className="flex flex-col items-center gap-2">
+					<div
+						key={size}
+						style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
+					>
 						<Avatar size={size} color="robin">
 							{size.toUpperCase()}
 						</Avatar>
-						<span className="text-xs text-vanilla-600 dark:text-vanilla-300">{size}</span>
+						<span style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+							{size}
+						</span>
 					</div>
 				))}
 			</div>
@@ -127,18 +132,22 @@ export const Shapes: Story = {
 		},
 	},
 	render: () => (
-		<div className="flex items-center gap-4">
-			<div className="flex flex-col items-center gap-2">
+		<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
 				<Avatar size="lg" shape="circle" color="robin">
 					AB
 				</Avatar>
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300">circle</span>
+				<span style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+					circle
+				</span>
 			</div>
-			<div className="flex flex-col items-center gap-2">
+			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
 				<Avatar size="lg" shape="square" color="robin">
 					AB
 				</Avatar>
-				<span className="text-xs text-vanilla-600 dark:text-vanilla-300">square</span>
+				<span style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+					square
+				</span>
 			</div>
 		</div>
 	),
@@ -164,13 +173,18 @@ export const AllColors: Story = {
 			'vanilla',
 		];
 		return (
-			<div className="flex gap-3 flex-wrap">
+			<div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
 				{colors.map((color) => (
-					<div key={color} className="flex flex-col items-center gap-2">
+					<div
+						key={color}
+						style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
+					>
 						<Avatar size="lg" color={color}>
 							{color.slice(0, 2).toUpperCase()}
 						</Avatar>
-						<span className="text-xs text-vanilla-600 dark:text-vanilla-300">{color}</span>
+						<span style={{ color: 'var(--muted-foreground)', fontSize: 12, lineHeight: 1.33333 }}>
+							{color}
+						</span>
 					</div>
 				))}
 			</div>
@@ -188,7 +202,7 @@ export const WithImage: Story = {
 		},
 	},
 	render: () => (
-		<div className="flex items-center gap-4">
+		<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
 			<Avatar size="xl" src="https://i.pravatar.cc/96?u=1" alt="User avatar" />
 			<Avatar size="lg" src="https://i.pravatar.cc/80?u=2" alt="User avatar" />
 			<Avatar size="md" src="https://i.pravatar.cc/64?u=3" alt="User avatar" />
@@ -207,11 +221,11 @@ export const ImageFallback: Story = {
 		},
 	},
 	render: () => (
-		<div className="flex items-center gap-4">
+		<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
 			<Avatar size="lg" src="https://broken-url.invalid/avatar.png" color="cherry">
 				JD
 			</Avatar>
-			<span className="text-sm text-vanilla-600 dark:text-vanilla-300">
+			<span style={{ color: 'var(--muted-foreground)', fontSize: 14, lineHeight: 1.42857 }}>
 				Broken image URL → falls back to initials
 			</span>
 		</div>
@@ -228,7 +242,7 @@ export const Loading: Story = {
 		},
 	},
 	render: () => (
-		<div className="flex items-center gap-4">
+		<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
 			<Avatar size="xl" shape="circle" loading />
 			<Avatar size="lg" shape="circle" loading />
 			<Avatar size="lg" shape="square" loading />

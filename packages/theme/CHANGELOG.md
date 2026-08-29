@@ -1,4 +1,4 @@
-# @signozhq/tailwind-config
+# @signozhq/theme
 
 ## 0.0.1
 

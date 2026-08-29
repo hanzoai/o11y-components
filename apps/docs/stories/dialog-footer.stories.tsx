@@ -39,7 +39,7 @@ export const Default: Story = {
 					<DialogTitle>Delete this step</DialogTitle>
 				</DialogHeader>
 				<DialogDescription>
-					<p className="text-sm font-normal leading-5 font-inter font-regular">
+					<p style={{ fontSize: 14, lineHeight: 20, fontWeight: 400 }}>
 						Deleting this step would stop further analytics using this step of the funnel.
 					</p>
 				</DialogDescription>

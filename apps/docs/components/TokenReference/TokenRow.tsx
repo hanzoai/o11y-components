@@ -18,65 +18,118 @@ interface TokenRowProps {
 
 export function TokenRow({ token, showDetails = false }: TokenRowProps) {
 	const cssVariable = `--${token.name}`;
-	const tailwindClass =
-		token.category === 'background'
-			? `bg-${token.name}`
-			: token.category === 'foreground'
-				? `text-${token.name}`
-				: token.category === 'border'
-					? `border-${token.name}`
-					: token.name;
 
 	return (
-		<div className="group border-b border-l2-border last:border-b-0">
-			<div className="flex items-center gap-4 px-4 py-3">
-				<div className="w-12 flex items-center justify-center">
+		<div className="token-row">
+			<div
+				style={{
+					display: 'flex',
+					alignItems: 'center',
+					gap: 16,
+					paddingInline: 16,
+					paddingBlock: 12,
+				}}
+			>
+				<div style={{ width: 48, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 					<ColorSwatch value={token.value} />
 				</div>
 
-				<div className="flex-1 min-w-0">
-					<div className="flex items-center gap-2">
-						<code className="text-sm font-mono font-medium text-l1-foreground">{token.name}</code>
+				<div style={{ flex: 1, minWidth: 0 }}>
+					<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+						<code
+							style={{
+								fontSize: 14,
+								lineHeight: 1.42857,
+								fontFamily:
+									'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+								fontWeight: 500,
+								color: 'var(--l1-foreground)',
+							}}
+						>
+							{token.name}
+						</code>
 						<CopyButton text={cssVariable} />
 					</div>
 					{token.description && (
-						<p className="text-xs text-l3-foreground mt-0.5 truncate">{token.description}</p>
+						<p
+							style={{
+								fontSize: 12,
+								lineHeight: 1.33333,
+								color: 'var(--l3-foreground)',
+								marginTop: 2,
+								textOverflow: 'ellipsis',
+								whiteSpace: 'nowrap',
+								overflow: 'hidden',
+							}}
+						>
+							{token.description}
+						</p>
 					)}
 				</div>
 
-				<div className="hidden sm:flex items-center gap-2">
-					<code className="text-xs font-mono bg-l2-background px-2 py-1 rounded text-l2-foreground">
+				<div className="at-sm-row">
+					<code
+						style={{
+							fontSize: 12,
+							lineHeight: 1.33333,
+							fontFamily:
+								'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+							backgroundColor: 'var(--l2-background)',
+							paddingInline: 8,
+							paddingBlock: 4,
+							borderRadius: 4,
+							color: 'var(--l2-foreground)',
+						}}
+					>
 						{cssVariable}
 					</code>
 					<CopyButton text={cssVariable} />
 				</div>
 
-				<div className="hidden md:flex items-center gap-2">
-					<code className="text-xs font-mono bg-l2-background px-2 py-1 rounded text-l2-foreground">
-						{tailwindClass}
-					</code>
-					<CopyButton text={tailwindClass} />
-				</div>
-
-				{token.category && (
-					<span className="hidden lg:inline-flex rounded-full bg-l2-background px-2 py-0.5 text-xs text-l2-foreground capitalize">
-						{token.category}
-					</span>
-				)}
+				{token.category && <span className="at-lg-tag">{token.category}</span>}
 			</div>
 
 			{showDetails && (token.usage || token.dontUse) && (
-				<div className="px-4 pb-3 pt-0 flex flex-col gap-2">
+				<div
+					style={{
+						paddingInline: 16,
+						paddingBottom: 12,
+						paddingTop: 0,
+						display: 'flex',
+						flexDirection: 'column',
+						gap: 8,
+					}}
+				>
 					{token.usage && (
-						<div className="flex items-start gap-2 text-xs">
-							<span className="text-accent-forest font-medium shrink-0">Use:</span>
-							<span className="text-l2-foreground">{token.usage}</span>
+						<div
+							style={{
+								display: 'flex',
+								alignItems: 'flex-start',
+								gap: 8,
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
+						>
+							<span style={{ color: 'var(--accent-forest)', fontWeight: 500, flexShrink: 0 }}>
+								Use:
+							</span>
+							<span style={{ color: 'var(--l2-foreground)' }}>{token.usage}</span>
 						</div>
 					)}
 					{token.dontUse && (
-						<div className="flex items-start gap-2 text-xs">
-							<span className="text-accent-cherry font-medium shrink-0">Avoid:</span>
-							<span className="text-l2-foreground">{token.dontUse}</span>
+						<div
+							style={{
+								display: 'flex',
+								alignItems: 'flex-start',
+								gap: 8,
+								fontSize: 12,
+								lineHeight: 1.33333,
+							}}
+						>
+							<span style={{ color: 'var(--accent-cherry)', fontWeight: 500, flexShrink: 0 }}>
+								Avoid:
+							</span>
+							<span style={{ color: 'var(--l2-foreground)' }}>{token.dontUse}</span>
 						</div>
 					)}
 				</div>

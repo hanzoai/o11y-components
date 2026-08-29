@@ -23,13 +23,13 @@ export function CopyButton({ text, className = '' }: CopyButtonProps) {
 		<button
 			type="button"
 			onClick={handleCopy}
-			className={`inline-flex items-center justify-center rounded px-2 py-1 text-xs transition-colors hover:bg-l2-background ${className}`}
+			className={`copy-button ${className}`}
 			title={`Copy ${text}`}
 		>
 			{copied ? (
-				<CheckCheck className="text-l2-foreground" />
+				<CheckCheck style={{ color: 'var(--l2-foreground)' }} />
 			) : (
-				<Copy className="text-l2-foreground" />
+				<Copy style={{ color: 'var(--l2-foreground)' }} />
 			)}
 		</button>
 	);

@@ -25,7 +25,6 @@ export interface ParsedToken {
 	category?: string;
 	group?: string;
 	cssVariable: string;
-	tailwindClass: string;
 }
 
 export type ThemeMode = 'light' | 'dark';
@@ -46,19 +45,6 @@ export function getCssVariable(tokenName: string): string {
 	return `--${tokenName}`;
 }
 
-export function getTailwindClass(tokenName: string, category?: string): string {
-	switch (category) {
-		case 'background':
-			return `bg-${tokenName}`;
-		case 'foreground':
-			return `text-${tokenName}`;
-		case 'border':
-			return `border-${tokenName}`;
-		default:
-			return tokenName;
-	}
-}
-
 export function parseSemanticTokens(mode: ThemeMode = 'dark'): ParsedToken[] {
 	const themeTokens = (
 		semanticTokens as Record<string, Record<string, { tokens: Record<string, TokenValue> }>>
@@ -72,7 +58,6 @@ export function parseSemanticTokens(mode: ThemeMode = 'dark'): ParsedToken[] {
 			value: getTokenValue(token),
 			...metadata,
 			cssVariable: getCssVariable(name),
-			tailwindClass: getTailwindClass(name, metadata.category),
 		};
 	});
 }
@@ -97,7 +82,6 @@ export function parsePrimitiveColors(): ParsedToken[] {
 				category: 'background',
 				group: colorName.toLowerCase(),
 				cssVariable: getCssVariable(`bg-${name}`),
-				tailwindClass: `bg-${name}`,
 			});
 		}
 	}
@@ -122,7 +106,6 @@ export function parseSpacingTokens(): ParsedToken[] {
 			category: 'spacing',
 			group: 'padding',
 			cssVariable: getCssVariable(`padding-${size}`),
-			tailwindClass: `p-${size}`,
 		});
 	}
 
@@ -133,7 +116,6 @@ export function parseSpacingTokens(): ParsedToken[] {
 			category: 'spacing',
 			group: 'margin',
 			cssVariable: getCssVariable(`margin-${size}`),
-			tailwindClass: `m-${size}`,
 		});
 	}
 
@@ -157,7 +139,6 @@ export function parseTypographyTokens(): ParsedToken[] {
 			category: 'typography',
 			group: 'font-size',
 			cssVariable: getCssVariable(`font-size-${size}`),
-			tailwindClass: `text-${size}`,
 		});
 	}
 
@@ -168,7 +149,6 @@ export function parseTypographyTokens(): ParsedToken[] {
 			category: 'typography',
 			group: 'font-weight',
 			cssVariable: getCssVariable(`font-weight-${weight}`),
-			tailwindClass: `font-${weight}`,
 		});
 	}
 

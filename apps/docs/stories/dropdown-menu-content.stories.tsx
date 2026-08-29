@@ -94,7 +94,7 @@ export const Default: Story = {
 		sideOffset: 4,
 	},
 	render: (args) => (
-		<div className="p-8">
+		<div style={{ padding: 32 }}>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant="solid" color="secondary">

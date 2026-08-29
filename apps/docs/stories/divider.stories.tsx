@@ -61,9 +61,9 @@ export const Playground: Story = {
 	},
 	render: (props) => (
 		<div style={{ width: '100%', padding: '1rem' }}>
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Content above</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Content above</p>
 			<Divider {...props} />
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Content below</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Content below</p>
 		</div>
 	),
 };
@@ -78,11 +78,11 @@ export const Horizontal: Story = {
 	},
 	render: () => (
 		<div style={{ width: '100%', padding: '1rem' }}>
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Section A</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Section A</p>
 			<Divider />
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Section B</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Section B</p>
 			<Divider />
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Section C</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Section C</p>
 		</div>
 	),
 };
@@ -97,12 +97,12 @@ export const Vertical: Story = {
 		},
 	},
 	render: () => (
-		<div className="flex items-center gap-2" style={{ padding: '1rem' }}>
-			<span className="text-sm text-vanilla-800 dark:text-vanilla-200">Edit</span>
+		<div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '1rem' }}>
+			<span style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Edit</span>
 			<Divider type="vertical" />
-			<span className="text-sm text-vanilla-800 dark:text-vanilla-200">Copy</span>
+			<span style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Copy</span>
 			<Divider type="vertical" />
-			<span className="text-sm text-vanilla-800 dark:text-vanilla-200">Delete</span>
+			<span style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Delete</span>
 		</div>
 	),
 };
@@ -117,11 +117,13 @@ export const Dashed: Story = {
 	},
 	render: () => (
 		<div style={{ width: '100%', padding: '1rem' }}>
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Solid (default)</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>
+				Solid (default)
+			</p>
 			<Divider />
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Dashed</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>Dashed</p>
 			<Divider dashed />
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">End</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>End</p>
 		</div>
 	),
 };
@@ -137,9 +139,13 @@ export const WithText: Story = {
 	},
 	render: () => (
 		<div style={{ width: '100%', padding: '1rem' }}>
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Login with email</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>
+				Login with email
+			</p>
 			<Divider>OR</Divider>
-			<p className="text-sm text-vanilla-800 dark:text-vanilla-200">Login with SSO</p>
+			<p style={{ color: 'var(--foreground)', fontSize: 14, lineHeight: 1.42857 }}>
+				Login with SSO
+			</p>
 		</div>
 	),
 };

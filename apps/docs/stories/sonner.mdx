@@ -149,9 +149,9 @@ Render custom JSX while maintaining default styling:
 
 ```tsx
 toast.custom(() => (
-  <div className="bg-blue-500 text-white p-4 rounded-lg shadow-lg">
-    <div className="font-semibold">Custom Toast</div>
-    <div className="text-sm opacity-90">This is a custom styled toast</div>
+  <div style={{ backgroundColor: '#3080ff', color: '#fff', padding: 16, borderRadius: 4, boxShadow: '0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a' }}>
+    <div style={{ fontWeight: 600 }}>Custom Toast</div>
+    <div style={{ fontSize: 14, lineHeight: 1.42857, opacity: 0.9 }}>This is a custom styled toast</div>
   </div>
 ));
 ```

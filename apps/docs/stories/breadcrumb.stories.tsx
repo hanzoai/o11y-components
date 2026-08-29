@@ -154,9 +154,9 @@ export const WithEllipsis: Story = {
 
 export const AllFeatures: Story = {
 	render: () => (
-		<div className="space-y-8">
+		<div className="stack-32">
 			<div>
-				<Typography variant="title" level={5} className="mb-2">
+				<Typography variant="title" level={5} style={{ marginBottom: 8 }}>
 					Basic
 				</Typography>
 				<BreadcrumbSimple
@@ -169,7 +169,7 @@ export const AllFeatures: Story = {
 			</div>
 
 			<div>
-				<Typography variant="title" level={5} className="mb-2">
+				<Typography variant="title" level={5} style={{ marginBottom: 8 }}>
 					With Icons
 				</Typography>
 				<BreadcrumbSimple
@@ -182,7 +182,7 @@ export const AllFeatures: Story = {
 			</div>
 
 			<div>
-				<Typography variant="title" level={5} className="mb-2">
+				<Typography variant="title" level={5} style={{ marginBottom: 8 }}>
 					Chevron Separator
 				</Typography>
 				<BreadcrumbSimple
@@ -196,7 +196,7 @@ export const AllFeatures: Story = {
 			</div>
 
 			<div>
-				<Typography variant="title" level={5} className="mb-2">
+				<Typography variant="title" level={5} style={{ marginBottom: 8 }}>
 					With Dropdown
 				</Typography>
 				<BreadcrumbSimple
@@ -216,7 +216,7 @@ export const AllFeatures: Story = {
 			</div>
 
 			<div>
-				<Typography variant="title" level={5} className="mb-2">
+				<Typography variant="title" level={5} style={{ marginBottom: 8 }}>
 					Custom Separator
 				</Typography>
 				<BreadcrumbSimple
@@ -230,7 +230,7 @@ export const AllFeatures: Story = {
 			</div>
 
 			<div>
-				<Typography variant="title" level={5} className="mb-2">
+				<Typography variant="title" level={5} style={{ marginBottom: 8 }}>
 					Composable (with ellipsis)
 				</Typography>
 				<Breadcrumb>

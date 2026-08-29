@@ -147,10 +147,35 @@ type Story = StoryObj<typeof Table>;
 // Simple table with basic data
 export const Simple: Story = {
 	render: () => (
-		<div className="space-y-4">
-			<div className="border rounded-lg p-6 bg-background">
-				<h3 className="text-lg font-semibold mb-2 text-foreground">Simple User Table</h3>
-				<p className="text-sm text-muted-foreground mb-4">
+		<div className="stack-16">
+			<div
+				style={{
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					padding: 24,
+					backgroundColor: 'var(--background)',
+				}}
+			>
+				<h3
+					style={{
+						fontSize: 18,
+						lineHeight: 1.55556,
+						fontWeight: 600,
+						marginBottom: 8,
+						color: 'var(--foreground)',
+					}}
+				>
+					Simple User Table
+				</h3>
+				<p
+					style={{
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+						marginBottom: 16,
+					}}
+				>
 					A basic table with clean, minimal styling for simple data display.
 				</p>
 				<Table>
@@ -165,9 +190,9 @@ export const Simple: Story = {
 					<TableBody>
 						{users.map((user) => (
 							<TableRow key={user.id}>
-								<TableCell className="font-medium">{user.name}</TableCell>
-								<TableCell className="text-muted-foreground">{user.email}</TableCell>
-								<TableCell className="capitalize">{user.role}</TableCell>
+								<TableCell style={{ fontWeight: 500 }}>{user.name}</TableCell>
+								<TableCell style={{ color: 'var(--muted-foreground)' }}>{user.email}</TableCell>
+								<TableCell style={{ textTransform: 'capitalize' }}>{user.role}</TableCell>
 								<TableCell>
 									<Badge
 										variant="outline"
@@ -192,38 +217,100 @@ export const Simple: Story = {
 // Enhanced table with more features
 export const Enhanced: Story = {
 	render: () => (
-		<div className="space-y-4">
-			<div className="border rounded-lg p-6 bg-background">
-				<h3 className="text-lg font-semibold mb-2 text-foreground">Enhanced User Table</h3>
-				<p className="text-sm text-muted-foreground mb-4">
+		<div className="stack-16">
+			<div
+				style={{
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					padding: 24,
+					backgroundColor: 'var(--background)',
+				}}
+			>
+				<h3
+					style={{
+						fontSize: 18,
+						lineHeight: 1.55556,
+						fontWeight: 600,
+						marginBottom: 8,
+						color: 'var(--foreground)',
+					}}
+				>
+					Enhanced User Table
+				</h3>
+				<p
+					style={{
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+						marginBottom: 16,
+					}}
+				>
 					A more detailed table with avatars, status indicators, and action buttons.
 				</p>
 				<Table>
 					<TableHeader>
-						<TableRow className="bg-muted/50">
-							<TableHead className="font-semibold">User</TableHead>
-							<TableHead className="font-semibold">Department</TableHead>
-							<TableHead className="font-semibold">Role</TableHead>
-							<TableHead className="font-semibold">Status</TableHead>
-							<TableHead className="font-semibold">Last Login</TableHead>
-							<TableHead className="font-semibold">Actions</TableHead>
+						<TableRow
+							style={{ backgroundColor: 'color-mix(in oklab, var(--muted) 50%, transparent)' }}
+						>
+							<TableHead style={{ fontWeight: 600 }}>User</TableHead>
+							<TableHead style={{ fontWeight: 600 }}>Department</TableHead>
+							<TableHead style={{ fontWeight: 600 }}>Role</TableHead>
+							<TableHead style={{ fontWeight: 600 }}>Status</TableHead>
+							<TableHead style={{ fontWeight: 600 }}>Last Login</TableHead>
+							<TableHead style={{ fontWeight: 600 }}>Actions</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>
 						{users.map((user, index) => (
-							<TableRow key={user.id} className={index % 2 === 0 ? 'bg-background' : 'bg-muted/30'}>
+							<TableRow
+								key={user.id}
+								style={{
+									backgroundColor:
+										index % 2 === 0
+											? 'var(--background)'
+											: 'color-mix(in srgb, var(--muted) 30%, transparent)',
+								}}
+							>
 								<TableCell>
-									<div className="flex items-center gap-3">
-										<div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-medium">
+									<div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+										<div
+											style={{
+												backgroundImage:
+													'linear-gradient(to bottom right in oklab, #3080ff, #9810fa)',
+												height: 32,
+												width: 32,
+												borderRadius: 9999,
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: '#fff',
+												fontSize: 12,
+												lineHeight: 1.33333,
+												fontWeight: 500,
+											}}
+										>
 											{user.avatar}
 										</div>
-										<div className="flex flex-col">
-											<span className="font-medium text-sm">{user.name}</span>
-											<span className="text-xs text-muted-foreground">{user.email}</span>
+										<div style={{ display: 'flex', flexDirection: 'column' }}>
+											<span style={{ fontWeight: 500, fontSize: 14, lineHeight: 1.42857 }}>
+												{user.name}
+											</span>
+											<span
+												style={{
+													fontSize: 12,
+													lineHeight: 1.33333,
+													color: 'var(--muted-foreground)',
+												}}
+											>
+												{user.email}
+											</span>
 										</div>
 									</div>
 								</TableCell>
-								<TableCell className="text-sm">{user.department}</TableCell>
+								<TableCell style={{ fontSize: 14, lineHeight: 1.42857 }}>
+									{user.department}
+								</TableCell>
 								<TableCell>
 									<Badge
 										variant="outline"
@@ -239,10 +326,16 @@ export const Enhanced: Story = {
 									</Badge>
 								</TableCell>
 								<TableCell>
-									<div className="flex items-center gap-2">
-										{user.status === 'active' && <CircleCheck className="h-4 w-4 text-green-600" />}
-										{user.status === 'inactive' && <CircleX className="h-4 w-4 text-red-600" />}
-										{user.status === 'pending' && <Clock className="h-4 w-4 text-yellow-600" />}
+									<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+										{user.status === 'active' && (
+											<CircleCheck style={{ height: 16, width: 16, color: '#00a544' }} />
+										)}
+										{user.status === 'inactive' && (
+											<CircleX style={{ height: 16, width: 16, color: '#e40014' }} />
+										)}
+										{user.status === 'pending' && (
+											<Clock style={{ height: 16, width: 16, color: '#cd8900' }} />
+										)}
 										<Badge
 											variant="outline"
 											className={
@@ -257,7 +350,9 @@ export const Enhanced: Story = {
 										</Badge>
 									</div>
 								</TableCell>
-								<TableCell className="text-sm text-muted-foreground">
+								<TableCell
+									style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}
+								>
 									{new Date(user.lastLogin).toLocaleDateString('en-US', {
 										month: 'short',
 										day: 'numeric',
@@ -266,30 +361,30 @@ export const Enhanced: Story = {
 									})}
 								</TableCell>
 								<TableCell>
-									<div className="flex items-center gap-1">
+									<div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
 										<Button
 											variant="ghost"
 											color={ButtonColor.None}
 											size="sm"
-											className="h-8 w-8 p-0"
+											style={{ height: 32, width: 32, padding: 0 }}
 										>
-											<Eye className="h-4 w-4" />
+											<Eye style={{ height: 16, width: 16 }} />
 										</Button>
 										<Button
 											variant="ghost"
 											color={ButtonColor.None}
 											size="sm"
-											className="h-8 w-8 p-0"
+											style={{ height: 32, width: 32, padding: 0 }}
 										>
-											<Pencil className="h-4 w-4" />
+											<Pencil style={{ height: 16, width: 16 }} />
 										</Button>
 										<Button
 											variant="ghost"
-											color={ButtonColor.None}
+											color={ButtonColor.Destructive}
 											size="sm"
-											className="h-8 w-8 p-0 text-red-600 hover:text-red-700"
+											style={{ height: 32, width: 32, padding: 0 }}
 										>
-											<Trash2 className="h-4 w-4" />
+											<Trash2 style={{ height: 16, width: 16 }} />
 										</Button>
 									</div>
 								</TableCell>
@@ -305,10 +400,35 @@ export const Enhanced: Story = {
 // Table with caption and summary
 export const WithCaption: Story = {
 	render: () => (
-		<div className="space-y-4">
-			<div className="border rounded-lg p-6 bg-background">
-				<h3 className="text-lg font-semibold mb-2 text-foreground">Table with Caption</h3>
-				<p className="text-sm text-muted-foreground mb-4">
+		<div className="stack-16">
+			<div
+				style={{
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					padding: 24,
+					backgroundColor: 'var(--background)',
+				}}
+			>
+				<h3
+					style={{
+						fontSize: 18,
+						lineHeight: 1.55556,
+						fontWeight: 600,
+						marginBottom: 8,
+						color: 'var(--foreground)',
+					}}
+				>
+					Table with Caption
+				</h3>
+				<p
+					style={{
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+						marginBottom: 16,
+					}}
+				>
 					A table with a caption and summary information for better accessibility.
 				</p>
 				<Table>
@@ -326,9 +446,9 @@ export const WithCaption: Story = {
 					<TableBody>
 						{users.map((user) => (
 							<TableRow key={user.id}>
-								<TableCell className="font-medium">{user.name}</TableCell>
+								<TableCell style={{ fontWeight: 500 }}>{user.name}</TableCell>
 								<TableCell>{user.department}</TableCell>
-								<TableCell className="capitalize">{user.role}</TableCell>
+								<TableCell style={{ textTransform: 'capitalize' }}>{user.role}</TableCell>
 								<TableCell>
 									<Badge
 										variant="outline"
@@ -353,10 +473,35 @@ export const WithCaption: Story = {
 // Empty state table
 export const Empty: Story = {
 	render: () => (
-		<div className="space-y-4">
-			<div className="border rounded-lg p-6 bg-background">
-				<h3 className="text-lg font-semibold mb-2 text-foreground">Empty State</h3>
-				<p className="text-sm text-muted-foreground mb-4">
+		<div className="stack-16">
+			<div
+				style={{
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					padding: 24,
+					backgroundColor: 'var(--background)',
+				}}
+			>
+				<h3
+					style={{
+						fontSize: 18,
+						lineHeight: 1.55556,
+						fontWeight: 600,
+						marginBottom: 8,
+						color: 'var(--foreground)',
+					}}
+				>
+					Empty State
+				</h3>
+				<p
+					style={{
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+						marginBottom: 16,
+					}}
+				>
 					How the table looks when there&apos;s no data to display.
 				</p>
 				<Table>
@@ -370,16 +515,31 @@ export const Empty: Story = {
 					</TableHeader>
 					<TableBody>
 						<TableRow>
-							<TableCell colSpan={4} className="text-center py-12">
-								<div className="flex flex-col items-center gap-2">
-									<CircleAlert className="h-8 w-8 text-muted-foreground" />
-									<p className="text-sm font-medium text-foreground">No users found</p>
-									<p className="text-sm text-muted-foreground">
+							<TableCell colSpan={4} style={{ textAlign: 'center', paddingBlock: 48 }}>
+								<div
+									style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
+								>
+									<CircleAlert
+										style={{ height: 32, width: 32, color: 'var(--muted-foreground)' }}
+									/>
+									<p
+										style={{
+											fontSize: 14,
+											lineHeight: 1.42857,
+											fontWeight: 500,
+											color: 'var(--foreground)',
+										}}
+									>
+										No users found
+									</p>
+									<p
+										style={{ fontSize: 14, lineHeight: 1.42857, color: 'var(--muted-foreground)' }}
+									>
 										Get started by creating a new user.
 									</p>
 									<Button
 										size="sm"
-										className="mt-2"
+										style={{ marginTop: 8 }}
 										variant="ghost"
 										color={ButtonColor.None}
 										prefix={<Upload />}
@@ -399,41 +559,99 @@ export const Empty: Story = {
 // Compact table for mobile
 export const Compact: Story = {
 	render: () => (
-		<div className="space-y-4">
-			<div className="border rounded-lg p-6 bg-background">
-				<h3 className="text-lg font-semibold mb-2 text-foreground">Compact Table</h3>
-				<p className="text-sm text-muted-foreground mb-4">
+		<div className="stack-16">
+			<div
+				style={{
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					padding: 24,
+					backgroundColor: 'var(--background)',
+				}}
+			>
+				<h3
+					style={{
+						fontSize: 18,
+						lineHeight: 1.55556,
+						fontWeight: 600,
+						marginBottom: 8,
+						color: 'var(--foreground)',
+					}}
+				>
+					Compact Table
+				</h3>
+				<p
+					style={{
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+						marginBottom: 16,
+					}}
+				>
 					A compact version perfect for mobile devices or space-constrained layouts.
 				</p>
 				<Table>
 					<TableHeader>
 						<TableRow>
-							<TableHead className="text-sm">User</TableHead>
-							<TableHead className="text-sm">Role</TableHead>
-							<TableHead className="text-sm">Status</TableHead>
+							<TableHead style={{ fontSize: 14, lineHeight: 1.42857 }}>User</TableHead>
+							<TableHead style={{ fontSize: 14, lineHeight: 1.42857 }}>Role</TableHead>
+							<TableHead style={{ fontSize: 14, lineHeight: 1.42857 }}>Status</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>
 						{users.slice(0, 3).map((user) => (
 							<TableRow key={user.id}>
 								<TableCell>
-									<div className="flex items-center gap-2">
-										<div className="h-6 w-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-medium">
+									<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+										<div
+											style={{
+												backgroundImage:
+													'linear-gradient(to bottom right in oklab, #3080ff, #9810fa)',
+												height: 24,
+												width: 24,
+												borderRadius: 9999,
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: '#fff',
+												fontSize: 12,
+												lineHeight: 1.33333,
+												fontWeight: 500,
+											}}
+										>
 											{user.avatar}
 										</div>
-										<div className="flex flex-col">
-											<span className="font-medium text-sm">{user.name}</span>
-											<span className="text-xs text-muted-foreground">{user.email}</span>
+										<div style={{ display: 'flex', flexDirection: 'column' }}>
+											<span style={{ fontWeight: 500, fontSize: 14, lineHeight: 1.42857 }}>
+												{user.name}
+											</span>
+											<span
+												style={{
+													fontSize: 12,
+													lineHeight: 1.33333,
+													color: 'var(--muted-foreground)',
+												}}
+											>
+												{user.email}
+											</span>
 										</div>
 									</div>
 								</TableCell>
 								<TableCell>
-									<Badge className="text-xs capitalize">{user.role}</Badge>
+									<Badge style={{ fontSize: 12, lineHeight: 1.33333, textTransform: 'capitalize' }}>
+										{user.role}
+									</Badge>
 								</TableCell>
 								<TableCell>
-									{user.status === 'active' && <CircleCheck className="h-4 w-4 text-green-600" />}
-									{user.status === 'inactive' && <CircleX className="h-4 w-4 text-red-600" />}
-									{user.status === 'pending' && <Clock className="h-4 w-4 text-yellow-600" />}
+									{user.status === 'active' && (
+										<CircleCheck style={{ height: 16, width: 16, color: '#00a544' }} />
+									)}
+									{user.status === 'inactive' && (
+										<CircleX style={{ height: 16, width: 16, color: '#e40014' }} />
+									)}
+									{user.status === 'pending' && (
+										<Clock style={{ height: 16, width: 16, color: '#cd8900' }} />
+									)}
 								</TableCell>
 							</TableRow>
 						))}
@@ -447,10 +665,35 @@ export const Compact: Story = {
 // Table with fixed height and overflow
 export const WithFixedHeight: Story = {
 	render: () => (
-		<div className="space-y-4">
-			<div className="border rounded-lg p-6 bg-background">
-				<h3 className="text-lg font-semibold mb-2 text-foreground">Table with Fixed Height</h3>
-				<p className="text-sm text-muted-foreground mb-4">
+		<div className="stack-16">
+			<div
+				style={{
+					borderStyle: 'solid',
+					borderWidth: 1,
+					borderRadius: 4,
+					padding: 24,
+					backgroundColor: 'var(--background)',
+				}}
+			>
+				<h3
+					style={{
+						fontSize: 18,
+						lineHeight: 1.55556,
+						fontWeight: 600,
+						marginBottom: 8,
+						color: 'var(--foreground)',
+					}}
+				>
+					Table with Fixed Height
+				</h3>
+				<p
+					style={{
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+						marginBottom: 16,
+					}}
+				>
 					A table with a fixed height of 300px. When the content exceeds this height, it becomes
 					scrollable while keeping the headers sticky.
 				</p>
@@ -467,9 +710,9 @@ export const WithFixedHeight: Story = {
 					<TableBody>
 						{users.map((user) => (
 							<TableRow key={user.id}>
-								<TableCell className="font-medium">{user.name}</TableCell>
-								<TableCell className="text-muted-foreground">{user.email}</TableCell>
-								<TableCell className="capitalize">{user.role}</TableCell>
+								<TableCell style={{ fontWeight: 500 }}>{user.name}</TableCell>
+								<TableCell style={{ color: 'var(--muted-foreground)' }}>{user.email}</TableCell>
+								<TableCell style={{ textTransform: 'capitalize' }}>{user.role}</TableCell>
 								<TableCell>{user.department}</TableCell>
 								<TableCell>
 									<Badge
@@ -495,12 +738,12 @@ export const WithFixedHeight: Story = {
 							status: 'active',
 						})).map((user) => (
 							<TableRow key={user.id}>
-								<TableCell className="font-medium">{user.name}</TableCell>
-								<TableCell className="text-muted-foreground">{user.email}</TableCell>
-								<TableCell className="capitalize">{user.role}</TableCell>
+								<TableCell style={{ fontWeight: 500 }}>{user.name}</TableCell>
+								<TableCell style={{ color: 'var(--muted-foreground)' }}>{user.email}</TableCell>
+								<TableCell style={{ textTransform: 'capitalize' }}>{user.role}</TableCell>
 								<TableCell>{user.department}</TableCell>
 								<TableCell>
-									<Badge variant="outline" className="bg-green-100 text-green-800">
+									<Badge variant="outline" style={{ backgroundColor: '#dcfce7', color: '#016630' }}>
 										{user.status}
 									</Badge>
 								</TableCell>

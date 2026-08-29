@@ -121,7 +121,7 @@ export const CollapsedMiddleLevels: Story = {
 
 export const WithCustomClassName: Story = {
 	args: {
-		className: 'text-blue-400',
+		className: 'demo-accent',
 	},
 	render: (args) => (
 		<Breadcrumb>

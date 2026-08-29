@@ -29,9 +29,18 @@ export const Default: Story = {
 				</Button>
 			}
 		>
-			<div className="flex flex-col gap-4 text-sm font-normal leading-5 font-inter font-regular">
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					gap: 16,
+					fontSize: 14,
+					lineHeight: 20,
+					fontWeight: 400,
+				}}
+			>
 				<p>Dialog content goes here.</p>
-				<div className="flex justify-end">
+				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
 					<DialogClose asChild>
 						<Button variant={ButtonVariant.Solid} color={ButtonColor.Primary}>
 							Save Changes

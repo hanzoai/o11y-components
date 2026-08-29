@@ -40,7 +40,7 @@ export const Default: Story = {
 						<DialogTitle>Dialog portal</DialogTitle>
 					</DialogHeader>
 					<DialogDescription>
-						<p className="text-sm font-normal leading-5 font-inter font-regular">
+						<p style={{ fontSize: 14, lineHeight: 20, fontWeight: 400 }}>
 							DialogPortal controls where in the DOM the dialog is rendered (by default,
 							document.body).
 						</p>

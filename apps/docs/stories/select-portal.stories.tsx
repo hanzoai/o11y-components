@@ -34,14 +34,36 @@ export const Default: Story = {
 		const [value, setValue] = useState('');
 
 		return (
-			<div className="p-8 w-full max-w-sm">
-				<p className="mb-4 text-sm text-muted-foreground">
+			<div style={{ padding: 32, width: '100%', maxWidth: 384 }}>
+				<p
+					style={{
+						marginBottom: 16,
+						fontSize: 14,
+						lineHeight: 1.42857,
+						color: 'var(--muted-foreground)',
+					}}
+				>
 					SelectPortal renders the content in a portal (by default to document.body). This is useful
 					when the select is inside an overflow:hidden container. SelectContent uses this internally
 					via the withPortal prop.
 				</p>
-				<div className="p-4 border rounded-lg overflow-hidden">
-					<p className="text-xs text-muted-foreground mb-2">
+				<div
+					style={{
+						padding: 16,
+						borderStyle: 'solid',
+						borderWidth: 1,
+						borderRadius: 4,
+						overflow: 'hidden',
+					}}
+				>
+					<p
+						style={{
+							fontSize: 12,
+							lineHeight: 1.33333,
+							color: 'var(--muted-foreground)',
+							marginBottom: 8,
+						}}
+					>
 						This container has overflow:hidden, but the dropdown still shows outside.
 					</p>
 					<Select value={value} onChange={(v) => setValue(v as string)}>

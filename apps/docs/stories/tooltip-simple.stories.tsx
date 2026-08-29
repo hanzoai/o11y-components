@@ -124,7 +124,7 @@ export const Default: Story = {
 	},
 	render: (args: Partial<TooltipSimpleProps>) => (
 		<TooltipProvider delayDuration={0}>
-			<div className="p-20 flex items-center justify-center">
+			<div style={{ padding: 80, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 				<TooltipSimple {...(args as TooltipSimpleProps)}>
 					<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>
 						Hover me
@@ -143,7 +143,7 @@ export const WithArrow: Story = {
 	},
 	render: (args: Partial<TooltipSimpleProps>) => (
 		<TooltipProvider delayDuration={0}>
-			<div className="p-20 flex items-center justify-center">
+			<div style={{ padding: 80, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 				<TooltipSimple {...(args as TooltipSimpleProps)}>
 					<Button variant={ButtonVariant.Solid} color={ButtonColor.Secondary}>
 						Hover me
@@ -157,13 +157,22 @@ export const WithArrow: Story = {
 export const Positions: Story = {
 	render: () => (
 		<TooltipProvider delayDuration={0}>
-			<div className="p-20 flex flex-wrap gap-8 items-center justify-center">
+			<div
+				style={{
+					padding: 80,
+					display: 'flex',
+					flexWrap: 'wrap',
+					gap: 32,
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
 				{(['top', 'right', 'bottom', 'left'] as const).map((side) => (
 					<TooltipSimple key={side} title={`Tooltip on ${side}`} side={side} arrow>
 						<Button
 							variant={ButtonVariant.Solid}
 							color={ButtonColor.Secondary}
-							className="capitalize"
+							style={{ textTransform: 'capitalize' }}
 						>
 							{side}
 						</Button>
@@ -177,13 +186,22 @@ export const Positions: Story = {
 export const Alignments: Story = {
 	render: () => (
 		<TooltipProvider delayDuration={0}>
-			<div className="p-20 flex flex-wrap gap-8 items-center justify-center">
+			<div
+				style={{
+					padding: 80,
+					display: 'flex',
+					flexWrap: 'wrap',
+					gap: 32,
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
 				{(['start', 'center', 'end'] as const).map((align) => (
 					<TooltipSimple key={align} title={`Align ${align}`} side="top" align={align} arrow>
 						<Button
 							variant={ButtonVariant.Solid}
 							color={ButtonColor.Secondary}
-							className="capitalize w-30"
+							style={{ textTransform: 'capitalize', width: 120 }}
 						>
 							{align}
 						</Button>

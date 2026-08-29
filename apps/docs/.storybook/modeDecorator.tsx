@@ -51,24 +51,46 @@ export const ModeDecorator = (Story: any, context: { title?: string }) => {
 	};
 
 	const controls = (
-		<div className="fixed top-4 right-4 z-50 flex items-center gap-2">
-			<div className="relative" data-theme-selector>
+		<div
+			style={{
+				position: 'fixed',
+				top: 16,
+				right: 16,
+				zIndex: 50,
+				display: 'flex',
+				alignItems: 'center',
+				gap: 8,
+			}}
+		>
+			<div style={{ position: 'relative' }} data-theme-selector>
 				<button
 					type="button"
 					onClick={() => setIsThemeMenuOpen(!isThemeMenuOpen)}
-					className="flex items-center gap-1 rounded-2xl border shadow-lg hover:scale-105 transition-transform cursor-pointer"
+					className="toolbar-button"
 					aria-label="Select theme"
 					title="Select Theme"
 					style={buttonStyle}
 				>
-					<Palette className="w-3 h-3" />
-					<span className="text-xs capitalize">{theme}</span>
-					<ChevronDown className="w-3 h-3" />
+					<Palette style={{ width: 12, height: 12 }} />
+					<span style={{ fontSize: 12, lineHeight: 1.33333, textTransform: 'capitalize' }}>
+						{theme}
+					</span>
+					<ChevronDown style={{ width: 12, height: 12 }} />
 				</button>
 				{isThemeMenuOpen && (
 					<div
-						className="absolute top-full right-0 mt-1 rounded-lg border shadow-lg overflow-hidden min-w-[120px]"
 						style={{
+							position: 'absolute',
+							top: '100%',
+							right: 0,
+							marginTop: 4,
+							borderRadius: 4,
+							borderStyle: 'solid',
+							borderWidth: 1,
+							boxShadow:
+								'0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a',
+							overflow: 'hidden',
+							minWidth: 120,
 							backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
 							borderColor: isDarkMode ? '#4b5563' : '#d1d5db',
 						}}
@@ -78,8 +100,19 @@ export const ModeDecorator = (Story: any, context: { title?: string }) => {
 								type="button"
 								key={t}
 								onClick={() => selectTheme(t)}
-								className="w-full px-3 py-2 text-left text-xs capitalize hover:bg-opacity-80 transition-colors cursor-pointer"
 								style={{
+									width: '100%',
+									paddingInline: 12,
+									paddingBlock: 8,
+									textAlign: 'left',
+									fontSize: 12,
+									lineHeight: 1.33333,
+									textTransform: 'capitalize',
+									transitionProperty:
+										'color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to',
+									transitionTimingFunction: 'cubic-bezier(.4, 0, .2, 1)',
+									transitionDuration: '.15s',
+									cursor: 'pointer',
 									backgroundColor:
 										theme === t ? (isDarkMode ? '#374151' : '#e5e7eb') : 'transparent',
 									color: isDarkMode ? '#ffffff' : '#000000',
@@ -94,12 +127,16 @@ export const ModeDecorator = (Story: any, context: { title?: string }) => {
 			<button
 				type="button"
 				onClick={toggleMode}
-				className="rounded-2xl border shadow-lg hover:scale-105 transition-transform cursor-pointer"
+				className="toolbar-button"
 				aria-label="Toggle dark mode"
 				title="Toggle Dark Mode"
 				style={buttonStyle}
 			>
-				{isDarkMode ? <Sun className="w-3 h-3" /> : <Moon className="w-3 h-3" />}
+				{isDarkMode ? (
+					<Sun style={{ width: 12, height: 12 }} />
+				) : (
+					<Moon style={{ width: 12, height: 12 }} />
+				)}
 			</button>
 		</div>
 	);
