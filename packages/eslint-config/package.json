@@ -1,17 +1,17 @@
 {
-	"name": "@repo/eslint-config",
-	"version": "0.0.0",
-	"private": true,
-	"files": [
-		"library.js",
-		"react.js",
-		"storybook.js"
-	],
-	"devDependencies": {
-		"@vercel/style-guide": "^6.0.0",
-		"eslint-config-turbo": "2.0.0",
-		"eslint-plugin-mdx": "3.1.5",
-		"eslint-plugin-only-warn": "1.1.0",
-		"eslint-plugin-storybook": "^10.3.6"
-	}
+  "name": "@repo/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "library.js",
+    "react.js",
+    "storybook.js"
+  ],
+  "devDependencies": {
+    "@vercel/style-guide": "catalog:",
+    "eslint-config-turbo": "catalog:",
+    "eslint-plugin-mdx": "catalog:",
+    "eslint-plugin-only-warn": "catalog:",
+    "eslint-plugin-storybook": "catalog:"
+  }
 }
