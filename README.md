@@ -2,6 +2,8 @@
 
 # Signoz Components Library
 
+[![Open in Hanzo](https://hanzo.app/badges/open-in-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/hanzoai/o11y-components&ref=main&action=open) [![Edit with Hanzo](https://hanzo.app/badges/edit-with-hanzo.svg)](https://hanzo.app/dev/open?repo=github.com/hanzoai/o11y-components&ref=main&action=edit)
+
 React component library powered by Turborepo, React, and Storybook.
 
 ## Install & Use
